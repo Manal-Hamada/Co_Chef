@@ -1,4 +1,4 @@
-package com.example.foodplanner_app.View;
+package com.example.foodplanner_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
