@@ -1,4 +1,4 @@
-#Fri Feb 03 19:52:36 EET 2023
+#Fri Feb 03 20:27:23 EET 2023
 base.2=D\:\\CSED\\ITI\\Android\\Co_Chef\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
 path.2=11/classes.dex
 base.1=D\:\\CSED\\ITI\\Android\\Co_Chef\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex

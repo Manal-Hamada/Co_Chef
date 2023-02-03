@@ -68,6 +68,10 @@
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
+        "merged": "com.example.foodplanner_app-merged_res-29:/layout_fragment_sign_up.xml.flat",
+        "source": "com.example.foodplanner_app-main-31:/layout/fragment_sign_up.xml"
+    },
+    {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\xml_backup_rules.xml.flat",
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\xml\\backup_rules.xml"
     },
@@ -102,6 +106,10 @@
     {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.foodplanner_app-merged_res-29:/layout_fragment_login.xml.flat",
+        "source": "com.example.foodplanner_app-main-31:/layout/fragment_login.xml"
     },
     {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\mipmap-hdpi_ic_launcher_round.webp.flat",

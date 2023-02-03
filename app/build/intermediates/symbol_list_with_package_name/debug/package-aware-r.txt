@@ -2996,8 +2996,10 @@ id easeInOut
 id easeOut
 id east
 id edit_query
+id edt_confirm_password
 id edt_mail
 id edt_password
+id edt_username
 id elastic
 id embed
 id end
@@ -3007,12 +3009,12 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id facebook_imgView
 id fade
 id fill
 id fill_horizontal
 id fill_vertical
 id filled
-id filledButton
 id fitCenter
 id fitEnd
 id fitStart
@@ -3028,6 +3030,7 @@ id fullscreen_header
 id ghost_view
 id ghost_view_holder
 id gone
+id google_imgView
 id graph
 id graph_wrap
 id group_divider
@@ -3048,8 +3051,6 @@ id ignore
 id ignoreRequest
 id image
 id imageView
-id imageView2
-id imageView3
 id immediateStop
 id included
 id indeterminate
@@ -3071,6 +3072,8 @@ id line3
 id linear
 id listMode
 id list_item
+id loginBtn
+id login_tv
 id m3_side_sheet
 id marquee
 id masked
@@ -3154,9 +3157,10 @@ id off
 id on
 id onInterceptTouchReturnSwipe
 id outline
-id outlinedTextField
+id outlinedTextField_confirm_password
 id outlinedTextField_mail
 id outlinedTextField_password
+id outlinedTextField_username
 id outward
 id overshoot
 id packed
@@ -3229,6 +3233,8 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id signupBtn
+id signup_tv
 id sin
 id skipCollapsed
 id skipped
@@ -3285,7 +3291,6 @@ id textTop
 id textView
 id textView2
 id textView3
-id textView4
 id textView5
 id text_input_end_icon
 id text_input_error_icon
@@ -3460,6 +3465,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_login
+layout fragment_sign_up
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3684,6 +3690,8 @@ string side_sheet_accessibility_pane_title
 string side_sheet_behavior
 string signup
 string status_bar_notification_info_overflow
+string underline_login
+string underline_signup
 string welcome_txt
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

@@ -2995,8 +2995,10 @@ int id easeInOut 0x7f0800a7
 int id easeOut 0x7f0800a8
 int id east 0x7f0800a9
 int id edit_query 0x7f0800aa
+int id edt_confirm_password 0x7f0801ff
 int id edt_mail 0x7f0801ef
 int id edt_password 0x7f0801f0
+int id edt_username 0x7f080200
 int id elastic 0x7f0800ab
 int id embed 0x7f0800ac
 int id end 0x7f0800ad
@@ -3006,12 +3008,12 @@ int id enterAlwaysCollapsed 0x7f0800b0
 int id exitUntilCollapsed 0x7f0800b1
 int id expand_activities_button 0x7f0800b2
 int id expanded_menu 0x7f0800b3
+int id facebook_imgView 0x7f080201
 int id fade 0x7f0800b4
 int id fill 0x7f0800b5
 int id fill_horizontal 0x7f0800b6
 int id fill_vertical 0x7f0800b7
 int id filled 0x7f0800b8
-int id filledButton 0x7f0801f3
 int id fitCenter 0x7f0800b9
 int id fitEnd 0x7f0800ba
 int id fitStart 0x7f0800bb
@@ -3027,6 +3029,7 @@ int id fullscreen_header 0x7f0800c4
 int id ghost_view 0x7f0800c5
 int id ghost_view_holder 0x7f0800c6
 int id gone 0x7f0800c7
+int id google_imgView 0x7f080202
 int id graph 0x7f0800c8
 int id graph_wrap 0x7f0800c9
 int id group_divider 0x7f0800ca
@@ -3047,8 +3050,6 @@ int id ignore 0x7f0800d6
 int id ignoreRequest 0x7f0800d7
 int id image 0x7f0800d8
 int id imageView 0x7f0801ec
-int id imageView2 0x7f0801f6
-int id imageView3 0x7f0801f7
 int id immediateStop 0x7f0800d9
 int id included 0x7f0800da
 int id indeterminate 0x7f0800db
@@ -3070,6 +3071,8 @@ int id line3 0x7f0800e9
 int id linear 0x7f0800ea
 int id listMode 0x7f0800eb
 int id list_item 0x7f0800ec
+int id loginBtn 0x7f080203
+int id login_tv 0x7f080204
 int id m3_side_sheet 0x7f0800ed
 int id marquee 0x7f0800ee
 int id masked 0x7f0800ef
@@ -3153,9 +3156,10 @@ int id off 0x7f08013b
 int id on 0x7f08013c
 int id onInterceptTouchReturnSwipe 0x7f08013d
 int id outline 0x7f08013e
-int id outlinedTextField 0x7f0801ed
+int id outlinedTextField_confirm_password 0x7f080205
 int id outlinedTextField_mail 0x7f0801f1
 int id outlinedTextField_password 0x7f0801f2
+int id outlinedTextField_username 0x7f080206
 int id outward 0x7f08013f
 int id overshoot 0x7f080140
 int id packed 0x7f080141
@@ -3228,6 +3232,8 @@ int id shortcut 0x7f080183
 int id showCustom 0x7f080184
 int id showHome 0x7f080185
 int id showTitle 0x7f080186
+int id signupBtn 0x7f080207
+int id signup_tv 0x7f080208
 int id sin 0x7f080187
 int id skipCollapsed 0x7f080188
 int id skipped 0x7f080189
@@ -3284,7 +3290,6 @@ int id textTop 0x7f0801bb
 int id textView 0x7f0801ee
 int id textView2 0x7f0801fa
 int id textView3 0x7f0801fb
-int id textView4 0x7f0801fc
 int id textView5 0x7f0801fd
 int id text_input_end_icon 0x7f0801bc
 int id text_input_error_icon 0x7f0801bd
@@ -3459,6 +3464,7 @@ int layout design_navigation_menu_item 0x7f0b002a
 int layout design_text_input_end_icon 0x7f0b002b
 int layout design_text_input_start_icon 0x7f0b002c
 int layout fragment_login 0x7f0b002d
+int layout fragment_sign_up 0x7f0b002e
 int layout m3_alert_dialog 0x7f0b002f
 int layout m3_alert_dialog_actions 0x7f0b0030
 int layout m3_alert_dialog_title 0x7f0b0031
@@ -3683,6 +3689,8 @@ int string side_sheet_accessibility_pane_title 0x7f0f009a
 int string side_sheet_behavior 0x7f0f009b
 int string signup 0x7f0f00a0
 int string status_bar_notification_info_overflow 0x7f0f009c
+int string underline_login 0x7f0f00a1
+int string underline_signup 0x7f0f00a2
 int string welcome_txt 0x7f0f009d
 int style AlertDialog_AppCompat 0x7f100000
 int style AlertDialog_AppCompat_Light 0x7f100001
