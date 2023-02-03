@@ -3066,7 +3066,6 @@ id ignore
 id ignoreRequest
 id image
 id imageView
-id imageView7
 id immediateStop
 id included
 id indeterminate
@@ -3199,6 +3198,7 @@ id pin
 id position
 id postLayout
 id pressed
+id profile_imgView
 id progress_circular
 id progress_horizontal
 id radio
@@ -3491,6 +3491,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_login
+layout fragment_profile
 layout fragment_sign_up
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
@@ -3557,6 +3558,8 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 string Logo_txt
+string _19
+string _22
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -3584,6 +3587,7 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string about_us
 string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
@@ -3599,6 +3603,7 @@ string character_counter_pattern
 string clear_text_end_icon_content_description
 string confirm_password
 string continue_as_a_guest
+string cooked_meals
 string don_t_have_an_account
 string e_mail
 string error_a11y_label
@@ -3606,11 +3611,13 @@ string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string favorite_meals
 string have_an_account
 string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
+string log_out
 string login
 string m3_sys_motion_easing_emphasized
 string m3_sys_motion_easing_emphasized_accelerate
@@ -3715,10 +3722,14 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string random_mail
+string random_name
 string search_menu_title
 string searchbar_scrolling_view_behavior
 string searchview_clear_text_content_description
 string searchview_navigation_content_description
+string settings
+string share
 string side_sheet_accessibility_pane_title
 string side_sheet_behavior
 string signup

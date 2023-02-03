@@ -17,5 +17,15 @@
     <string name="username">Username</string>
     <string name="confirm_password">Confirm password</string>
     <string name="have_an_account">Have an account?</string>
+    <string name="random_mail">amazen@iti.com</string>
+    <string name="cooked_meals">Cooked Meals</string>
+    <string name="favorite_meals">Favorite Meals</string>
+    <string name="random_name">Ahmed Mazen</string>
+    <string name="_19">19</string>
+    <string name="share">Share</string>
+    <string name="about_us">About Us</string>
+    <string name="settings">Settings</string>
+    <string name="log_out">Log out</string>
+    <string name="_22">22</string>
 
 </resources>

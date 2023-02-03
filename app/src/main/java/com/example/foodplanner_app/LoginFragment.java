@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link LoginFragment#newInstance} factory method to
@@ -62,3 +65,20 @@ public class LoginFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 }
+
+//    TextInputLayout textInputLayout = findViewById(R.id.outlinedTextField_password);
+//    TextInputEditText edtPassword = findViewById(R.id.edt_password);
+//
+//        edtPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//@Override
+//public void onFocusChange(View v, boolean hasFocus) {
+//        if (!hasFocus){
+//        if(edtPassword.getText().length()>5){
+//        textInputLayout.setErrorEnabled(true);
+//        textInputLayout.setError("not a valid mail");
+//        }
+//        else
+//        textInputLayout.setErrorEnabled(false);
+//        }
+//        }
+//        });
