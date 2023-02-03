@@ -21,6 +21,7 @@
     <color name="black">#FF000000</color>
     <color name="dark_gray">#5F5F5F</color>
     <color name="dark_purple">#5335A7</color>
+    <color name="light_gray">#B7B4B4</color>
     <color name="main_color">#8479FF</color>
     <color name="purple">#8479FF</color>
     <color name="purple_200">#FFBB86FC</color>
@@ -31,12 +32,20 @@
     <color name="white">#FFFFFFFF</color>
     <string name="Logo_txt">Food Planner</string>
     <string name="app_name">FoodPlanner_App</string>
+    <string name="confirm_password">Confirm password</string>
     <string name="continue_as_a_guest"><u>Continue as a guest</u></string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="e_mail">E-mail</string>
+    <string name="have_an_account">Have an account?</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login">Login</string>
+    <string name="or">Or</string>
+    <string name="or_continue_with">Or continue with</string>
+    <string name="password">Password</string>
     <string name="signup">Sign Up</string>
     <string name="underline_login"><u>Login</u></string>
     <string name="underline_signup"><u>SignUp</u></string>
+    <string name="username">Username</string>
     <string name="welcome_txt">Mak e your menu</string>
     <style name="Theme.FoodPlanner_App" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         

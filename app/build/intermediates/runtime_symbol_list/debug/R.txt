@@ -1370,6 +1370,7 @@ int color foreground_material_dark 0x7f05005b
 int color foreground_material_light 0x7f05005c
 int color highlighted_text_material_dark 0x7f05005d
 int color highlighted_text_material_light 0x7f05005e
+int color light_gray 0x7f050288
 int color m3_appbar_overlay_color 0x7f05005f
 int color m3_assist_chip_icon_tint_color 0x7f050060
 int color m3_assist_chip_stroke_color 0x7f050061
@@ -2722,10 +2723,14 @@ int drawable design_ic_visibility 0x7f070083
 int drawable design_ic_visibility_off 0x7f070084
 int drawable design_password_eye 0x7f070085
 int drawable design_snackbar_background 0x7f070086
+int drawable dummy_profile_pic 0x7f0700ea
+int drawable edit_icon 0x7f0700eb
 int drawable egg 0x7f070087
+int drawable error_icon 0x7f0700ec
 int drawable facebook_icon 0x7f0700e7
 int drawable falafel 0x7f070088
 int drawable google_icon 0x7f0700e8
+int drawable gray_ripple 0x7f0700ed
 int drawable ic_arrow_back_black_24 0x7f070089
 int drawable ic_clear_black_24 0x7f07008a
 int drawable ic_clock_black_24dp 0x7f07008b
@@ -2751,6 +2756,7 @@ int drawable m3_tabs_background 0x7f07009e
 int drawable m3_tabs_line_indicator 0x7f07009f
 int drawable m3_tabs_rounded_line_indicator 0x7f0700a0
 int drawable m3_tabs_transparent_background 0x7f0700a1
+int drawable mail_icon 0x7f0700ee
 int drawable material_cursor_drawable 0x7f0700a2
 int drawable material_ic_calendar_black_24dp 0x7f0700a3
 int drawable material_ic_clear_black_24dp 0x7f0700a4
@@ -2813,6 +2819,8 @@ int drawable notification_template_icon_low_bg 0x7f0700dc
 int drawable notification_tile_bg 0x7f0700dd
 int drawable notify_panel_notification_icon_bg 0x7f0700de
 int drawable salad 0x7f0700df
+int drawable setting_icon 0x7f0700ef
+int drawable share_icon 0x7f0700f0
 int drawable shesh_dish 0x7f0700e0
 int drawable sheshdish 0x7f0700e1
 int drawable soap 0x7f0700e2
@@ -2820,7 +2828,9 @@ int drawable splach_card 0x7f0700e3
 int drawable test_level_drawable 0x7f0700e4
 int drawable tooltip_frame_dark 0x7f0700e5
 int drawable tooltip_frame_light 0x7f0700e6
+int drawable turn_off_icon 0x7f0700f1
 int drawable wave_one 0x7f0700e9
+int drawable wave_two 0x7f0700f2
 int font ubuntu 0x7f140000
 int font ubuntu_bold 0x7f140001
 int font ubuntu_medium 0x7f140002
@@ -2838,6 +2848,7 @@ int id SHOW_PROGRESS 0x7f08000a
 int id SYM 0x7f08000b
 int id TOP_END 0x7f08000c
 int id TOP_START 0x7f08000d
+int id about_tv 0x7f080209
 int id accelerate 0x7f08000e
 int id accessibility_action_clickable_span 0x7f08000f
 int id accessibility_custom_action_0 0x7f080010
@@ -2916,6 +2927,7 @@ int id baseline 0x7f080058
 int id beginOnFirstDraw 0x7f080059
 int id beginning 0x7f08005a
 int id bestChoice 0x7f08005b
+int id bg_imgView 0x7f08020a
 int id blocking 0x7f08005c
 int id bottom 0x7f08005d
 int id bounce 0x7f08005e
@@ -2953,6 +2965,7 @@ int id content 0x7f08007d
 int id contentPanel 0x7f08007e
 int id contiguous 0x7f08007f
 int id continuousVelocity 0x7f080080
+int id cooked_meals_score_tv 0x7f08020b
 int id coordinator 0x7f080081
 int id cos 0x7f080082
 int id counterclockwise 0x7f080083
@@ -2994,6 +3007,7 @@ int id easeIn 0x7f0800a6
 int id easeInOut 0x7f0800a7
 int id easeOut 0x7f0800a8
 int id east 0x7f0800a9
+int id edit_imageView 0x7f08020c
 int id edit_query 0x7f0800aa
 int id edt_confirm_password 0x7f0801ff
 int id edt_mail 0x7f0801ef
@@ -3010,6 +3024,7 @@ int id expand_activities_button 0x7f0800b2
 int id expanded_menu 0x7f0800b3
 int id facebook_imgView 0x7f080201
 int id fade 0x7f0800b4
+int id fav_meals_score_tv 0x7f08020d
 int id fill 0x7f0800b5
 int id fill_horizontal 0x7f0800b6
 int id fill_vertical 0x7f0800b7
@@ -3050,6 +3065,7 @@ int id ignore 0x7f0800d6
 int id ignoreRequest 0x7f0800d7
 int id image 0x7f0800d8
 int id imageView 0x7f0801ec
+int id imageView7 0x7f08020e
 int id immediateStop 0x7f0800d9
 int id included 0x7f0800da
 int id indeterminate 0x7f0800db
@@ -3073,12 +3089,17 @@ int id listMode 0x7f0800eb
 int id list_item 0x7f0800ec
 int id loginBtn 0x7f080203
 int id login_tv 0x7f080204
+int id logout_tv 0x7f08020f
 int id m3_side_sheet 0x7f0800ed
+int id mail_tv 0x7f080210
 int id marquee 0x7f0800ee
 int id masked 0x7f0800ef
 int id match_constraint 0x7f0800f0
 int id match_parent 0x7f0800f1
 int id materialDivider 0x7f0801f9
+int id materialDivider2 0x7f080211
+int id materialDivider3 0x7f080212
+int id materialDivider4_vertical 0x7f080213
 int id material_clock_display 0x7f0800f2
 int id material_clock_display_and_toggle 0x7f0800f3
 int id material_clock_face 0x7f0800f4
@@ -3226,6 +3247,8 @@ int id search_voice_btn 0x7f08017d
 int id select_dialog_listview 0x7f08017e
 int id selected 0x7f08017f
 int id selection_type 0x7f080180
+int id settings_tv 0x7f080214
+int id share_tv 0x7f080215
 int id sharedValueSet 0x7f080181
 int id sharedValueUnset 0x7f080182
 int id shortcut 0x7f080183
@@ -3322,6 +3345,9 @@ int id uniform 0x7f0801d6
 int id unlabeled 0x7f0801d7
 int id up 0x7f0801d8
 int id useLogo 0x7f0801d9
+int id username_tv 0x7f080216
+int id username_tv3 0x7f080217
+int id username_tv5 0x7f080218
 int id vertical_only 0x7f0801da
 int id view_offset_helper 0x7f0801db
 int id view_transition 0x7f0801dc
@@ -3570,12 +3596,16 @@ int string character_counter_content_description 0x7f0f0025
 int string character_counter_overflowed_content_description 0x7f0f0026
 int string character_counter_pattern 0x7f0f0027
 int string clear_text_end_icon_content_description 0x7f0f0028
+int string confirm_password 0x7f0f00a3
 int string continue_as_a_guest 0x7f0f009f
+int string don_t_have_an_account 0x7f0f00a4
+int string e_mail 0x7f0f00a5
 int string error_a11y_label 0x7f0f0029
 int string error_icon_content_description 0x7f0f002a
 int string exposed_dropdown_menu_content_description 0x7f0f002b
 int string fab_transformation_scrim_behavior 0x7f0f002c
 int string fab_transformation_sheet_behavior 0x7f0f002d
+int string have_an_account 0x7f0f00a6
 int string hello_blank_fragment 0x7f0f002e
 int string hide_bottom_view_on_scroll_behavior 0x7f0f002f
 int string icon_content_description 0x7f0f0030
@@ -3676,6 +3706,9 @@ int string mtrl_switch_track_decoration_path 0x7f0f008d
 int string mtrl_switch_track_path 0x7f0f008e
 int string mtrl_timepicker_cancel 0x7f0f008f
 int string mtrl_timepicker_confirm 0x7f0f0090
+int string or 0x7f0f00a7
+int string or_continue_with 0x7f0f00a8
+int string password 0x7f0f00a9
 int string password_toggle_content_description 0x7f0f0091
 int string path_password_eye 0x7f0f0092
 int string path_password_eye_mask_strike_through 0x7f0f0093
@@ -3691,6 +3724,7 @@ int string signup 0x7f0f00a0
 int string status_bar_notification_info_overflow 0x7f0f009c
 int string underline_login 0x7f0f00a1
 int string underline_signup 0x7f0f00a2
+int string username 0x7f0f00aa
 int string welcome_txt 0x7f0f009d
 int style AlertDialog_AppCompat 0x7f100000
 int style AlertDialog_AppCompat_Light 0x7f100001

@@ -1371,6 +1371,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color light_gray
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -2723,10 +2724,14 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable dummy_profile_pic
+drawable edit_icon
 drawable egg
+drawable error_icon
 drawable facebook_icon
 drawable falafel
 drawable google_icon
+drawable gray_ripple
 drawable ic_arrow_back_black_24
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
@@ -2752,6 +2757,7 @@ drawable m3_tabs_background
 drawable m3_tabs_line_indicator
 drawable m3_tabs_rounded_line_indicator
 drawable m3_tabs_transparent_background
+drawable mail_icon
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -2814,6 +2820,8 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable salad
+drawable setting_icon
+drawable share_icon
 drawable shesh_dish
 drawable sheshdish
 drawable soap
@@ -2821,7 +2829,9 @@ drawable splach_card
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable turn_off_icon
 drawable wave_one
+drawable wave_two
 font ubuntu
 font ubuntu_bold
 font ubuntu_medium
@@ -2839,6 +2849,7 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id about_tv
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2917,6 +2928,7 @@ id baseline
 id beginOnFirstDraw
 id beginning
 id bestChoice
+id bg_imgView
 id blocking
 id bottom
 id bounce
@@ -2954,6 +2966,7 @@ id content
 id contentPanel
 id contiguous
 id continuousVelocity
+id cooked_meals_score_tv
 id coordinator
 id cos
 id counterclockwise
@@ -2995,6 +3008,7 @@ id easeIn
 id easeInOut
 id easeOut
 id east
+id edit_imageView
 id edit_query
 id edt_confirm_password
 id edt_mail
@@ -3011,6 +3025,7 @@ id expand_activities_button
 id expanded_menu
 id facebook_imgView
 id fade
+id fav_meals_score_tv
 id fill
 id fill_horizontal
 id fill_vertical
@@ -3051,6 +3066,7 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id imageView7
 id immediateStop
 id included
 id indeterminate
@@ -3074,12 +3090,17 @@ id listMode
 id list_item
 id loginBtn
 id login_tv
+id logout_tv
 id m3_side_sheet
+id mail_tv
 id marquee
 id masked
 id match_constraint
 id match_parent
 id materialDivider
+id materialDivider2
+id materialDivider3
+id materialDivider4_vertical
 id material_clock_display
 id material_clock_display_and_toggle
 id material_clock_face
@@ -3227,6 +3248,8 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selection_type
+id settings_tv
+id share_tv
 id sharedValueSet
 id sharedValueUnset
 id shortcut
@@ -3323,6 +3346,9 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id username_tv
+id username_tv3
+id username_tv5
 id vertical_only
 id view_offset_helper
 id view_transition
@@ -3571,12 +3597,16 @@ string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string clear_text_end_icon_content_description
+string confirm_password
 string continue_as_a_guest
+string don_t_have_an_account
+string e_mail
 string error_a11y_label
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string have_an_account
 string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
@@ -3677,6 +3707,9 @@ string mtrl_switch_track_decoration_path
 string mtrl_switch_track_path
 string mtrl_timepicker_cancel
 string mtrl_timepicker_confirm
+string or
+string or_continue_with
+string password
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -3692,6 +3725,7 @@ string signup
 string status_bar_notification_info_overflow
 string underline_login
 string underline_signup
+string username
 string welcome_txt
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
