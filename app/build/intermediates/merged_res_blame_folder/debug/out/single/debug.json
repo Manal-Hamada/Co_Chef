@@ -4,6 +4,10 @@
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\font_ubuntu_bold.xml.flat",
+        "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\font\\ubuntu_bold.xml"
+    },
+    {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
@@ -12,8 +16,16 @@
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\drawable\\salad.jpg"
     },
     {
+        "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\font_ubuntu.ttf.flat",
+        "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\font\\ubuntu.ttf"
+    },
+    {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\xml_data_extraction_rules.xml.flat",
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.foodplanner_app-merged_res-29:/layout_activity_main.xml.flat",
+        "source": "com.example.foodplanner_app-main-31:/layout/activity_main.xml"
     },
     {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\drawable_sheshdish.jpg.flat",
@@ -24,12 +36,12 @@
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\drawable_falafel.jpg.flat",
-        "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\drawable\\falafel.jpg"
-    },
-    {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\drawable_falafel.jpg.flat",
+        "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\drawable\\falafel.jpg"
     },
     {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\layout_fragment_login.xml.flat",
@@ -44,6 +56,10 @@
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\drawable\\nodels.jpg"
     },
     {
+        "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\layout_fragment_sign_up.xml.flat",
+        "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\layout\\fragment_sign_up.xml"
+    },
+    {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\drawable-v24\\ic_launcher_foreground.xml"
     },
@@ -52,16 +68,16 @@
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.foodplanner_app-merged_res-29:/layout_fragment_sign_up.xml.flat",
-        "source": "com.example.foodplanner_app-main-31:/layout/fragment_sign_up.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\xml_backup_rules.xml.flat",
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\xml\\backup_rules.xml"
     },
     {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\drawable_facebook_icon.xml.flat",
+        "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\drawable\\facebook_icon.xml"
     },
     {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
@@ -92,8 +108,16 @@
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\drawable_wave_one.xml.flat",
+        "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\drawable\\wave_one.xml"
+    },
+    {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\font_ubuntu_medium.xml.flat",
+        "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\font\\ubuntu_medium.xml"
     },
     {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\mipmap-mdpi_ic_launcher.webp.flat",
@@ -106,6 +130,10 @@
     {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\drawable_google_icon.xml.flat",
+        "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\drawable\\google_icon.xml"
     },
     {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\drawable_soap.jpg.flat",

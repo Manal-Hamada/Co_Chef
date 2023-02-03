@@ -73,6 +73,10 @@ int animator mtrl_fab_hide_motion_spec 0x7f02001d
 int animator mtrl_fab_show_motion_spec 0x7f02001e
 int animator mtrl_fab_transformation_sheet_collapse_spec 0x7f02001f
 int animator mtrl_fab_transformation_sheet_expand_spec 0x7f020020
+int array com_google_android_gms_fonts_certs 0x7f130000
+int array com_google_android_gms_fonts_certs_dev 0x7f130001
+int array com_google_android_gms_fonts_certs_prod 0x7f130002
+int array preloaded_fonts 0x7f130003
 int attr SharedValue 0x7f030000
 int attr SharedValueId 0x7f030001
 int attr actionBarDivider 0x7f030002
@@ -1316,6 +1320,7 @@ int color cardview_dark_background 0x7f05002a
 int color cardview_light_background 0x7f05002b
 int color cardview_shadow_end_color 0x7f05002c
 int color cardview_shadow_start_color 0x7f05002d
+int color dark_gray 0x7f050287
 int color dark_purple 0x7f05002e
 int color design_bottom_navigation_shadow_color 0x7f05002f
 int color design_box_stroke_color 0x7f050030
@@ -1700,6 +1705,7 @@ int color m3_timepicker_display_text_color 0x7f0501aa
 int color m3_timepicker_secondary_text_button_ripple_color 0x7f0501ab
 int color m3_timepicker_secondary_text_button_text_color 0x7f0501ac
 int color m3_tonal_button_ripple_color_selector 0x7f0501ad
+int color main_color 0x7f050286
 int color material_blue_grey_800 0x7f0501ae
 int color material_blue_grey_900 0x7f0501af
 int color material_blue_grey_950 0x7f0501b0
@@ -2717,7 +2723,9 @@ int drawable design_ic_visibility_off 0x7f070084
 int drawable design_password_eye 0x7f070085
 int drawable design_snackbar_background 0x7f070086
 int drawable egg 0x7f070087
+int drawable facebook_icon 0x7f0700e7
 int drawable falafel 0x7f070088
+int drawable google_icon 0x7f0700e8
 int drawable ic_arrow_back_black_24 0x7f070089
 int drawable ic_clear_black_24 0x7f07008a
 int drawable ic_clock_black_24dp 0x7f07008b
@@ -2812,6 +2820,10 @@ int drawable splach_card 0x7f0700e3
 int drawable test_level_drawable 0x7f0700e4
 int drawable tooltip_frame_dark 0x7f0700e5
 int drawable tooltip_frame_light 0x7f0700e6
+int drawable wave_one 0x7f0700e9
+int font ubuntu 0x7f140000
+int font ubuntu_bold 0x7f140001
+int font ubuntu_medium 0x7f140002
 int id ALT 0x7f080000
 int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002
@@ -2983,6 +2995,8 @@ int id easeInOut 0x7f0800a7
 int id easeOut 0x7f0800a8
 int id east 0x7f0800a9
 int id edit_query 0x7f0800aa
+int id edt_mail 0x7f0801ef
+int id edt_password 0x7f0801f0
 int id elastic 0x7f0800ab
 int id embed 0x7f0800ac
 int id end 0x7f0800ad
@@ -2997,6 +3011,7 @@ int id fill 0x7f0800b5
 int id fill_horizontal 0x7f0800b6
 int id fill_vertical 0x7f0800b7
 int id filled 0x7f0800b8
+int id filledButton 0x7f0801f3
 int id fitCenter 0x7f0800b9
 int id fitEnd 0x7f0800ba
 int id fitStart 0x7f0800bb
@@ -3017,6 +3032,8 @@ int id graph_wrap 0x7f0800c9
 int id group_divider 0x7f0800ca
 int id grouping 0x7f0800cb
 int id groups 0x7f0800cc
+int id guideline 0x7f0801f4
+int id guideline2 0x7f0801f5
 int id header_title 0x7f0800cd
 int id hideable 0x7f0800ce
 int id home 0x7f0800cf
@@ -3029,10 +3046,14 @@ int id ifRoom 0x7f0800d5
 int id ignore 0x7f0800d6
 int id ignoreRequest 0x7f0800d7
 int id image 0x7f0800d8
+int id imageView 0x7f0801ec
+int id imageView2 0x7f0801f6
+int id imageView3 0x7f0801f7
 int id immediateStop 0x7f0800d9
 int id included 0x7f0800da
 int id indeterminate 0x7f0800db
 int id info 0x7f0800dc
+int id innerConstraintLayout 0x7f0801f8
 int id invisible 0x7f0800dd
 int id inward 0x7f0800de
 int id italic 0x7f0800df
@@ -3054,6 +3075,7 @@ int id marquee 0x7f0800ee
 int id masked 0x7f0800ef
 int id match_constraint 0x7f0800f0
 int id match_parent 0x7f0800f1
+int id materialDivider 0x7f0801f9
 int id material_clock_display 0x7f0800f2
 int id material_clock_display_and_toggle 0x7f0800f3
 int id material_clock_face 0x7f0800f4
@@ -3131,6 +3153,9 @@ int id off 0x7f08013b
 int id on 0x7f08013c
 int id onInterceptTouchReturnSwipe 0x7f08013d
 int id outline 0x7f08013e
+int id outlinedTextField 0x7f0801ed
+int id outlinedTextField_mail 0x7f0801f1
+int id outlinedTextField_password 0x7f0801f2
 int id outward 0x7f08013f
 int id overshoot 0x7f080140
 int id packed 0x7f080141
@@ -3256,6 +3281,11 @@ int id textSpacerNoButtons 0x7f0801b8
 int id textSpacerNoTitle 0x7f0801b9
 int id textStart 0x7f0801ba
 int id textTop 0x7f0801bb
+int id textView 0x7f0801ee
+int id textView2 0x7f0801fa
+int id textView3 0x7f0801fb
+int id textView4 0x7f0801fc
+int id textView5 0x7f0801fd
 int id text_input_end_icon 0x7f0801bc
 int id text_input_error_icon 0x7f0801bd
 int id text_input_start_icon 0x7f0801be
@@ -3281,6 +3311,7 @@ int id transition_position 0x7f0801d1
 int id transition_scene_layoutid_cache 0x7f0801d2
 int id transition_transform 0x7f0801d3
 int id triangle 0x7f0801d4
+int id tv_guest 0x7f0801fe
 int id unchecked 0x7f0801d5
 int id uniform 0x7f0801d6
 int id unlabeled 0x7f0801d7
@@ -3428,7 +3459,6 @@ int layout design_navigation_menu_item 0x7f0b002a
 int layout design_text_input_end_icon 0x7f0b002b
 int layout design_text_input_start_icon 0x7f0b002c
 int layout fragment_login 0x7f0b002d
-int layout fragment_sign_up 0x7f0b002e
 int layout m3_alert_dialog 0x7f0b002f
 int layout m3_alert_dialog_actions 0x7f0b0030
 int layout m3_alert_dialog_title 0x7f0b0031
@@ -3534,6 +3564,7 @@ int string character_counter_content_description 0x7f0f0025
 int string character_counter_overflowed_content_description 0x7f0f0026
 int string character_counter_pattern 0x7f0f0027
 int string clear_text_end_icon_content_description 0x7f0f0028
+int string continue_as_a_guest 0x7f0f009f
 int string error_a11y_label 0x7f0f0029
 int string error_icon_content_description 0x7f0f002a
 int string exposed_dropdown_menu_content_description 0x7f0f002b
@@ -3543,6 +3574,7 @@ int string hello_blank_fragment 0x7f0f002e
 int string hide_bottom_view_on_scroll_behavior 0x7f0f002f
 int string icon_content_description 0x7f0f0030
 int string item_view_role_description 0x7f0f0031
+int string login 0x7f0f009e
 int string m3_sys_motion_easing_emphasized 0x7f0f0032
 int string m3_sys_motion_easing_emphasized_accelerate 0x7f0f0033
 int string m3_sys_motion_easing_emphasized_decelerate 0x7f0f0034
@@ -3649,6 +3681,7 @@ int string searchview_clear_text_content_description 0x7f0f0098
 int string searchview_navigation_content_description 0x7f0f0099
 int string side_sheet_accessibility_pane_title 0x7f0f009a
 int string side_sheet_behavior 0x7f0f009b
+int string signup 0x7f0f00a0
 int string status_bar_notification_info_overflow 0x7f0f009c
 int string welcome_txt 0x7f0f009d
 int style AlertDialog_AppCompat 0x7f100000
@@ -4745,6 +4778,8 @@ int style Widget_MaterialComponents_Toolbar_PrimarySurface 0x7f100442
 int style Widget_MaterialComponents_Toolbar_Surface 0x7f100443
 int style Widget_MaterialComponents_Tooltip 0x7f100444
 int style Widget_Support_CoordinatorLayout 0x7f100445
+int style button_main_color 0x7f100447
+int style textInputLayoutStyle 0x7f100446
 int[] styleable ActionBar { 0x7f030044, 0x7f03004b, 0x7f03004c, 0x7f030118, 0x7f030119, 0x7f03011a, 0x7f03011b, 0x7f03011c, 0x7f03011d, 0x7f030144, 0x7f030157, 0x7f030158, 0x7f030177, 0x7f0301ed, 0x7f0301f5, 0x7f0301fb, 0x7f0301fc, 0x7f030200, 0x7f030211, 0x7f030227, 0x7f0302a2, 0x7f030322, 0x7f030352, 0x7f030359, 0x7f03035a, 0x7f0303d0, 0x7f0303d4, 0x7f030456, 0x7f030464 }
 int styleable ActionBar_background 0
 int styleable ActionBar_backgroundSplit 1

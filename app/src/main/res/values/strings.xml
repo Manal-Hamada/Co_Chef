@@ -4,4 +4,7 @@
     <string name="Logo_txt">Food Planner</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="signup"><u>SignUp</u></string>
+    <string name="continue_as_a_guest"><u>Continue as a guest</u></string>
 </resources>
