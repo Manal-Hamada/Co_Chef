@@ -172,10 +172,6 @@
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.foodplanner_app-merged_res-29:/layout_fragment_profile.xml.flat",
-        "source": "com.example.foodplanner_app-main-31:/layout/fragment_profile.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-merged_res-29:\\drawable_google_icon.xml.flat",
         "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\daemon\\7.5\\com.example.foodplanner_app-main-31:\\drawable\\google_icon.xml"
     },
