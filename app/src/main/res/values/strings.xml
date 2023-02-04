@@ -2,6 +2,12 @@
     <string name="app_name">FoodPlanner_App</string>
     <string name="welcome_txt">Mak e your menu</string>
     <string name="Logo_txt">Food Planner</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="top_rated">Top world meals</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="mealName">Egyptian soap</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login">Login</string>
