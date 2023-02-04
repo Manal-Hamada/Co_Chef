@@ -24,8 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     Home_Fragment homeFragment;
     DailyPlanFragment menuFragment ;
     FavouritFragment favouritFragmentn;
-    ProfileFragment profileFragment;
-    ProfileFragment pro;
+
 
 
     @Override
@@ -43,7 +42,6 @@ public class HomeActivity extends AppCompatActivity {
         Home_Fragment homeFragment = new Home_Fragment();
         DailyPlanFragment menuFragment = new DailyPlanFragment();
         FavouritFragment favouritFragmentn = new FavouritFragment();
-        ProfileFragment profileFragment = new ProfileFragment();
         tab=findViewById(R.id.tablayout);
         bottomNavigationView=findViewById(R.id.bottomNavigationView);
 

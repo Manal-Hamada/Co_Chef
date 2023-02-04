@@ -16,11 +16,11 @@ public class MyPageAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new FavouritFragment();
+                return new CategoryFr();
             case 1:
-                return new CountryFr();
+                return new CategoryFr();
             case 2:
-                return new IngredienstFr();
+                return new CategoryFr();
         }
         return null;
     }
