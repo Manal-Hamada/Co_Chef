@@ -56,6 +56,7 @@ public class FavouritFragment extends Fragment {
         recycler.setLayoutManager(manger);
         adapter=new FavouriteAdapter(getActivity(),arr);
         recycler.setAdapter(adapter);
+
     }
     public ArrayList<Model> setArr(){
 
