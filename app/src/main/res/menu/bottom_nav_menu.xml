@@ -2,15 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-        <item android:id="@+id/fav"
-            android:title="Favourite"
-            android:icon="@drawable/fav_ic"/>
-        <item android:id="@+id/menu"
-            android:title="menu"
-            android:icon="@drawable/plane_ic"/>
         <item android:id="@+id/home"
             android:title="home"
             android:icon="@drawable/home_ic"/>
+
+        <item android:id="@+id/menu"
+            android:title="menu"
+            android:icon="@drawable/plane_ic"/>
+
+        <item android:id="@+id/fav"
+            android:title="Favourite"
+            android:icon="@drawable/fav_ic"/>
+
 
         <item android:id="@+id/profile"
             android:title="profile"

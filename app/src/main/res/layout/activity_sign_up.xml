@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".view.SignUp_Activity">
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -22,14 +23,35 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/ubuntu_medium"
-        android:text="@string/login"
+        android:text="@string/signup"
         android:textColor="#000000"
         android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/outlinedTextField_mail"
+        app:layout_constraintBottom_toTopOf="@+id/outlinedTextField_username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextField_username"
+        style="@style/textInputLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/username"
+        app:layout_constraintBottom_toTopOf="@+id/outlinedTextField_mail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/outlinedTextField_mail"
@@ -37,14 +59,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/e_mail"
         app:layout_constraintBottom_toTopOf="@+id/outlinedTextField_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/outlinedTextField_username">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_mail"
@@ -59,10 +80,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/password"
-        app:layout_constraintBottom_toTopOf="@+id/loginBtn"
+        app:layout_constraintBottom_toTopOf="@+id/outlinedTextField_confirm_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,58 +96,42 @@
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextField_confirm_password"
+        style="@style/textInputLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/confirm_password"
+        app:layout_constraintBottom_toTopOf="@+id/signupBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outlinedTextField_password">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
-        android:id="@+id/loginBtn"
+        android:id="@+id/signupBtn"
         style="@style/button_main_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/login"
+        android:text="@string/signup"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outlinedTextField_password" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/ubuntu"
-        android:text="@string/or_continue_with"
-        android:textColor="@color/dark_gray"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/google_imgView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
-
-
-    <ImageView
-        android:id="@+id/google_imgView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@+id/materialDivider"
-        app:layout_constraintEnd_toStartOf="@+id/facebook_imgView"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/google_icon" />
-
-    <ImageView
-        android:id="@+id/facebook_imgView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/google_imgView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/google_imgView"
-        app:layout_constraintTop_toTopOf="@+id/google_imgView"
-        app:srcCompat="@drawable/facebook_icon" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outlinedTextField_confirm_password" />
+
 
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/materialDivider"
@@ -138,10 +142,9 @@
         app:dividerThickness="2dp"
         app:layout_constraintBottom_toTopOf="@+id/innerConstraintLayout"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/google_imgView" />
+        app:layout_constraintTop_toBottomOf="@+id/signupBtn" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/innerConstraintLayout"
@@ -160,19 +163,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ubuntu"
-            android:text="@string/don_t_have_an_account"
+            android:text="@string/have_an_account"
             android:textColor="@color/dark_gray"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/signup_tv"
+            android:id="@+id/login_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ubuntu"
-            android:text="@string/underline_signup"
-            android:clickable="true"
+            android:text="@string/underline_login"
             android:textColor="@color/main_color"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@id/textView3"
@@ -184,7 +186,6 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/ubuntu"
         android:text="@string/or"
         android:textColor="@color/dark_gray"
@@ -199,7 +200,6 @@
         android:id="@+id/tv_guest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/ubuntu"
         android:text="@string/continue_as_a_guest"
         android:textColor="@color/dark_gray"
@@ -223,5 +223,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,36 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
     tools:listitem="@android:layout/activity_list_item"
     >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/meal_card"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="25dp"
-        android:backgroundTint="@color/white"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/guideline2"
-        app:layout_goneMarginTop="36dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="6dp"
+        android:layout_width="200dp"
+        android:layout_height="194dp"
         android:layout_marginStart="6dp"
-        app:cardElevation="@dimen/appbar_padding_top"
-       >
+        android:layout_marginEnd="6dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="25dp"
+        android:elevation="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginTop="36dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="252dp">
+            android:layout_height="match_parent">
 
 
             <TextView
                 android:id="@+id/meal_name"
-                android:layout_width="225dp"
-                android:layout_height="103dp"
+                android:layout_width="157dp"
+                android:layout_height="43dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="72dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="48dp"
                 android:text="@string/mealName"
                 android:textAlignment="center"
                 android:textSize="16sp"
@@ -68,13 +68,14 @@
         android:id="@+id/imgCard"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginTop="5dp"
         android:elevation="6dp"
         android:outlineAmbientShadowColor="@color/gray"
         app:cardCornerRadius="70dp"
         app:layout_constraintEnd_toEndOf="@+id/meal_card"
         app:layout_constraintStart_toStartOf="@+id/meal_card"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardElevation="10dp" >
+        app:cardElevation="8dp" >
         <ImageView
             android:id="@+id/circleImg"
             android:layout_width="100dp"
@@ -82,13 +83,6 @@
             android:scaleType="centerCrop"
             android:src="@drawable/soap"/>
     </androidx.cardview.widget.CardView>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="322dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

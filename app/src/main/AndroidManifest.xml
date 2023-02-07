@@ -12,22 +12,11 @@
         android:theme="@style/HomeTheme"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.SignUp_Activity"
             android:exported="false" />
         <activity
-            android:name=".OnboardingActivity"
-            android:exported="true"
-            android:theme="@style/HomeTheme" />
-        <activity
-            android:name=".SplashActivity"
-            android:exported="true"
-            android:theme="@style/HomeTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".view.LoginActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
@@ -37,7 +26,20 @@
             android:name=".view.HomeActivity"
             android:exported="true"
             android:theme="@style/HomeTheme" />
+        <activity
+            android:name=".view.OnboardingActivity"
+            android:exported="true"
+            android:theme="@style/HomeTheme" />
+        <activity
+            android:name=".view.SplashActivity"
+            android:exported="true"
+            android:theme="@style/HomeTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

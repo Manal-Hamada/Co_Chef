@@ -16,25 +16,31 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
-    <SearchView
-        android:id="@+id/fav_search_id"
-        android:layout_width="422dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="4dp"
-        android:backgroundTint="@color/nuteral"
-        android:elevation="6dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_bar" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fav_list"
         android:layout_width="400dp"
         android:layout_height="568dp"
-        android:id="@+id/fav_list"
-        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fav_welc_txt"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/fav_welc_txt"
+        android:layout_width="302dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/fav_dishes_txt"
+        android:fontFamily="@font/ubuntu_medium"
+        android:textSize="26sp"
+        android:textAlignment="center"
+        android:gravity="center"
+        app:layout_goneMarginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fav_search_id" />
+        app:layout_constraintTop_toBottomOf="@+id/title_bar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

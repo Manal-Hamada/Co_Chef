@@ -6,11 +6,9 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="top_rated">Top world meals</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="mealName">Egyptian soap</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="login">Login</string>
+    <string name="mealName">Egyptian soap</string>
+    <string name="fav_dishes_txt">My Favourit dishes</string>
     <string name="underline_login"><u>Login</u></string>
     <string name="underline_signup"><u>SignUp</u></string>
     <string name="signup">Sign Up</string>
@@ -33,6 +31,9 @@
     <string name="settings">Settings</string>
     <string name="log_out">Log out</string>
     <string name="_22">22</string>
+    <string name="date">12/12/2022</string>
+    <string name="login">Login</string>
     <string name="dummy_description">dummy_description</string>
+
 
 </resources>

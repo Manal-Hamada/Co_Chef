@@ -4,9 +4,27 @@ import android.graphics.drawable.Drawable;
 
 public class Model {
 
-    String mealName;
+    String mealName,date;
+
+    public Model(String mealName, String date, int favImg, int addImg, int mealImg) {
+        this.mealName = mealName;
+        this.date = date;
+        this.favImg = favImg;
+        this.addImg = addImg;
+        this.mealImg = mealImg;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     int favImg,addImg;
     int mealImg;
+
 
     public Model() {
     }

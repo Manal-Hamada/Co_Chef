@@ -15,14 +15,13 @@ import android.widget.TextView;
 
 import com.example.foodplanner_app.R;
 
-
-public class CountryFr extends Fragment {
+public class ProfileFragment extends Fragment {
 
     TextView topRated;
     ImageView arrwo;
     SearchView search;
 
-    public CountryFr() {
+    public ProfileFragment() {
         // Required empty public constructor
     }
 
@@ -37,19 +36,17 @@ public class CountryFr extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_country, container, false);
+        return inflater.inflate(R.layout.fragment_profile, container, false);
     }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         topRated=getActivity().findViewById(R.id.top_txt);
         arrwo=getActivity().findViewById(R.id.Arr);
         search=getActivity().findViewById(R.id.search_bar);
-        topRated.setVisibility(View.VISIBLE);
-        arrwo.setVisibility(View.VISIBLE);
-        search.setVisibility(View.VISIBLE);
+        search.setVisibility(View.GONE);
+        topRated.setVisibility(View.GONE);
+        arrwo.setVisibility(View.GONE);
 
     }
 }

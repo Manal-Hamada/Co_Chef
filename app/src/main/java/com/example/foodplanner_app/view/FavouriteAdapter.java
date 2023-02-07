@@ -31,19 +31,16 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.FavV
     @Override
     public FavViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.meal_item,parent,false);
+                inflate(R.layout.fav_list_item,parent,false);
         Log.i("TAG", "onCreateViewHolder: ");
         return new FavViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull FavViewHolder holder, int position) {
-        Log.i("TAG", "from on bind view Holder"+list.size());
-        Log.i("TAG", "from on bind view Holder"+list.get(0).getMealName());
-       // Log.i("TAG", "from on bind view Holder"+list.get(0).getMealImg());
-     // holder.mealImg.setImageResource(list.get(position).getMealImg());
-      holder.mealName.setText(list.get(position).getMealName());
-      holder.add.setImageResource(list.get(position).getAddImg());
+        holder.mealName.setText(list.get(position).getMealName());
+        holder.add.setImageResource(list.get(position).getAddImg());
+        holder.mealImg.setImageResource(list.get(position).getMealImg());
 
     }
 
@@ -56,13 +53,14 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.FavV
 
         TextView mealName;
         CardView mealCard;
-        ImageView fav,add,mealImg;
+        ImageView add,mealImg;
 
         public FavViewHolder(@NonNull View itemView) {
             super(itemView);
             mealName=itemView.findViewById(R.id.fav_meal_name);
             mealImg=itemView.findViewById(R.id.fav_meal_img);
             add=itemView.findViewById(R.id.fav_add_ic);
+            mealCard=itemView.findViewById(R.id.fav_cardView);
 
         }
     }

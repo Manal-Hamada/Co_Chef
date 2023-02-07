@@ -18,9 +18,9 @@ public class MyPageAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return new CategoryFr();
             case 1:
-                return new CategoryFr();
+                return new CountryFr();
             case 2:
-                return new CategoryFr();
+                return new IngredienstFr();
         }
         return null;
     }

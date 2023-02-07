@@ -1,60 +1,52 @@
 package com.example.foodplanner_app.view;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.TimePicker;
 
+import com.example.foodplanner_app.Model;
 import com.example.foodplanner_app.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DailyPlanFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class DailyPlanFragment extends Fragment {
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
+import java.util.Objects;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class DailyPlanFragment extends Fragment implements DetailsOnClickListener {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    RecyclerView recycler;
+    DailyMealsAdapter adapter;
+    ArrayList<Model> arr;
+    TextView topRated;
+    ImageView arrwo;
+    SearchView search;
     public DailyPlanFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DailyPlanFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DailyPlanFragment newInstance(String param1, String param2) {
-        DailyPlanFragment fragment = new DailyPlanFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
@@ -63,4 +55,56 @@ public class DailyPlanFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_daily_plan, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        arr = new ArrayList<>();
+        topRated = requireActivity().findViewById(R.id.top_txt);
+        arrwo = getActivity().findViewById(R.id.Arr);
+        search = getActivity().findViewById(R.id.search_bar);
+
+
+        setArr();
+        setRecycler();
+
+    }
+
+    public void setRecycler() {
+
+        recycler = requireView().findViewById(R.id.day_list);
+        recycler.setHasFixedSize(true);
+        LinearLayoutManager manger = new LinearLayoutManager(getActivity());
+        manger.setOrientation(RecyclerView.VERTICAL);
+        recycler.setLayoutManager(manger);
+        adapter = new DailyMealsAdapter(getActivity(), arr, this);
+        recycler.setAdapter(adapter);
+    }
+
+    public ArrayList<Model> setArr() {
+
+        arr.add(new Model("Egyptian soap", "12/12/2022", R.drawable.fav_outer_ic, R.drawable.calender, R.drawable.soap));
+        arr.add(new Model("Egyptian soap", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.nodels));
+        arr.add(new Model("Nodels", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.soap));
+        arr.add(new Model("Nodels", "12/12/2022", R.drawable.fav_outer_ic, R.drawable.calender, R.drawable.nodels));
+        arr.add(new Model("shesh", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.shesh_dish));
+        arr.add(new Model("Soap", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.soap));
+        arr.add(new Model("shesh", "12/12/2022", R.drawable.fav_outer_ic, R.drawable.calender, R.drawable.shesh_dish));
+        arr.add(new Model("Soap", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.soap));
+        arr.add(new Model("Nodels", "12/12/2022", R.drawable.fav_outer_ic, R.drawable.calender, R.drawable.nodels));
+
+        return arr;
+    }
+
+    @Override
+    public void navToDetails() {
+        getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
+        getActivity().findViewById(R.id.pager).setVisibility(View.GONE);
+        getActivity().findViewById(R.id.tablayout).setVisibility(View.GONE);
+        search.setVisibility(View.GONE);
+        topRated.setVisibility(View.GONE);
+        arrwo.setVisibility(View.GONE);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new DetailsFragment()).commit();
+    }
 }
+

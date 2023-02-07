@@ -12,21 +12,21 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fav_fr_constrain"
+        android:id="@+id/day_fr_constrain"
         android:layout_width="match_parent"
         android:layout_height="130dp">
 
         <ImageView
-            android:id="@+id/fav_meal_img"
-            android:layout_width="80dp"
-            android:layout_height="match_parent"
+            android:id="@+id/day_meal_img"
+            android:layout_width="93dp"
+            android:layout_height="128dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/fav_cardView"
+            android:id="@+id/day_cardView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:cardCornerRadius="40dp"
@@ -37,7 +37,7 @@
         </androidx.cardview.widget.CardView>
 
         <ImageView
-            android:id="@+id/fav_add_ic"
+            android:id="@+id/day_fav_ic"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginEnd="24dp"
@@ -47,16 +47,31 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/fav_meal_name"
-            android:layout_width="170dp"
-            android:layout_height="96dp"
-            android:layout_marginEnd="84dp"
+            android:id="@+id/day_meal_name"
+            android:layout_width="171dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="108dp"
             android:gravity="center"
             android:text="@string/mealName"
             android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/black"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/meal_date"
+            android:layout_width="156dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="116dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/date"
+            android:textAlignment="center"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
