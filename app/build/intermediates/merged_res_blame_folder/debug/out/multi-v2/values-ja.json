@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.foodplanner_app-mergeDebugResources-27:/values-ja/values-ja.xml",
+            "outputFile": "com.example.foodplanner_app-mergeDebugResources-33:/values-ja/values-ja.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\caches\\transforms-3\\5521fd259f8332737a22b3743c01d4b7\\transformed\\appcompat-1.6.0\\res\\values-ja\\values-ja.xml",

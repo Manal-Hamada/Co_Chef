@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settings_tv"
-        app:drawableStartCompat="@drawable/turn_off_icon" />
+        android:drawableStart="@drawable/turn_off_icon" />
 
     <TextView
         android:id="@+id/settings_tv"
@@ -46,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/about_tv"
-        app:drawableStartCompat="@drawable/setting_icon" />
+        android:drawableStart="@drawable/setting_icon" />
 
     <TextView
         android:id="@+id/about_tv"
@@ -67,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/share_tv"
-        app:drawableStartCompat="@drawable/error_icon" />
+        android:drawableStart="@drawable/error_icon" />
 
     <TextView
         android:id="@+id/share_tv"
@@ -83,12 +83,13 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:text="@string/share"
+        android:drawableStart="@drawable/share_icon"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialDivider3"
-        app:drawableStartCompat="@drawable/share_icon" />
+        />
 
     <TextView
         android:id="@+id/cooked_meals_score_tv"
@@ -107,7 +108,7 @@
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/materialDivider2"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="1dp"
         android:layout_marginTop="16dp"
         app:dividerColor="@color/dark_gray"
         app:dividerThickness="2dp"
@@ -119,7 +120,7 @@
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/materialDivider3"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="1dp"
 
         android:layout_marginTop="24dp"
         app:dividerColor="@color/dark_gray"

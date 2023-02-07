@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.foodplanner_app-mergeDebugResources-27:/values-large-v4/values-large-v4.xml",
+            "outputFile": "com.example.foodplanner_app-mergeDebugResources-33:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\caches\\transforms-3\\4fbcf167c94e837ff1be43cd429a082f\\transformed\\material-1.8.0\\res\\values-large-v4\\values-large-v4.xml",
