@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/nav_tab_lay_out"
     tools:context=".view.HomeActivity">
 
     <androidx.appcompat.widget.SearchView
@@ -82,5 +83,6 @@
         app:layout_constraintTop_toBottomOf="@id/tablayout"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

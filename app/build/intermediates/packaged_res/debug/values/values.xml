@@ -18,18 +18,27 @@
         <item>@font/ubuntu_bold</item>
         <item>@font/ubuntu_medium</item>
     </array>
+    <color name="Secondary">#5335A7</color>
     <color name="black">#FF000000</color>
     <color name="dark_gray">#5F5F5F</color>
     <color name="dark_purple">#5335A7</color>
+    <color name="gray">#5F5F5F</color>
     <color name="light_gray">#B7B4B4</color>
     <color name="main_color">#8479FF</color>
+    <color name="nuteral">#F4F5F9</color>
+    <color name="primary">#8479FF</color>
     <color name="purple">#8479FF</color>
     <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
+    <color name="search_bg">#BEBBBB</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="appbar_padding">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
     <string name="Logo_txt">Food Planner</string>
     <string name="_19">19</string>
     <string name="_22">22</string>
@@ -45,6 +54,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="log_out">Log out</string>
     <string name="login">Login</string>
+    <string name="mealName">Egyptian soap</string>
     <string name="or">Or</string>
     <string name="or_continue_with">Or continue with</string>
     <string name="password">Password</string>
@@ -53,13 +63,21 @@
     <string name="settings">Settings</string>
     <string name="share">Share</string>
     <string name="signup">Sign Up</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="top_rated">Top world meals</string>
     <string name="underline_login"><u>Login</u></string>
     <string name="underline_signup"><u>SignUp</u></string>
     <string name="username">Username</string>
     <string name="welcome_txt">Mak e your menu</string>
+    <style name="HomeTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">        
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/Secondary</item>
+        <item name="colorAccent">@color/white</item>
+    </style>
     <style name="Theme.FoodPlanner_App" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         
@@ -68,8 +86,19 @@
         <item name="colorOnSecondary">@color/black</item>
         
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <style name="HomeTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">        
+            <item name="colorPrimary">@color/primary</item>
+            <item name="colorPrimaryDark">@color/Secondary</item>
+            <item name="colorAccent">@color/white</item>
+        </style>
         
     </style>
+    <style name="Theme.FoodPlanner_App.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.FoodPlanner_App.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.FoodPlanner_App.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
     <style name="button_main_color" parent="Widget.Material3.Button">
         <item name="android:backgroundTint">@color/main_color</item>
         <item name="cornerRadius">12dp</item>

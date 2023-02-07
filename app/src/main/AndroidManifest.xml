@@ -13,13 +13,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:label="@string/title_activity_home"
             android:theme="@style/Theme.MaterialComponents.NoActionBar"
             />
         <activity
             android:name=".view.HomeActivity"
             android:theme="@style/HomeTheme"
-
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
