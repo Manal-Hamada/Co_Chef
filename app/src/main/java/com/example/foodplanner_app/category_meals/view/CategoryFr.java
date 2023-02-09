@@ -68,6 +68,7 @@ public class CategoryFr extends Fragment implements DetailsOnClickListener, Cate
     public void showCategoryTexts(){
         search=getActivity().findViewById(R.id.search_bar);
         search.setVisibility(View.VISIBLE);
+
     }
 
     @Override
