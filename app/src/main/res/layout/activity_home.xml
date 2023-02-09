@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     android:id="@+id/hLayout"
     android:background="@color/nuteral"
-    tools:context=".view.HomeActivity">
+    tools:context=".app_activities.HomeActivity">
 
 
     <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="visible"
         android:id="@+id/container"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -48,6 +49,7 @@
         app:tabIndicatorColor="@color/primary"
         app:layout_constraintStart_toStartOf="parent"
         android:id="@+id/tablayout"
+        android:visibility="gone"
         android:minHeight="?attr/actionBarSize"
         >
     </com.google.android.material.tabs.TabLayout>
@@ -63,28 +65,7 @@
        >
     </androidx.viewpager.widget.ViewPager>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/top_txt"
-        android:text="@string/top_rated"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/search_bar"
-        app:layout_constraintTop_toBottomOf="@id/search_bar"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="5dp"/>
 
-    <ImageView
-        android:id="@+id/Arr"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/top_rat_arrow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_bar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

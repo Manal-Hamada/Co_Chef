@@ -12,26 +12,21 @@
         android:theme="@style/HomeTheme"
         tools:targetApi="31">
         <activity
-            android:name=".view.SignUp_Activity"
+            android:name=".authantication.SignUp_Activity"
             android:exported="false" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".authantication.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:label="@string/title_activity_home"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
-        <activity
-            android:name=".view.HomeActivity"
+            android:name=".app_activities.HomeActivity"
             android:exported="true"
             android:theme="@style/HomeTheme" />
         <activity
-            android:name=".view.OnboardingActivity"
+            android:name=".app_activities.OnboardingActivity"
             android:exported="true"
             android:theme="@style/HomeTheme" />
         <activity
-            android:name=".view.SplashActivity"
+            android:name=".app_activities.SplashActivity"
             android:exported="true"
             android:theme="@style/HomeTheme">
             <intent-filter>

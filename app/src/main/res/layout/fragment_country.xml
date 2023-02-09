@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.CountryFr">
+    tools:context="com.example.foodplanner_app.country_meals.view.CountryFr">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="151dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="296dp"
-        android:layout_marginEnd="128dp"
-        android:text="Country"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/country_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
