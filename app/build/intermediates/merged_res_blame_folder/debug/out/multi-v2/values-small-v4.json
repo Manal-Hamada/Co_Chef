@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.foodplanner_app-mergeDebugResources-33:/values-small-v4/values-small-v4.xml",
+            "outputFile": "com.example.foodplanner_app-mergeDebugResources-39:/values-small-v4/values-small-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\caches\\transforms-3\\4fbcf167c94e837ff1be43cd429a082f\\transformed\\material-1.8.0\\res\\values-small-v4\\values-small-v4.xml",
+                    "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\caches\\transforms-3\\75a1c0f2b09d2197eac62fde5ddc8cbd\\transformed\\material-1.8.0\\res\\values-small-v4\\values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

@@ -23,7 +23,9 @@
     <color name="dark_gray">#5F5F5F</color>
     <color name="dark_purple">#5335A7</color>
     <color name="gray">#5F5F5F</color>
+    <color name="hat_logo_ic_launcher_background">#8479FF</color>
     <color name="light_gray">#B7B4B4</color>
+    <color name="logo_ic_launcher_background">#8479FF</color>
     <color name="main_color">#8479FF</color>
     <color name="nuteral">#F4F5F9</color>
     <color name="primary">#8479FF</color>
@@ -31,6 +33,7 @@
     <color name="purple">#8479FF</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_700">#FF3700B3</color>
+    <color name="search_bg">#BEBBBB</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
@@ -43,14 +46,23 @@
     <string name="_19">19</string>
     <string name="_22">22</string>
     <string name="about_us">About Us</string>
-    <string name="app_name">FoodPlanner_App</string>
+    <string name="app_name">Co-Chef</string>
     <string name="confirm_password">Confirm password</string>
     <string name="continue_as_a_guest"><u>Continue as a guest</u></string>
     <string name="cooked_meals">Cooked Meals</string>
+    <string name="date">12/12/2022</string>
+    <string name="default_web_client_id" translatable="false">927224427851-d77dsnott1rgdpeg8c2kk8cbi8kj5ets.apps.googleusercontent.com</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="dummy_description">dummy_description</string>
     <string name="e_mail">E-mail</string>
+    <string name="fav_dishes_txt">My Favourit dishes</string>
     <string name="favorite_meals">Favorite Meals</string>
+    <string name="forgotten_password">Forgotten password ?</string>
+    <string name="gcm_defaultSenderId" translatable="false">927224427851</string>
+    <string name="google_api_key" translatable="false">AIzaSyDRXV0FTJsiFTL2EIfubcjLoTI1c3mrUU4</string>
+    <string name="google_app_id" translatable="false">1:927224427851:android:2868ca8fbb30dff7f024ce</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDRXV0FTJsiFTL2EIfubcjLoTI1c3mrUU4</string>
+    <string name="google_storage_bucket" translatable="false">foodplannerproject-5f570.appspot.com</string>
     <string name="have_an_account">Have an account?</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="log_out">Log out</string>
@@ -59,6 +71,7 @@
     <string name="or">Or</string>
     <string name="or_continue_with">Or continue with</string>
     <string name="password">Password</string>
+    <string name="project_id" translatable="false">foodplannerproject-5f570</string>
     <string name="random_mail">amazen@iti.com</string>
     <string name="random_name">Ahmed Mazen</string>
     <string name="settings">Settings</string>
@@ -75,15 +88,15 @@
     <style name="HomeTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">        
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/Secondary</item>
-        <item name="colorAccent">@color/white</item>
+        <item name="colorAccent">@color/dark_purple</item>
     </style>
     <style name="Theme.FoodPlanner_App" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/dark_purple</item>
         
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">@color/primary</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         

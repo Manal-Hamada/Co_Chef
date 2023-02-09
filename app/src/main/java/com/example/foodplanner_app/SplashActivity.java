@@ -8,6 +8,7 @@ import android.os.Handler;
 
 import com.example.foodplanner_app.R;
 import com.example.foodplanner_app.view.HomeActivity;
+import com.example.foodplanner_app.view.LoginActivity;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -28,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private void checkLoggedIn() {
         SharedPreferences preferences = getSharedPreferences("PREFERENCE", MODE_PRIVATE);
-        String loggedToken = preferences.getString("loggedToken", "");
+        String loggedToken = preferences.getString("loggedId", "");
 
         if (loggedToken.equals("")){
             startActivity(new Intent(SplashActivity.this, OnboardingActivity.class));

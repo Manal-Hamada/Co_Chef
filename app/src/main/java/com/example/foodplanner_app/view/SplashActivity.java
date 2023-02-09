@@ -24,12 +24,12 @@ public class SplashActivity extends AppCompatActivity {
                 checkFirstTime();
                 checkLoggedIn();
             }
-        },5000);
+        },1000);
     }
 
     private void checkLoggedIn() {
         SharedPreferences preferences = getSharedPreferences("PREFERENCE", MODE_PRIVATE);
-        String loggedToken = preferences.getString("loggedToken", "");
+        String loggedToken = preferences.getString("loggedId", "");
 
         if (loggedToken.equals("")){
             startActivity(new Intent(SplashActivity.this, OnboardingActivity.class));

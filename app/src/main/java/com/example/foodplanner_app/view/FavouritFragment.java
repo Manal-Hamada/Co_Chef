@@ -78,9 +78,7 @@ public class FavouritFragment extends Fragment {
         arr.add(new Model("Egyptian soap",R.drawable.fav_ic,R.drawable.calender,R.drawable.nodels));
         arr.add(new Model("Nodels",R.drawable.fav_ic,R.drawable.calender,R.drawable.soap));
         arr.add(new Model("Nodels",R.drawable.fav_outer_ic,R.drawable.calender,R.drawable.nodels));
-        arr.add(new Model("shesh",R.drawable.fav_ic,R.drawable.calender,R.drawable.shesh_dish));
         arr.add(new Model("Soap",R.drawable.fav_ic,R.drawable.calender,R.drawable.soap));
-        arr.add(new Model("shesh",R.drawable.fav_outer_ic,R.drawable.calender,R.drawable.shesh_dish));
         arr.add(new Model("Soap",R.drawable.fav_ic,R.drawable.calender,R.drawable.soap));
         arr.add(new Model("Nodels",R.drawable.fav_outer_ic,R.drawable.calender,R.drawable.nodels));
 

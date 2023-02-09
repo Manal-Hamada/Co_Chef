@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.foodplanner_app.view.HomeActivity;
+import com.example.foodplanner_app.view.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.List;
