@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,6 +36,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
@@ -73,22 +75,22 @@ public class LoginActivity extends AppCompatActivity {
                 GoogleSignInAccount googleAccount = task.getResult(ApiException.class);
                 AuthCredential credential = GoogleAuthProvider.getCredential(googleAccount.getIdToken(),null);
                 FirebaseAuth.getInstance().signInWithCredential(credential)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()){
-                                    id = googleAccount.getIdToken();
-                                    Log.d("TAGGGG", "id: "+id);
-                                    Toast.makeText(LoginActivity.this, id, Toast.LENGTH_SHORT).show();
-                                    storeId(id);
-                                    navigateToHome();
-                                }else {
-                                    Log.d("TAGGGG", "not successful ");
-                                    Toast.makeText(LoginActivity.this, "zzzzzzzzz", Toast.LENGTH_SHORT).show();
-                                    Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        })
+//                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<AuthResult> task) {
+//                                if (task.isSuccessful()){
+//                                    id = googleAccount.getIdToken();
+//                                    Log.d("TAGGGG", "id: "+id);
+//                                    Toast.makeText(LoginActivity.this, id, Toast.LENGTH_SHORT).show();
+//                                    storeId(id);
+//                                    navigateToHome();
+//                                }else {
+//                                    Log.d("TAGGGG", "not successful ");
+//                                    Toast.makeText(LoginActivity.this, "zzzzzzzzz", Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//                        })
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
@@ -96,8 +98,10 @@ public class LoginActivity extends AppCompatActivity {
                                 String id = firebaseUser.getUid();
                                 String email = firebaseUser.getEmail();
 
+
                                 Log.d("TAGGGG", "id = "+id);
                                 Log.d("TAGGGG", "email = "+email);
+                                Log.d("TAGGGG", "profile = "+firebaseUser.getPhotoUrl());
 
                                 if (authResult.getAdditionalUserInfo().isNewUser()){
                                     Log.d("TAGGGG", "new user");
@@ -112,10 +116,12 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Log.d("TAGGGG", "failed to signin");
+                                Toast.makeText(LoginActivity.this, "failure" + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
             } catch (ApiException e) {
-                Log.d("TAGGGG", "ApiException");
+                Log.d("TAGGGG", e.toString());
+                Toast.makeText(this, "error" + e, Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         }
@@ -186,6 +192,8 @@ public class LoginActivity extends AppCompatActivity {
                 mail = mailEdt.getText().toString().trim();
                 password = passwordEdt.getText().toString().trim();
 
+                if(isValidMail(mail)&&isValidPassword(password))
+                {
                 firebaseAuth.signInWithEmailAndPassword(mail, password)
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
@@ -204,7 +212,11 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
                                 Log.i("TAG", "onFailure: " + e.toString());
                             }
-                        });
+                        });}
+            else{
+                    Snackbar.make(findViewById(android.R.id.content), "Please enter valid data", Snackbar.LENGTH_LONG)
+                            .setBackgroundTint(Color.RED).show();
+                }
             }
         });
         validatePassword();
