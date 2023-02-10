@@ -23,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
                 checkFirstTime();
                 checkLoggedIn();
             }
-        },5000);
+        },10);
     }
 
     private void checkLoggedIn() {

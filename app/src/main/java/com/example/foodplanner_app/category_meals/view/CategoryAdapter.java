@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -23,11 +25,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     Context context;
     ArrayList<Category_Model> list;
     DetailsOnClickListener listener;
+    CategoryOnClickListener categoryOnClickListener;
 
-    public CategoryAdapter(Context context, ArrayList<Category_Model> list, DetailsOnClickListener listener) {
+    public CategoryAdapter(Context context, ArrayList<Category_Model> list, DetailsOnClickListener listener, CategoryOnClickListener categoryListener) {
         this.context = context;
         this.list = list;
         this.listener= listener;
+        this.categoryOnClickListener = categoryListener;
 
     }
 
@@ -46,12 +50,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Log.i("TAG", "onBindViewHolder: ");
-        holder.mealName.setText(list.get(position).getStrCategory());
-        Glide.with(context).load(list.get(position).getStrCategoryThumb()).into(holder.mealImg);
+        holder.mealName.setText(list.get( holder.getAdapterPosition()).getStrCategory());
+        Glide.with(context).load(list.get( holder.getAdapterPosition()).getStrCategoryThumb()).into(holder.mealImg);
         holder.mealCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                categoryOnClickListener.navToMeals(list.get( holder.getAdapterPosition()).getStrCategory());
             }
         });
     }
