@@ -53,7 +53,6 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
         super.onViewCreated(view, savedInstanceState);
         arr = new ArrayList<>();
         search = getActivity().findViewById(R.id.search_bar);
-        setArr();
         setRecycler();
     }
 
@@ -68,30 +67,17 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
         recycler.setAdapter(adapter);
     }
 
-    public ArrayList<Model> setArr() {
 
-        arr.add(new Model("Egyptian soap", "12/12/2022", R.drawable.fav_outer_ic, R.drawable.calender, R.drawable.soap));
-        arr.add(new Model("Egyptian soap", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.nodels));
-        arr.add(new Model("Nodels", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.soap));
-        arr.add(new Model("Nodels", "12/12/2022", R.drawable.fav_outer_ic, R.drawable.calender, R.drawable.nodels));
-        arr.add(new Model("shesh", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.shesh_dish));
-        arr.add(new Model("Soap", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.soap));
-        arr.add(new Model("shesh", "12/12/2022", R.drawable.fav_outer_ic, R.drawable.calender, R.drawable.shesh_dish));
-        arr.add(new Model("Soap", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.soap));
-        arr.add(new Model("Nodels", "12/12/2022", R.drawable.fav_outer_ic, R.drawable.calender, R.drawable.nodels));
-
-        return arr;
-    }
 
     @Override
-    public void navToDetails() {
-        getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
-        getActivity().findViewById(R.id.pager).setVisibility(View.GONE);
-        getActivity().findViewById(R.id.tablayout).setVisibility(View.GONE);
-        search.setVisibility(View.GONE);
-        topRated.setVisibility(View.GONE);
-        arrwo.setVisibility(View.GONE);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new DetailsFragment()).commit();
+    public void navToDetails(int id) {
+            getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
+            getActivity().findViewById(R.id.pager).setVisibility(View.GONE);
+            getActivity().findViewById(R.id.tablayout).setVisibility(View.GONE);
+            search.setVisibility(View.GONE);
+            topRated.setVisibility(View.GONE);
+            arrwo.setVisibility(View.GONE);
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new DetailsFragment()).commit();
     }
 }
 

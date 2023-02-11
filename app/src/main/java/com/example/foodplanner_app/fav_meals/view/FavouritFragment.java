@@ -20,7 +20,7 @@ import com.example.foodplanner_app.network.remoteSource.Db_Repository;
 
 import java.util.ArrayList;
 
-public class FavouritFragment extends Fragment implements Fav_Meal_Interface {
+public class FavouritFragment extends Fragment  {
 
     RecyclerView recycler;
     FavouriteAdapter adapter;
@@ -49,11 +49,12 @@ public class FavouritFragment extends Fragment implements Fav_Meal_Interface {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         arr=new ArrayList<>();
-        repo=Db_Repository.getInstance(this);
+        repo=Db_Repository.getInstance();
         repo.getFavouriteMeals();
         Log.i("lllllll", ""+arr.size());
         search=getActivity().findViewById(R.id.search_bar);
         search.setVisibility(View.GONE);
+        repo.getAllFavData();
         setRecycler(view);
     }
     public void setRecycler(View v){
@@ -65,11 +66,13 @@ public class FavouritFragment extends Fragment implements Fav_Meal_Interface {
         adapter=new FavouriteAdapter(getActivity(),arr);
     }
 
-    @Override
+   /* @Override
     public void getfavMeal(Favourite_Model model) {
-        arr.add(model);
+     /*   arr.add(model);
         adapter.setList(arr);
         recycler.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-    }
+    }*/
+
+
 }

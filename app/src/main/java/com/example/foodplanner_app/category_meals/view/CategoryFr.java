@@ -80,14 +80,7 @@ public class CategoryFr extends Fragment implements DetailsOnClickListener,Categ
 
     }
 
-    @Override
-    public void navToDetails() {
-        getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
-        getActivity().findViewById(R.id.pager) .setVisibility(View.GONE);
-        getActivity().findViewById(R.id.tablayout) .setVisibility(View.GONE);
-        hideCategoryTexts();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment()).commit();
-    }
+
 
     @Override
     public void navToMeals(String categoryName,int key) {
@@ -101,6 +94,16 @@ public class CategoryFr extends Fragment implements DetailsOnClickListener,Categ
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment).commit();
         getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
 
+
+    }
+
+    @Override
+    public void navToDetails(int id) {
+        getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
+        getActivity().findViewById(R.id.pager) .setVisibility(View.GONE);
+        getActivity().findViewById(R.id.tablayout) .setVisibility(View.GONE);
+        hideCategoryTexts();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment()).commit();
 
     }
 }

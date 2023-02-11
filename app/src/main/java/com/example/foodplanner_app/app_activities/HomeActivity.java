@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -44,13 +45,15 @@ public class HomeActivity extends AppCompatActivity  {
         binding=ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Intent i =getIntent();
-        mode=i.getStringExtra("mode");
+        if(i.getStringExtra("mode")!=null)
+         mode=i.getStringExtra("mode");
+       else
+           mode="user";
         replaceFragments(new Home_Fragment());
         init();
        // setTabLayout();
         setTabSelectedListiner();
         setBottomNav();
-
     }
 
     public void init(){
@@ -124,10 +127,10 @@ public class HomeActivity extends AppCompatActivity  {
 
     public void setBottomNav() {
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            if(mode!="guest")
+            if(!mode.equals("guest"))
                 userMode(item);
             else
-              guestMode(item);
+               guestMode(item);
 
             return true;
         });

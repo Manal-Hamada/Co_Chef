@@ -15,26 +15,28 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.foodplanner_app.details.view.AddFavClickListener;
 import com.example.foodplanner_app.R;
 import com.example.foodplanner_app.details.view.DetailsOnClickListener;
 import com.example.foodplanner_app.meals.model.Meal_Model;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MyViewHolder> {
+public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MyViewHolder>  {
 
         Context context;
         ArrayList<Meal_Model> list;
         DetailsOnClickListener listener;
         AddFavClickListener clickListenerFor_db_store;
+        UnFavClickListener unFavClickListener;
 
 
-        public MealAdapter(Context context, ArrayList<Meal_Model> list, DetailsOnClickListener detailsListener, AddFavClickListener clickListenerFor_db_store) {
+        public MealAdapter(Context context, ArrayList<Meal_Model> list, DetailsOnClickListener detailsListener, AddFavClickListener clickListenerFor_db_store,UnFavClickListener unFavClickListener) {
             this.context = context;
             this.list = list;
             this.listener = detailsListener;
             this.clickListenerFor_db_store=clickListenerFor_db_store;
+            this.unFavClickListener=unFavClickListener;
         }
 
         public void setList(ArrayList<Meal_Model> list) {
@@ -57,10 +59,17 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MyViewHolder> 
             holder.fav.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                  clickListenerFor_db_store.addFavItem(list.get(position).getStrMeal().toString(),list.get(position).getStrMealThumb().toString());
+                 // clickListenerFor_db_store.addFavItem();
+                  //  Log.i("ad mealllll  ", ""+list.get(position).getStrMeal().toString());
                 }
             });
             holder.mealLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.navToDetails(Integer.parseInt(list.get( holder.getAdapterPosition()).getIdMeal()));
+                }
+            });
+            holder.unFav.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
@@ -76,7 +85,7 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MyViewHolder> 
         public class MyViewHolder extends RecyclerView.ViewHolder{
             ConstraintLayout mealLayout;
             TextView mealName;
-            ImageView mealImg,fav;
+            ImageView mealImg,fav,unFav;
 
             public MyViewHolder(@NonNull View itemView) {
                 super(itemView);
@@ -84,7 +93,7 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MyViewHolder> 
                 mealName = itemView.findViewById(R.id.meal_name);
                 mealImg = itemView.findViewById(R.id.circleImg);
                 fav=itemView.findViewById(R.id.meal_fav_ic);
-
+                unFav=itemView.findViewById(R.id.meal_outer_fav_ic);
             }
         }
     }

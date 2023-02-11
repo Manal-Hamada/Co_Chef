@@ -4,7 +4,8 @@ import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.foodplanner_app.details.view.AddFavClickListener;
+import com.example.foodplanner_app.details.model.MealDetailsModel;
+import com.example.foodplanner_app.meals.view.AddFavClickListener;
 import com.example.foodplanner_app.network.remoteSource.Db_Model;
 
 import java.util.List;
@@ -31,9 +32,8 @@ public class Local_Data implements AddFavClickListener {
     }
 
 
-
     @Override
-    public void addFavItem(String mealName, String img) {
+    public void addFavItem(MealDetailsModel model) {
 
     }
 }

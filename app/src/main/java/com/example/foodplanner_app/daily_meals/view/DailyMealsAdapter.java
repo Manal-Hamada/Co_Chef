@@ -48,7 +48,7 @@ public class DailyMealsAdapter extends RecyclerView.Adapter<DailyMealsAdapter.Da
         holder.mealCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.navToDetails();
+               // listener.navToDetails(Integer.parseInt(list.get( holder.getAdapterPosition()).));
             }
         });
     }

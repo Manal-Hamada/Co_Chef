@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import com.example.foodplanner_app.category_meals.model.Category_Response;
 import com.example.foodplanner_app.country_meals.model.Country_Model;
 import com.example.foodplanner_app.country_meals.model.Country_Response;
+import com.example.foodplanner_app.details.model.MealDetailsResponse;
 import com.example.foodplanner_app.ingredients.model.IngredientResponse;
 import com.example.foodplanner_app.inspire_meal.model.Inspirational_Response;
 import com.example.foodplanner_app.meals.model.Meals_Response;
@@ -70,6 +71,10 @@ public class ApiClient {
     @SuppressLint("CheckResult")
     public Single<Meals_Response> enqueueIngredientMeals(String ingredientName){
         return service.getIngredientMeals(ingredientName);
+    }
+    @SuppressLint("CheckResult")
+    public Single<MealDetailsResponse> enqueueCallMealDetails(int id){
+        return service.getMealDetails(id);
     }
 
 }

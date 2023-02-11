@@ -17,7 +17,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.foodplanner_app.details.view.AddFavClickListener;
+import com.example.foodplanner_app.details.model.MealDetailsModel;
+import com.example.foodplanner_app.fav_meals.model.Favourite_Model;
+import com.example.foodplanner_app.fav_meals.view.Fav_Meal_Interface;
 import com.example.foodplanner_app.network.remoteSource.Db_Repository;
 import com.example.foodplanner_app.R;
 
@@ -25,17 +27,11 @@ import com.example.foodplanner_app.meals.repository.Repository;
 import com.example.foodplanner_app.details.view.DetailsFragment;
 import com.example.foodplanner_app.details.view.DetailsOnClickListener;
 import com.example.foodplanner_app.meals.model.Meal_Model;
-import com.example.foodplanner_app.network.remoteSource.Fire_Db_Creation;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
-public class MealsFragment extends Fragment implements DetailsOnClickListener, AddFavClickListener {
+public class MealsFragment extends Fragment implements DetailsOnClickListener, AddFavClickListener, Fav_Meal_Interface,UnFavClickListener {
     RecyclerView recycler;
     MealAdapter adapter;
     ArrayList<Meal_Model>arr;
@@ -54,7 +50,7 @@ public class MealsFragment extends Fragment implements DetailsOnClickListener, A
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        repo=Repository.getInstance();
+        db_Repo=Db_Repository.getInstance();
 
     }
     @Override
@@ -93,7 +89,7 @@ public class MealsFragment extends Fragment implements DetailsOnClickListener, A
     }
     public void setRecycler(){
         recycler= requireView().findViewById(R.id.meal_list);
-        adapter=new MealAdapter(getActivity(),arr,this,this);
+        adapter=new MealAdapter(getActivity(),arr,this,this,this);
         GridLayoutManager manger = new GridLayoutManager(getActivity(),2);
         recycler.setLayoutManager(manger);
     }
@@ -107,14 +103,14 @@ public class MealsFragment extends Fragment implements DetailsOnClickListener, A
     }
 
     @Override
-    public void navToDetails() {
+    public void navToDetails(int id) {
         getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
         getActivity().findViewById(R.id.pager) .setVisibility(View.GONE);
         getActivity().findViewById(R.id.tablayout) .setVisibility(View.GONE);
         hideCategoryTexts();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment()).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment(id)).commit();
     }
-public void checkFragment(){
+ public void checkFragment(){
          if(key==1)
              repo.getMeals(categoryName);
          else if (key==2)
@@ -124,9 +120,25 @@ public void checkFragment(){
 }
 
     @Override
-    public void addFavItem(String mealName,String img) {
-        db_Repo.addFavouriteMeal(mealName,img);
+    public void addFavItem(MealDetailsModel model) {
+        Log.i("addFavMethod", "addFavItem: ");
+        db_Repo.addFavouriteMeal(model);
 
+
+    }
+
+    @Override
+    public void getfavMeal(Favourite_Model model) {
+
+    }
+    @Override
+    public void getAllFavMeals() {
+
+    }
+
+
+    @Override
+    public void UnFav() {
 
     }
 }

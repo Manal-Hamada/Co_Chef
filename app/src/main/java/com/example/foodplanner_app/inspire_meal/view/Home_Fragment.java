@@ -95,7 +95,7 @@ public class Home_Fragment extends Fragment implements DetailsOnClickListener, C
     }
 
     @Override
-    public void navToDetails() {
+    public void navToDetails(int id) {
 
     }
 

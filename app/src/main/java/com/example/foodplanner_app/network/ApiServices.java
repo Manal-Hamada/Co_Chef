@@ -3,6 +3,7 @@ package com.example.foodplanner_app.network;
 import com.example.foodplanner_app.category_meals.model.Category_Response;
 import com.example.foodplanner_app.country_meals.model.Country_Model;
 import com.example.foodplanner_app.country_meals.model.Country_Response;
+import com.example.foodplanner_app.details.model.MealDetailsResponse;
 import com.example.foodplanner_app.ingredients.model.IngredientResponse;
 import com.example.foodplanner_app.inspire_meal.model.Inspirational_Response;
 import com.example.foodplanner_app.meals.model.Meals_Response;
@@ -33,4 +34,6 @@ public interface ApiServices {
     Single<Meals_Response> getCaountryMeals(@Query ("a") String countryName);
     @GET("filter.php")
     Single<Meals_Response> getIngredientMeals(@Query ("i") String IngredientName);
+    @GET("lookup.php")
+    Single<MealDetailsResponse> getMealDetails(@Query("i") int id);
 }
