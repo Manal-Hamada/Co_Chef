@@ -1,5 +1,9 @@
 package com.example.foodplanner_app.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -7,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +19,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.foodplanner_app.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileFragment extends Fragment {
 
     SearchView search;
+    TextView logoutTv;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -41,5 +48,37 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         search=getActivity().findViewById(R.id.search_bar);
         search.setVisibility(View.GONE);
+        topRated.setVisibility(View.GONE);
+        arrwo.setVisibility(View.GONE);
+
+        logoutTv = view.findViewById(R.id.logout_tv);
+        logoutTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("HHHHH", "onClick: " );
+                deleteId();
+                FirebaseAuth.getInstance().signOut();
+                navToLogin();
+            }
+        });
+    }
+
+    private void deleteId() {
+        SharedPreferences preferences = this.getActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("loggedId", "");
+        editor.clear();
+        editor.apply();
+    }
+
+    public void navToLogin() {
+        Intent intent = new Intent(this.getActivity(), LoginActivity.class);
+        startActivity(intent);
+        getActivity().finish();
+    }
+
+    private String testId(){
+        SharedPreferences preferences = this.getActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE);
+        return preferences.getString("loggedId", "");
     }
 }

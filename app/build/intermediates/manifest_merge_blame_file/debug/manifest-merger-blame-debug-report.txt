@@ -1,0 +1,328 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.foodplanner_app"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+8-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:4:5-66
+11-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:24:5-79
+12-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:24:22-76
+13    <uses-permission android:name="android.permission.WAKE_LOCK" />
+13-->[com.google.android.gms:play-services-measurement-api:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\7e653ff76d4ebf89958a2990039c3c3c\transformed\play-services-measurement-api-21.2.0\AndroidManifest.xml:24:5-68
+13-->[com.google.android.gms:play-services-measurement-api:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\7e653ff76d4ebf89958a2990039c3c3c\transformed\play-services-measurement-api-21.2.0\AndroidManifest.xml:24:22-65
+14    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+14-->[com.google.android.gms:play-services-measurement-api:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\7e653ff76d4ebf89958a2990039c3c3c\transformed\play-services-measurement-api-21.2.0\AndroidManifest.xml:25:5-79
+14-->[com.google.android.gms:play-services-measurement-api:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\7e653ff76d4ebf89958a2990039c3c3c\transformed\play-services-measurement-api-21.2.0\AndroidManifest.xml:25:22-76
+15    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+15-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:26:5-110
+15-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:26:22-107
+16
+17    <permission
+17-->[androidx.core:core:1.9.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\46580efff2520e68c7940204055d2c0f\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+18        android:name="com.example.foodplanner_app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+18-->[androidx.core:core:1.9.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\46580efff2520e68c7940204055d2c0f\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+19        android:protectionLevel="signature" />
+19-->[androidx.core:core:1.9.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\46580efff2520e68c7940204055d2c0f\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+20
+21    <uses-permission android:name="com.example.foodplanner_app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+21-->[androidx.core:core:1.9.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\46580efff2520e68c7940204055d2c0f\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+21-->[androidx.core:core:1.9.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\46580efff2520e68c7940204055d2c0f\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+22
+23    <application
+23-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:6:5-44:19
+24        android:allowBackup="true"
+24-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:7:9-35
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.9.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\46580efff2520e68c7940204055d2c0f\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+26        android:dataExtractionRules="@xml/data_extraction_rules"
+26-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:8:9-65
+27        android:debuggable="true"
+28        android:extractNativeLibs="false"
+29        android:fullBackupContent="@xml/backup_rules"
+29-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:9:9-54
+30        android:icon="@mipmap/hat_logo_ic_launcher"
+30-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:10:9-52
+31        android:label="@string/app_name"
+31-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:11:9-41
+32        android:supportsRtl="true"
+32-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:12:9-35
+33        android:theme="@style/HomeTheme" >
+33-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:13:9-41
+34        <activity
+34-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:15:9-17:40
+35            android:name="com.example.foodplanner_app.view.SignUp_Activity"
+35-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:16:13-49
+36            android:exported="false" />
+36-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:17:13-37
+37        <activity
+37-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:18:9-20:40
+38            android:name="com.example.foodplanner_app.view.LoginActivity"
+38-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:19:13-47
+39            android:exported="false" />
+39-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:20:13-37
+40        <activity
+40-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:21:9-25:75
+41            android:name="com.example.foodplanner_app.MainActivity"
+41-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:22:13-41
+42            android:exported="false"
+42-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:23:13-37
+43            android:label="@string/title_activity_home"
+43-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:24:13-56
+44            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+44-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:25:13-72
+45        <activity
+45-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:26:9-29:48
+46            android:name="com.example.foodplanner_app.view.HomeActivity"
+46-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:27:13-46
+47            android:exported="true"
+47-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:28:13-36
+48            android:theme="@style/HomeTheme" />
+48-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:29:13-45
+49        <activity
+49-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:30:9-33:48
+50            android:name="com.example.foodplanner_app.view.OnboardingActivity"
+50-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:31:13-52
+51            android:exported="true"
+51-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:32:13-36
+52            android:theme="@style/HomeTheme" />
+52-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:33:13-45
+53        <activity
+53-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:34:9-43:20
+54            android:name="com.example.foodplanner_app.view.SplashActivity"
+54-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:35:13-48
+55            android:exported="true"
+55-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:36:13-36
+56            android:theme="@style/HomeTheme" >
+56-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:37:13-45
+57            <intent-filter>
+57-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:38:13-42:29
+58                <action android:name="android.intent.action.MAIN" />
+58-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:39:17-69
+58-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:39:25-66
+59
+60                <category android:name="android.intent.category.LAUNCHER" />
+60-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:41:17-77
+60-->D:\CSED\ITI\Android\Co_Chef\app\src\main\AndroidManifest.xml:41:27-74
+61            </intent-filter>
+62        </activity>
+63        <activity
+63-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:27:9-44:20
+64            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+64-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:28:13-80
+65            android:excludeFromRecents="true"
+65-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:29:13-46
+66            android:exported="true"
+66-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:30:13-36
+67            android:launchMode="singleTask"
+67-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:31:13-44
+68            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+68-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:32:13-72
+69            <intent-filter>
+69-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:33:13-43:29
+70                <action android:name="android.intent.action.VIEW" />
+70-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:34:17-69
+70-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:34:25-66
+71
+72                <category android:name="android.intent.category.DEFAULT" />
+72-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:36:17-76
+72-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:36:27-73
+73                <category android:name="android.intent.category.BROWSABLE" />
+73-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:37:17-78
+73-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:37:27-75
+74
+75                <data
+75-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:39:17-42:51
+76                    android:host="firebase.auth"
+76-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:40:21-49
+77                    android:path="/"
+77-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:41:21-37
+78                    android:scheme="genericidp" />
+78-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:42:21-48
+79            </intent-filter>
+80        </activity>
+81        <activity
+81-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:45:9-62:20
+82            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+82-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:46:13-79
+83            android:excludeFromRecents="true"
+83-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:47:13-46
+84            android:exported="true"
+84-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:48:13-36
+85            android:launchMode="singleTask"
+85-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:49:13-44
+86            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+86-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:50:13-72
+87            <intent-filter>
+87-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:51:13-61:29
+88                <action android:name="android.intent.action.VIEW" />
+88-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:34:17-69
+88-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:34:25-66
+89
+90                <category android:name="android.intent.category.DEFAULT" />
+90-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:36:17-76
+90-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:36:27-73
+91                <category android:name="android.intent.category.BROWSABLE" />
+91-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:37:17-78
+91-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:37:27-75
+92
+93                <data
+93-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:39:17-42:51
+94                    android:host="firebase.auth"
+94-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:40:21-49
+95                    android:path="/"
+95-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:41:21-37
+96                    android:scheme="recaptcha" />
+96-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:42:21-48
+97            </intent-filter>
+98        </activity>
+99
+100        <service
+100-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:64:9-70:19
+101            android:name="com.google.firebase.components.ComponentDiscoveryService"
+101-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:65:13-84
+102            android:directBootAware="true"
+102-->[com.google.firebase:firebase-common:20.3.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\0c4acd057358a2f1e8882709e8a14c83\transformed\firebase-common-20.3.0\AndroidManifest.xml:34:13-43
+103            android:exported="false" >
+103-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:66:13-37
+104            <meta-data
+104-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:67:13-69:85
+105                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+105-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:68:17-109
+106                android:value="com.google.firebase.components.ComponentRegistrar" />
+106-->[com.google.firebase:firebase-auth:21.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b4a66383e124c4c67e23ba549d4382ff\transformed\firebase-auth-21.1.0\AndroidManifest.xml:69:17-82
+107            <meta-data
+107-->[com.google.firebase:firebase-firestore:24.4.2] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b34b08359531d63838831dd39ede5245\transformed\firebase-firestore-24.4.2\AndroidManifest.xml:19:13-21:85
+108                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+108-->[com.google.firebase:firebase-firestore:24.4.2] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b34b08359531d63838831dd39ede5245\transformed\firebase-firestore-24.4.2\AndroidManifest.xml:20:17-111
+109                android:value="com.google.firebase.components.ComponentRegistrar" />
+109-->[com.google.firebase:firebase-firestore:24.4.2] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b34b08359531d63838831dd39ede5245\transformed\firebase-firestore-24.4.2\AndroidManifest.xml:21:17-82
+110            <meta-data
+110-->[com.google.android.gms:play-services-measurement-api:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\7e653ff76d4ebf89958a2990039c3c3c\transformed\play-services-measurement-api-21.2.0\AndroidManifest.xml:31:13-33:85
+111                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+111-->[com.google.android.gms:play-services-measurement-api:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\7e653ff76d4ebf89958a2990039c3c3c\transformed\play-services-measurement-api-21.2.0\AndroidManifest.xml:32:17-139
+112                android:value="com.google.firebase.components.ComponentRegistrar" />
+112-->[com.google.android.gms:play-services-measurement-api:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\7e653ff76d4ebf89958a2990039c3c3c\transformed\play-services-measurement-api-21.2.0\AndroidManifest.xml:33:17-82
+113            <meta-data
+113-->[com.google.firebase:firebase-installations:17.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\0d7c8e7336936c2bd85954198a048562\transformed\firebase-installations-17.1.0\AndroidManifest.xml:17:13-19:85
+114                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+114-->[com.google.firebase:firebase-installations:17.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\0d7c8e7336936c2bd85954198a048562\transformed\firebase-installations-17.1.0\AndroidManifest.xml:18:17-127
+115                android:value="com.google.firebase.components.ComponentRegistrar" />
+115-->[com.google.firebase:firebase-installations:17.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\0d7c8e7336936c2bd85954198a048562\transformed\firebase-installations-17.1.0\AndroidManifest.xml:19:17-82
+116        </service>
+117
+118        <activity
+118-->[com.google.android.gms:play-services-auth:20.4.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b8f6c7b0f685884c6e7e30a0fdcc905e\transformed\play-services-auth-20.4.1\AndroidManifest.xml:23:9-27:75
+119            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+119-->[com.google.android.gms:play-services-auth:20.4.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b8f6c7b0f685884c6e7e30a0fdcc905e\transformed\play-services-auth-20.4.1\AndroidManifest.xml:24:13-93
+120            android:excludeFromRecents="true"
+120-->[com.google.android.gms:play-services-auth:20.4.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b8f6c7b0f685884c6e7e30a0fdcc905e\transformed\play-services-auth-20.4.1\AndroidManifest.xml:25:13-46
+121            android:exported="false"
+121-->[com.google.android.gms:play-services-auth:20.4.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b8f6c7b0f685884c6e7e30a0fdcc905e\transformed\play-services-auth-20.4.1\AndroidManifest.xml:26:13-37
+122            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+122-->[com.google.android.gms:play-services-auth:20.4.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b8f6c7b0f685884c6e7e30a0fdcc905e\transformed\play-services-auth-20.4.1\AndroidManifest.xml:27:13-72
+123        <!--
+124            Service handling Google Sign-In user revocation. For apps that do not integrate with
+125            Google Sign-In, this service will never be started.
+126        -->
+127        <service
+127-->[com.google.android.gms:play-services-auth:20.4.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b8f6c7b0f685884c6e7e30a0fdcc905e\transformed\play-services-auth-20.4.1\AndroidManifest.xml:33:9-37:51
+128            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+128-->[com.google.android.gms:play-services-auth:20.4.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b8f6c7b0f685884c6e7e30a0fdcc905e\transformed\play-services-auth-20.4.1\AndroidManifest.xml:34:13-89
+129            android:exported="true"
+129-->[com.google.android.gms:play-services-auth:20.4.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b8f6c7b0f685884c6e7e30a0fdcc905e\transformed\play-services-auth-20.4.1\AndroidManifest.xml:35:13-36
+130            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+130-->[com.google.android.gms:play-services-auth:20.4.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b8f6c7b0f685884c6e7e30a0fdcc905e\transformed\play-services-auth-20.4.1\AndroidManifest.xml:36:13-107
+131            android:visibleToInstantApps="true" />
+131-->[com.google.android.gms:play-services-auth:20.4.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\b8f6c7b0f685884c6e7e30a0fdcc905e\transformed\play-services-auth-20.4.1\AndroidManifest.xml:37:13-48
+132
+133        <provider
+133-->[com.google.firebase:firebase-common:20.3.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\0c4acd057358a2f1e8882709e8a14c83\transformed\firebase-common-20.3.0\AndroidManifest.xml:25:9-30:39
+134            android:name="com.google.firebase.provider.FirebaseInitProvider"
+134-->[com.google.firebase:firebase-common:20.3.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\0c4acd057358a2f1e8882709e8a14c83\transformed\firebase-common-20.3.0\AndroidManifest.xml:26:13-77
+135            android:authorities="com.example.foodplanner_app.firebaseinitprovider"
+135-->[com.google.firebase:firebase-common:20.3.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\0c4acd057358a2f1e8882709e8a14c83\transformed\firebase-common-20.3.0\AndroidManifest.xml:27:13-72
+136            android:directBootAware="true"
+136-->[com.google.firebase:firebase-common:20.3.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\0c4acd057358a2f1e8882709e8a14c83\transformed\firebase-common-20.3.0\AndroidManifest.xml:28:13-43
+137            android:exported="false"
+137-->[com.google.firebase:firebase-common:20.3.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\0c4acd057358a2f1e8882709e8a14c83\transformed\firebase-common-20.3.0\AndroidManifest.xml:29:13-37
+138            android:initOrder="100" />
+138-->[com.google.firebase:firebase-common:20.3.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\0c4acd057358a2f1e8882709e8a14c83\transformed\firebase-common-20.3.0\AndroidManifest.xml:30:13-36
+139
+140        <activity
+140-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\40b012349d1fcba3afd6fcaf1c0fe007\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+141            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+141-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\40b012349d1fcba3afd6fcaf1c0fe007\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+142            android:exported="false"
+142-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\40b012349d1fcba3afd6fcaf1c0fe007\transformed\play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+143            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+143-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\40b012349d1fcba3afd6fcaf1c0fe007\transformed\play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+144
+145        <receiver
+145-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:29:9-33:20
+146            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+146-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:30:13-85
+147            android:enabled="true"
+147-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:31:13-35
+148            android:exported="false" >
+148-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:32:13-37
+149        </receiver>
+150
+151        <service
+151-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:35:9-38:40
+152            android:name="com.google.android.gms.measurement.AppMeasurementService"
+152-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:36:13-84
+153            android:enabled="true"
+153-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:37:13-35
+154            android:exported="false" />
+154-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:38:13-37
+155        <service
+155-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:39:9-43:72
+156            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+156-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:40:13-87
+157            android:enabled="true"
+157-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:41:13-35
+158            android:exported="false"
+158-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:42:13-37
+159            android:permission="android.permission.BIND_JOB_SERVICE" />
+159-->[com.google.android.gms:play-services-measurement:21.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\39c2eb4ff2052184759cdf8de6ed1db7\transformed\play-services-measurement-21.2.0\AndroidManifest.xml:43:13-69
+160
+161        <meta-data
+161-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\3ed17915a2e744c2bbbfb52330773cf5\transformed\play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+162            android:name="com.google.android.gms.version"
+162-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\3ed17915a2e744c2bbbfb52330773cf5\transformed\play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+163            android:value="@integer/google_play_services_version" />
+163-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\3ed17915a2e744c2bbbfb52330773cf5\transformed\play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+164
+165        <provider
+165-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\ac0fb3956709d2347e7c19d6d7a40626\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+166            android:name="androidx.startup.InitializationProvider"
+166-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\ac0fb3956709d2347e7c19d6d7a40626\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+167            android:authorities="com.example.foodplanner_app.androidx-startup"
+167-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\ac0fb3956709d2347e7c19d6d7a40626\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+168            android:exported="false" >
+168-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\ac0fb3956709d2347e7c19d6d7a40626\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+169            <meta-data
+169-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\ac0fb3956709d2347e7c19d6d7a40626\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+170                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+170-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\ac0fb3956709d2347e7c19d6d7a40626\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+171                android:value="androidx.startup" />
+171-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\ac0fb3956709d2347e7c19d6d7a40626\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+172            <meta-data
+172-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\a7afaacbc7177510ad6c44aabd6a8811\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+173                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+173-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\a7afaacbc7177510ad6c44aabd6a8811\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+174                android:value="androidx.startup" />
+174-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\user\.jdks\corretto-11.0.15\caches\transforms-3\a7afaacbc7177510ad6c44aabd6a8811\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+175        </provider>
+176    </application>
+177
+178</manifest>

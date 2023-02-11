@@ -77,9 +77,9 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
         arr.add(new Model("Egyptian soap", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.nodels));
         arr.add(new Model("Nodels", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.soap));
         arr.add(new Model("Nodels", "12/12/2022", R.drawable.fav_outer_ic, R.drawable.calender, R.drawable.nodels));
-        arr.add(new Model("shesh", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.shesh_dish));
+
         arr.add(new Model("Soap", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.soap));
-        arr.add(new Model("shesh", "12/12/2022", R.drawable.fav_outer_ic, R.drawable.calender, R.drawable.shesh_dish));
+
         arr.add(new Model("Soap", "12/12/2022", R.drawable.fav_ic, R.drawable.calender, R.drawable.soap));
         arr.add(new Model("Nodels", "12/12/2022", R.drawable.fav_outer_ic, R.drawable.calender, R.drawable.nodels));
 

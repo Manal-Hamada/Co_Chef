@@ -62,6 +62,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/password"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/primary"
         app:layout_constraintBottom_toTopOf="@+id/loginBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -209,6 +211,19 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/forget_password_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:fontFamily="@font/ubuntu"
+        android:text="@string/forgotten_password"
+        android:textColor="@color/main_color"
+        android:layout_marginTop="2dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/outlinedTextField_password"
+        app:layout_constraintTop_toBottomOf="@+id/outlinedTextField_password" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

@@ -8,12 +8,13 @@
             <action android:name="com.google.android.youtube.api.service.START"/>
         </intent>
     </queries>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/hat_logo_ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/HomeTheme"

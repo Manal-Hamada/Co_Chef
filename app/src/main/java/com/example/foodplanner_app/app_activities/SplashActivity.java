@@ -5,7 +5,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-
+import com.example.foodplanner_app.view.OnBoardingItem;
+import com.example.foodplanner_app.view.OnboardingActivity;
 import com.example.foodplanner_app.R;
 import com.example.foodplanner_app.authantication.LoginActivity;
 
@@ -23,12 +24,12 @@ public class SplashActivity extends AppCompatActivity {
                 checkFirstTime();
                 checkLoggedIn();
             }
-        },10);
+        },1000);
     }
 
     private void checkLoggedIn() {
         SharedPreferences preferences = getSharedPreferences("PREFERENCE", MODE_PRIVATE);
-        String loggedToken = preferences.getString("loggedToken", "");
+        String loggedToken = preferences.getString("loggedId", "");
 
         if (loggedToken.equals("")){
             startActivity(new Intent(SplashActivity.this, OnboardingActivity.class));
