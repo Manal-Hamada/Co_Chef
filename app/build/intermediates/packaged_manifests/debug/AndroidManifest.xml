@@ -9,6 +9,14 @@
         android:targetSdkVersion="33" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
@@ -30,28 +38,24 @@
         android:icon="@mipmap/hat_logo_ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/HomeTheme" >
         <activity
-            android:name="com.example.foodplanner_app.view.SignUp_Activity"
+            android:name="com.example.foodplanner_app.authantication.SignUp_Activity"
             android:exported="false" />
         <activity
-            android:name="com.example.foodplanner_app.view.LoginActivity"
+            android:name="com.example.foodplanner_app.authantication.LoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.foodplanner_app.MainActivity"
-            android:exported="false"
-            android:label="@string/title_activity_home"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
-        <activity
-            android:name="com.example.foodplanner_app.view.HomeActivity"
+            android:name="com.example.foodplanner_app.app_activities.HomeActivity"
             android:exported="true"
             android:theme="@style/HomeTheme" />
         <activity
-            android:name="com.example.foodplanner_app.view.OnboardingActivity"
+            android:name="com.example.foodplanner_app.app_activities.OnboardingActivity"
             android:exported="true"
             android:theme="@style/HomeTheme" />
         <activity
-            android:name="com.example.foodplanner_app.view.SplashActivity"
+            android:name="com.example.foodplanner_app.app_activities.SplashActivity"
             android:exported="true"
             android:theme="@style/HomeTheme" >
             <intent-filter>
@@ -108,12 +112,19 @@
                 android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
         </service>
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
 
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"

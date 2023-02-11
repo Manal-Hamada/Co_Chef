@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.foodplanner_app.R;
+import com.example.foodplanner_app.authantication.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileFragment extends Fragment {
@@ -48,8 +49,8 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         search=getActivity().findViewById(R.id.search_bar);
         search.setVisibility(View.GONE);
-        topRated.setVisibility(View.GONE);
-        arrwo.setVisibility(View.GONE);
+//        topRated.setVisibility(View.GONE);
+//        arrwo.setVisibility(View.GONE);
 
         logoutTv = view.findViewById(R.id.logout_tv);
         logoutTv.setOnClickListener(new View.OnClickListener() {

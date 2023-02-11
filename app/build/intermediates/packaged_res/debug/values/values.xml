@@ -65,6 +65,7 @@
     <string name="google_storage_bucket" translatable="false">foodplannerproject-5f570.appspot.com</string>
     <string name="have_an_account">Have an account?</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="inspireMeal">Inspirational Meal</string>
     <string name="log_out">Log out</string>
     <string name="login">Login</string>
     <string name="mealName">Egyptian soap</string>

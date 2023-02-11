@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.foodplanner_app.R;
-import com.example.foodplanner_app.UserModel;
+import com.example.foodplanner_app.models.UserModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
@@ -65,10 +65,11 @@ public class SignUp_Activity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        Toast.makeText(SignUp_Activity.this, "success signup", Toast.LENGTH_SHORT).show();
+
                         firebaseFirestore.collection("User")
                                 .document(firebaseAuth.getUid())
                                 .set(new UserModel(usernameEdt.getText().toString(), mailEdt.getText().toString()));
+                        Toast.makeText(SignUp_Activity.this, "Welcome "+usernameEdt.getText(), Toast.LENGTH_SHORT).show();
                         navToLogin();
                     }
                 })

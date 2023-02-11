@@ -1,4 +1,4 @@
-package com.example.foodplanner_app;
+package com.example.foodplanner_app.models;
 
 public class UserModel {
     private String username;

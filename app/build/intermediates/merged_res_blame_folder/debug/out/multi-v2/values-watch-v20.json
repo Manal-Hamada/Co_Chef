@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.foodplanner_app-mergeDebugResources-39:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "com.example.foodplanner_app-mergeDebugResources-46:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.jdks\\corretto-11.0.15\\caches\\transforms-3\\b8f6c7b0f685884c6e7e30a0fdcc905e\\transformed\\play-services-auth-20.4.1\\res\\values-watch-v20\\values.xml",

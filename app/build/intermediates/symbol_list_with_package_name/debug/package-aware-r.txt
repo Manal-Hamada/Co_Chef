@@ -140,6 +140,7 @@ attr arrowShaftLength
 attr attributeName
 attr autoCompleteMode
 attr autoCompleteTextViewStyle
+attr autoPlay
 attr autoShowKeyboard
 attr autoSizeMaxTextSize
 attr autoSizeMinTextSize
@@ -471,6 +472,7 @@ attr elevationOverlayAccentColor
 attr elevationOverlayColor
 attr elevationOverlayEnabled
 attr emojiCompatEnabled
+attr enableAutomaticInitialization
 attr enableEdgeToEdge
 attr endIconCheckable
 attr endIconContentDescription
@@ -570,6 +572,7 @@ attr fontProviderFetchTimeout
 attr fontProviderPackage
 attr fontProviderQuery
 attr fontProviderSystemFontFamily
+attr fontSize
 attr fontStyle
 attr fontVariationSettings
 attr fontWeight
@@ -583,6 +586,7 @@ attr goIcon
 attr guidelineUseRtl
 attr haloColor
 attr haloRadius
+attr handleNetworkEvents
 attr headerLayout
 attr height
 attr helperText
@@ -1277,6 +1281,7 @@ attr useMaterialThemeColors
 attr values
 attr verticalOffset
 attr verticalOffsetWithText
+attr videoId
 attr viewInflaterClass
 attr viewTransitionMode
 attr viewTransitionOnCross
@@ -1337,6 +1342,11 @@ color accent_material_dark
 color accent_material_light
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
+color ayp_drop_shadow
+color ayp_item_selected
+color ayp_menu_icons
+color ayp_menu_text
+color ayp_red
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
@@ -2064,6 +2074,11 @@ dimen activity_vertical_margin
 dimen appbar_padding
 dimen appbar_padding_top
 dimen appcompat_dialog_background_inset
+dimen ayp_12sp
+dimen ayp_8dp
+dimen ayp_menu_dialog_container_margin
+dimen ayp_menu_item_padding
+dimen ayp_menu_item_text_size
 dimen browser_actions_context_menu_max_width
 dimen browser_actions_context_menu_min_padding
 dimen cardview_compat_inset_shadow
@@ -2775,6 +2790,16 @@ drawable add_ic
 drawable avatar_dr
 drawable avd_hide_password
 drawable avd_show_password
+drawable ayp_background_item_selected
+drawable ayp_drop_shadow_bottom
+drawable ayp_drop_shadow_top
+drawable ayp_ic_fullscreen_24dp
+drawable ayp_ic_fullscreen_exit_24dp
+drawable ayp_ic_menu_24dp
+drawable ayp_ic_pause_36dp
+drawable ayp_ic_play_36dp
+drawable ayp_ic_youtube_24dp
+drawable ayp_shape_rounded_corners
 drawable bar
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -2918,7 +2943,10 @@ drawable onboarding_three
 drawable onboarding_two
 drawable person_ic
 drawable plane_ic
+drawable rounded_shape
+drawable salt
 drawable save
+drawable search_ic
 drawable setting_icon
 drawable share_icon
 drawable soap
@@ -2937,7 +2965,6 @@ font ubuntu
 font ubuntu_bold
 font ubuntu_medium
 id ALT
-id Arr
 id BOTTOM_END
 id BOTTOM_START
 id CTRL
@@ -3009,7 +3036,6 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id add_ic
 id add_meal_fab
 id adjust_height
 id adjust_width
@@ -3055,6 +3081,8 @@ id calendarView
 id callMeasure
 id cancel_button
 id carryVelocity
+id category_item_card
+id category_list
 id center
 id centerCrop
 id centerInside
@@ -3082,14 +3110,18 @@ id content
 id contentPanel
 id contiguous
 id continuousVelocity
+id controls_container
 id cooked_meals_score_tv
 id coordinator
 id cos
 id counterclockwise
+id country_list
 id cradle
 id currentState
 id custom
 id customPanel
+id custom_action_left_button
+id custom_action_right_button
 id cut
 id dark
 id date_picker_actions
@@ -3127,6 +3159,8 @@ id dragLeft
 id dragRight
 id dragStart
 id dragUp
+id drop_shadow_bottom
+id drop_shadow_top
 id dropdown_menu
 id easeIn
 id easeInOut
@@ -3147,13 +3181,14 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id extra_views_container
 id facebook_imgView
 id fade
 id fav
 id fav_add_ic
 id fav_cardView
+id fav_filled_img
 id fav_fr_constrain
-id fav_ic
 id fav_list
 id fav_meal_img
 id fav_meal_name
@@ -3175,9 +3210,11 @@ id forever
 id forget_password_tv
 id fragment_container_view_tag
 id frost
+id fullscreen_button
 id fullscreen_header
 id ghost_view
 id ghost_view_holder
+id glide_custom_view_target_tag
 id gone
 id google_imgView
 id graph
@@ -3209,13 +3246,22 @@ id immediateStop
 id included
 id indeterminate
 id info
+id ingredient_measure_tv
+id ingredient_recyclerview
 id innerConstraintLayout
+id ins_category
+id ins_country
+id ins_meal_img
+id ins_meal_name
+id ins_quote
+id inspire_txt
 id invisible
 id inward
 id italic
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
+id label_tv
 id labeled
 id layout
 id layoutOnBoardingIndicators
@@ -3225,10 +3271,10 @@ id legacy
 id light
 id line1
 id line3
-id line_id
 id linear
 id listMode
 id list_item
+id live_video_indicator
 id loginBtn
 id login_tv
 id logout_tv
@@ -3266,9 +3312,16 @@ id material_value_index
 id matrix
 id meal_card
 id meal_date
+id meal_img
+id meal_layout
 id meal_list
 id meal_name
+id meal_str_country
+id meal_str_name
+id meal_str_steps
 id menu
+id menu_button
+id menu_root
 id message
 id middle
 id mini
@@ -3337,6 +3390,7 @@ id outward
 id overshoot
 id packed
 id pager
+id panel
 id parallax
 id parent
 id parentPanel
@@ -3348,16 +3402,19 @@ id pathRelative
 id peekHeight
 id percent
 id pin
+id play_pause_button
 id position
 id postLayout
 id pressed
 id profile
 id profile_imgView
+id progress
 id progress_circular
 id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recycler_view
 id restart
 id reverse
 id reverseSawtooth
@@ -3377,6 +3434,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id search
 id search_badge
 id search_bar
 id search_bar_text_view
@@ -3443,6 +3501,7 @@ id startToEnd
 id startVertical
 id staticLayout
 id staticPostLayout
+id steps_label_tv
 id stop
 id stretch
 id submenuarrow
@@ -3491,12 +3550,9 @@ id title_template
 id toggle
 id top
 id topPanel
-id top_fav_ic
 id top_item_constrain
-id top_list
 id top_meal_img
 id top_meal_name
-id top_txt
 id touch_outside
 id transitionToEnd
 id transitionToStart
@@ -3519,6 +3575,7 @@ id vertical
 id vertical_only
 id video_card
 id video_guide_line
+id video_title
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -3537,6 +3594,9 @@ id wrap_content
 id wrap_content_constrained
 id x_left
 id x_right
+id youtube_button
+id youtube_player_seekbar
+id youtube_video
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration
@@ -3646,12 +3706,16 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_home
 layout activity_login
-layout activity_main
 layout activity_onboarding
 layout activity_sign_up
 layout activity_splash
+layout ayp_default_player_ui
+layout ayp_empty_layout
+layout ayp_menu_item
+layout ayp_player_menu
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
+layout category_item
 layout custom_dialog
 layout day_meal_item
 layout design_bottom_navigation_item
@@ -3678,8 +3742,12 @@ layout fragment_favourit
 layout fragment_home_
 layout fragment_ingredienst
 layout fragment_login
+layout fragment_meals
 layout fragment_profile
+layout fragment_search_
 layout fragment_sign_up
+layout fragment_test
+layout ingredient_item
 layout item_container_onboarding
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
@@ -3701,6 +3769,7 @@ layout material_timepicker
 layout material_timepicker_dialog
 layout material_timepicker_textinput_display
 layout meal_item
+layout meal_item_two
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -3744,7 +3813,7 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout step_list_item
 layout support_simple_spinner_dropdown_item
-layout top_meal_item
+layout test
 menu bottom_nav_menu
 mipmap hat_logo_ic_launcher
 mipmap hat_logo_ic_launcher_foreground
@@ -3756,6 +3825,7 @@ mipmap logo_ic_launcher_foreground
 mipmap logo_ic_launcher_round
 plurals mtrl_badge_content_description
 raw around_the_city
+raw ayp_youtube_player
 raw firebase_common_keep
 raw originallottisplach
 raw splash_animation
@@ -3794,6 +3864,13 @@ string about_us
 string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
+string ayp_custom_action_left
+string ayp_custom_action_right
+string ayp_full_screen_button
+string ayp_live
+string ayp_null_time
+string ayp_open_video_in_youtube
+string ayp_play_button
 string bottom_sheet_behavior
 string bottomsheet_action_collapse
 string bottomsheet_action_expand
@@ -3851,6 +3928,7 @@ string have_an_account
 string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
+string inspireMeal
 string item_view_role_description
 string log_out
 string login
@@ -5235,6 +5313,8 @@ styleable ViewBackgroundHelper android_background backgroundTint backgroundTintM
 styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
 styleable ViewTransition android_id SharedValue SharedValueId clearsTag duration ifTagNotSet ifTagSet motionInterpolator motionTarget onStateTransition pathMotionArc setsTag transitionDisable upDuration viewTransitionMode
+styleable YouTubePlayerSeekBar color fontSize
+styleable YouTubePlayerView autoPlay enableAutomaticInitialization handleNetworkEvents videoId
 styleable include constraintSet
 xml backup_rules
 xml data_extraction_rules
