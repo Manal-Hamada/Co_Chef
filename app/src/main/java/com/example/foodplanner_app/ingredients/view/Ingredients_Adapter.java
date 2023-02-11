@@ -48,6 +48,7 @@ public class Ingredients_Adapter extends RecyclerView.Adapter<Ingredients_Adapte
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
              ingredientsOnClickListener.navToMeals(list.get( holder.getAdapterPosition()).getStrIngredient(),3);
             }
         });
