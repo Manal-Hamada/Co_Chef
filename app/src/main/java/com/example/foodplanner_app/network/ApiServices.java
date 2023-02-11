@@ -1,6 +1,7 @@
 package com.example.foodplanner_app.network;
 
 import com.example.foodplanner_app.category_meals.model.Category_Response;
+import com.example.foodplanner_app.details.model.MealDetailsResponse;
 import com.example.foodplanner_app.meals.model.Meals_Response;
 
 import io.reactivex.rxjava3.core.Single;
@@ -17,5 +18,8 @@ public interface ApiServices {
 
     @GET("filter.php")
     Single<Meals_Response> getCategoryMeals(@Query("c") String categoryName);
+
+    @GET("lookup.php")
+    Single<MealDetailsResponse> getMealDetails(@Query("i") int id);
 
 }

@@ -13,10 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.foodplanner_app.R;
-import com.example.foodplanner_app.category_meals.model.Category_Model;
-import com.example.foodplanner_app.category_meals.view.CategoryAdapter;
-import com.example.foodplanner_app.category_meals.view.CategoryOnClickListener;
-import com.example.foodplanner_app.details.view.DetailsOnClickListener;
 import com.example.foodplanner_app.meals.model.Meal_Model;
 
 import java.util.ArrayList;
@@ -54,7 +50,7 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MyViewHolder> 
         holder.mealLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                listener.navToDetails(Integer.parseInt(list.get( holder.getAdapterPosition()).getIdMeal()));
             }
         });
     }

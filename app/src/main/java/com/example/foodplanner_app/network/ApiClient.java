@@ -6,6 +6,8 @@ import android.util.Log;
 import com.example.foodplanner_app.category_meals.model.Category_Model;
 import com.example.foodplanner_app.category_meals.model.Category_Response;
 import com.example.foodplanner_app.category_meals.network.CategoryNetworkDelegate;
+import com.example.foodplanner_app.details.model.MealDetailsModel;
+import com.example.foodplanner_app.details.model.MealDetailsResponse;
 import com.example.foodplanner_app.meals.model.Meals_Response;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,21 +50,10 @@ public class ApiClient {
         return client;
     }
 
-//    @SuppressLint("CheckResult")
-//    public void enqueueCall(CategoryNetworkDelegate networkDelegate){
-//        Gson gson = new GsonBuilder().setLenient().create();
-//        Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL)
-//                .addConverterFactory(GsonConverterFactory.create(gson))
-//                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-//                .build();
-//        ApiServices service =retrofit.create(ApiServices.class);
-//
-//        call = service.getAllCtegories();
-//        call.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).
-//                subscribe(item-> networkDelegate.onSuccess(item.getCategories()),
-//                        (error -> error.toString()));
-//
-//    }
+    @SuppressLint("CheckResult")
+    public Single<MealDetailsResponse> enqueueCallMealDetails(int id){
+        return service.getMealDetails(id);
+    }
 
     @SuppressLint("CheckResult")
     public Single<Meals_Response> enqueueCallCategoryMeals(String categoryName){

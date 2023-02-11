@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,15 +21,9 @@ import com.example.foodplanner_app.R;
 
 import com.example.foodplanner_app.meals.repository.Repository;
 import com.example.foodplanner_app.details.view.DetailsFragment;
-import com.example.foodplanner_app.details.view.DetailsOnClickListener;
 import com.example.foodplanner_app.meals.model.Meal_Model;
-import com.example.foodplanner_app.network.ApiClient;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
 public class MealsFragment extends Fragment implements DetailsOnClickListener {
@@ -102,12 +95,12 @@ public class MealsFragment extends Fragment implements DetailsOnClickListener {
     }
 
     @Override
-    public void navToDetails() {
+    public void navToDetails(int id) {
         getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
         getActivity().findViewById(R.id.pager) .setVisibility(View.GONE);
         getActivity().findViewById(R.id.tablayout) .setVisibility(View.GONE);
         hideCategoryTexts();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment()).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment(id)).commit();
     }
 
 

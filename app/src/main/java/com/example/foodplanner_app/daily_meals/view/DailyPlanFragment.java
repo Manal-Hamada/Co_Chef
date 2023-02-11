@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.example.foodplanner_app.R;
 import com.example.foodplanner_app.details.view.DetailsFragment;
-import com.example.foodplanner_app.details.view.DetailsOnClickListener;
+import com.example.foodplanner_app.meals.view.DetailsOnClickListener;
 import com.example.foodplanner_app.models.Model;
 
 import java.util.ArrayList;
@@ -87,7 +87,7 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
     }
 
     @Override
-    public void navToDetails() {
+    public void navToDetails(int id) {
         getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
         getActivity().findViewById(R.id.pager).setVisibility(View.GONE);
         getActivity().findViewById(R.id.tablayout).setVisibility(View.GONE);

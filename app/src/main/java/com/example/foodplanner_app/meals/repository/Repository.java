@@ -45,9 +45,10 @@ public class Repository {
                 subscribe(item -> {
 
                     Log.i("TTTTTTT", "getMeals size: "+item.getMeals());
-                    this.arr.addAll( item.getMeals());
+                    //this.arr.addAll( item.getMeals());
                     Log.i("TTTTTTT", "getMeals: "+item);
-                    mutableMealsArray.setValue(arr);
+
+                    mutableMealsArray.setValue(item.getMeals());
                     //System.out.println(arr.size());
 
                 }, (error -> error.toString()));

@@ -10,14 +10,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.foodplanner_app.category_meals.model.Category_Model;
 import com.example.foodplanner_app.R;
-import com.example.foodplanner_app.details.view.DetailsOnClickListener;
+import com.example.foodplanner_app.meals.view.DetailsOnClickListener;
 
 import java.util.ArrayList;
 

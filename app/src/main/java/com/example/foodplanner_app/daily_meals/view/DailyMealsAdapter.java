@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.foodplanner_app.details.view.DetailsOnClickListener;
+import com.example.foodplanner_app.meals.view.DetailsOnClickListener;
 import com.example.foodplanner_app.models.Model;
 import com.example.foodplanner_app.R;
 
@@ -48,7 +48,8 @@ public class DailyMealsAdapter extends RecyclerView.Adapter<DailyMealsAdapter.Da
         holder.mealCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.navToDetails();
+                //TODO determine the id
+                listener.navToDetails(5);
             }
         });
     }
