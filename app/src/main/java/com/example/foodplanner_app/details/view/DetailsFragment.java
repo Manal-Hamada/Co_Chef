@@ -25,8 +25,10 @@
     import com.example.foodplanner_app.details.repository.MealDetailsRepository;
     import com.example.foodplanner_app.details.model.MealDetailsModel;
     import com.example.foodplanner_app.meals.view.AddFavClickListener;
+    import com.example.foodplanner_app.models.MealDetailsWithUserId;
     import com.example.foodplanner_app.network.remoteSource.Db_Repository;
     import com.google.android.material.floatingactionbutton.FloatingActionButton;
+    import com.google.firebase.auth.FirebaseAuth;
     import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants;
     import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
     import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
@@ -91,7 +93,7 @@
                     String steps = meal_details_models.get(0).getStrInstructions().replace("\n","\n\n");
                     mealStepsTV.setText(steps);
                     mealCountryTv.setText("Origin country: "+meal_details_models.get(0).getStrArea());
-                  //  Glide.with(myActivity).load(meal_details_models.get(0).getStrMealThumb()).into(mealImg);
+                    Glide.with(DetailsFragment.this).load(meal_details_models.get(0).getStrMealThumb()).into(mealImg);
                     //callYoutubeAPI(meal_details_models);
                     adapter.setList(meal_details_models);
                     recycler.setAdapter(adapter);
@@ -184,7 +186,10 @@
                         details_UnFav_ic.setVisibility(View.VISIBLE);
                     }
                     else {
-                        details_UnFav_ic.setVisibility(View.VISIBLE);
+                        //TODO remove
+                        dbRepo.unFavMeal(meal);
+                        details_UnFav_ic.setVisibility(View.GONE);
+                        details_fav_ic.setVisibility(View.VISIBLE);
                     }
 
                 }

@@ -59,7 +59,7 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MyViewHolder> 
             holder.fav.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                 // clickListenerFor_db_store.addFavItem();
+                  //clickListenerFor_db_store.addFavItem(list.get(position));
                   //  Log.i("ad mealllll  ", ""+list.get(position).getStrMeal().toString());
                 }
             });

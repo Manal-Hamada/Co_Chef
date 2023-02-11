@@ -20,6 +20,8 @@ import android.widget.TextView;
 import com.example.foodplanner_app.details.model.MealDetailsModel;
 import com.example.foodplanner_app.fav_meals.model.Favourite_Model;
 import com.example.foodplanner_app.fav_meals.view.Fav_Meal_Interface;
+import com.example.foodplanner_app.inspire_meal.view.Home_Fragment;
+import com.example.foodplanner_app.models.MealDetailsWithUserId;
 import com.example.foodplanner_app.network.remoteSource.Db_Repository;
 import com.example.foodplanner_app.R;
 
@@ -27,6 +29,7 @@ import com.example.foodplanner_app.meals.repository.Repository;
 import com.example.foodplanner_app.details.view.DetailsFragment;
 import com.example.foodplanner_app.details.view.DetailsOnClickListener;
 import com.example.foodplanner_app.meals.model.Meal_Model;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 

@@ -50,7 +50,7 @@ public class FavouritFragment extends Fragment  {
         super.onViewCreated(view, savedInstanceState);
         arr=new ArrayList<>();
         repo=Db_Repository.getInstance();
-        repo.getFavouriteMeals();
+
         Log.i("lllllll", ""+arr.size());
         search=getActivity().findViewById(R.id.search_bar);
         search.setVisibility(View.GONE);
