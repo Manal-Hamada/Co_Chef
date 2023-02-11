@@ -6,8 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentContainerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.foodplanner_app.R;
 
@@ -31,6 +34,7 @@ public class HomeActivity extends AppCompatActivity  {
     ActivityHomeBinding binding;
     FragmentContainerView container;
     SearchView search;
+    String mode;
 
 
 
@@ -39,6 +43,8 @@ public class HomeActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         binding=ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Intent i =getIntent();
+        mode=i.getStringExtra("mode");
         replaceFragments(new Home_Fragment());
         init();
        // setTabLayout();
@@ -116,54 +122,13 @@ public class HomeActivity extends AppCompatActivity  {
 
     }
 
-    public void setBottomNav(){
+    public void setBottomNav() {
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-          //  viewPager.setVisibility(View.GONE);
-          //  container.setVisibility(View.VISIBLE);
-            switch (item.getItemId()){
+            if(mode!="guest")
+                userMode(item);
+            else
+              guestMode(item);
 
-                case R.id.fav:
-                    viewPager.setVisibility(View.GONE);
-                    tab.setVisibility(View.GONE);
-                    container.setVisibility(View.VISIBLE);
-                    hideCategoryTexts();
-                    replaceFragments(new FavouritFragment());
-                    break;
-                case R.id.menu:
-                    tab.setVisibility(View.GONE);
-                    viewPager.setVisibility(View.GONE);
-                    container.setVisibility(View.VISIBLE);
-                    hideCategoryTexts();
-                    replaceFragments(new DailyPlanFragment());
-                    break;
-                case R.id.profile:
-                    viewPager.setVisibility(View.GONE);
-                    tab.setVisibility(View.GONE);
-                    container.setVisibility(View.VISIBLE);
-                    hideCategoryTexts();
-                    replaceFragments(new ProfileFragment());
-                    break;
-                case R.id.home:
-                    viewPager.setVisibility(View.GONE);
-                    tab.setVisibility(View.GONE);
-                    container.setVisibility(View.VISIBLE);
-                    hideCategoryTexts();
-                    replaceFragments(new Home_Fragment());
-                    break;
-                case  R.id.search:
-                    // if(viewPager.getVisibility()== View.VISIBLE){
-                     container.setVisibility(View.GONE);
-                     viewPager.setVisibility(View.VISIBLE);
-                     tab.setVisibility(View.VISIBLE);
-                    // viewPager.getCurrentItem();
-                     showCategoryTexts();
-                    replaceFragments(new CategoryFr());
-
-                   //  else
-                         //replaceFragments(new CategoryFr());
-                    break;
-
-            }
             return true;
         });
     }
@@ -176,4 +141,85 @@ public class HomeActivity extends AppCompatActivity  {
         search.setVisibility(View.VISIBLE);
     }
 
+    public void userMode(MenuItem item){
+        switch (item.getItemId( )) {
+
+            case R.id.fav:
+                viewPager.setVisibility(View.GONE);
+                tab.setVisibility(View.GONE);
+                container.setVisibility(View.VISIBLE);
+                hideCategoryTexts();
+                replaceFragments(new FavouritFragment());
+                break;
+            case R.id.menu:
+                tab.setVisibility(View.GONE);
+                viewPager.setVisibility(View.GONE);
+                container.setVisibility(View.VISIBLE);
+                hideCategoryTexts();
+                replaceFragments(new DailyPlanFragment());
+                break;
+            case R.id.profile:
+                viewPager.setVisibility(View.GONE);
+                tab.setVisibility(View.GONE);
+                container.setVisibility(View.VISIBLE);
+                hideCategoryTexts();
+                replaceFragments(new ProfileFragment());
+                break;
+            case R.id.home:
+                viewPager.setVisibility(View.GONE);
+                tab.setVisibility(View.GONE);
+                container.setVisibility(View.VISIBLE);
+                hideCategoryTexts();
+                replaceFragments(new Home_Fragment());
+                break;
+            case R.id.search:
+                if (viewPager.getVisibility() == View.VISIBLE) {
+                    container.setVisibility(View.GONE);
+                    viewPager.setVisibility(View.VISIBLE);
+                    tab.setVisibility(View.VISIBLE);
+                    viewPager.getCurrentItem();
+                    showCategoryTexts();
+                    replaceFragments(new CategoryFr());
+                } else {
+                    tab.setVisibility(View.VISIBLE);
+                    replaceFragments(new CategoryFr());
+                    showCategoryTexts();
+                }
+                break;
+
+        }
+    }
+    public void guestMode(MenuItem item){
+        switch (item.getItemId( )) {
+
+            case R.id.fav:
+                tab.setVisibility(View.GONE);
+                viewPager.setVisibility(View.GONE);
+                container.setVisibility(View.VISIBLE);
+                hideCategoryTexts();
+                replaceFragments(new FavouritFragment());
+                break;
+            case R.id.menu:
+                tab.setVisibility(View.GONE);
+                viewPager.setVisibility(View.GONE);
+                container.setVisibility(View.VISIBLE);
+                hideCategoryTexts();
+                replaceFragments(new DailyPlanFragment());
+                break;
+            case R.id.profile:
+                Toast.makeText(this, "You have to sign in ", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.home:
+                viewPager.setVisibility(View.GONE);
+                tab.setVisibility(View.GONE);
+                container.setVisibility(View.VISIBLE);
+                hideCategoryTexts();
+                replaceFragments(new Home_Fragment());
+                break;
+            case R.id.search:
+                Toast.makeText(this, "You have to sign in ", Toast.LENGTH_SHORT).show();
+                break;
+
+        }
+    }
 }

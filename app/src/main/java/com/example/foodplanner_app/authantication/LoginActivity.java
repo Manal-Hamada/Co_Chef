@@ -15,7 +15,7 @@ import com.example.foodplanner_app.app_activities.HomeActivity;
 public class LoginActivity extends AppCompatActivity {
 
     Button loginBtn;
-    TextView signUp;
+    TextView signUp,continue_as_guest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +23,10 @@ public class LoginActivity extends AppCompatActivity {
 
         loginBtn = findViewById(R.id.loginBtn);
         signUp=findViewById(R.id.signup_tv);
+        continue_as_guest=findViewById(R.id.continu_as_guest);
         setLoginBtn();
         setsignup_tv();
+        setGuestMode();
 
     }
     public void setsignup_tv(){
@@ -53,5 +55,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
+public void setGuestMode(){
+    Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+    i.putExtra("mode","guest");
+    startActivity(i);
+    finish();
+}
 }

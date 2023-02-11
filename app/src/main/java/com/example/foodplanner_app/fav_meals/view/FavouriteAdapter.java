@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodplanner_app.fav_meals.model.Favourite_Model;
 import com.example.foodplanner_app.models.Model;
 import com.example.foodplanner_app.R;
 
@@ -20,9 +21,9 @@ import java.util.ArrayList;
 public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.FavViewHolder> {
 
     Context context;
-    ArrayList<Model> list;
+    ArrayList<Favourite_Model> list;
 
-    public FavouriteAdapter(Context context, ArrayList<Model> list) {
+    public FavouriteAdapter(Context context, ArrayList<Favourite_Model> list) {
         this.context = context;
         this.list = list;
     }
@@ -38,10 +39,7 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.FavV
 
     @Override
     public void onBindViewHolder(@NonNull FavViewHolder holder, int position) {
-        holder.mealName.setText(list.get(position).getMealName());
-        holder.add.setImageResource(list.get(position).getAddImg());
-        holder.mealImg.setImageResource(list.get(position).getMealImg());
-
+        holder.mealName.setText(list.get(position).getName());
     }
 
     @Override
@@ -63,5 +61,9 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.FavV
             mealCard=itemView.findViewById(R.id.fav_cardView);
 
         }
+    }
+
+    public void setList(ArrayList<Favourite_Model> list) {
+        this.list = list;
     }
 }

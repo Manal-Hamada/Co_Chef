@@ -5,22 +5,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="30dp"
     android:layout_margin="8dp"
-    android:backgroundTint="@color/white"
-    android:layout_height="wrap_content"
+    android:backgroundTint="@color/primary"
+    android:layout_height="100dp"
     android:id="@+id/category_item_card"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_item_constrain"
-        android:layout_width="177dp"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
 
         <ImageView
             android:id="@+id/top_meal_img"
-            android:layout_width="175dp"
-            android:layout_height="57dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
             android:scaleType="centerCrop"
+            android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,15 +30,15 @@
 
         <TextView
             android:id="@+id/top_meal_name"
-            android:layout_width="175dp"
-            android:layout_height="45dp"
+            android:layout_width="167dp"
+            android:layout_height="20dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             android:paddingStart="2dp"
-            android:textColor="@color/white"
             android:paddingBottom="5dp"
             android:text="@string/mealName"
             android:textAlignment="center"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/top_meal_img" />

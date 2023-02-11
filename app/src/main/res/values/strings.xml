@@ -35,6 +35,7 @@
     <string name="login">Login</string>
     <string name="dummy_description">dummy_description</string>
     <string name="inspireMeal">Inspirational Meal</string>
+    <string name="ins_category_txt" >Category</string>
 
 
 </resources>

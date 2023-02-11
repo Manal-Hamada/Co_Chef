@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,7 +39,6 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -53,18 +53,15 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
         super.onViewCreated(view, savedInstanceState);
         arr = new ArrayList<>();
         search = getActivity().findViewById(R.id.search_bar);
-
-
         setArr();
         setRecycler();
-
     }
 
     public void setRecycler() {
 
         recycler = requireView().findViewById(R.id.day_list);
         recycler.setHasFixedSize(true);
-        LinearLayoutManager manger = new LinearLayoutManager(getActivity());
+        LinearLayoutManager manger=new LinearLayoutManager(getActivity());
         manger.setOrientation(RecyclerView.VERTICAL);
         recycler.setLayoutManager(manger);
         adapter = new DailyMealsAdapter(getActivity(), arr, this);

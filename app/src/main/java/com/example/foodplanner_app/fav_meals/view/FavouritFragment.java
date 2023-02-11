@@ -9,26 +9,29 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.foodplanner_app.R;
-import com.example.foodplanner_app.models.Model;
+import com.example.foodplanner_app.fav_meals.model.Favourite_Model;
+import com.example.foodplanner_app.network.remoteSource.Db_Repository;
 
 import java.util.ArrayList;
 
-public class FavouritFragment extends Fragment {
+public class FavouritFragment extends Fragment implements Fav_Meal_Interface {
 
     RecyclerView recycler;
     FavouriteAdapter adapter;
-    ArrayList<Model> arr;
+    ArrayList<Favourite_Model> arr;
     SearchView search;
+    Db_Repository repo;
+    Favourite_Model model;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
     public FavouritFragment(){
 
@@ -46,34 +49,27 @@ public class FavouritFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         arr=new ArrayList<>();
-
+        repo=Db_Repository.getInstance(this);
+        repo.getFavouriteMeals();
+        Log.i("lllllll", ""+arr.size());
         search=getActivity().findViewById(R.id.search_bar);
         search.setVisibility(View.GONE);
-        setArr();
-        setRecycler();
+        setRecycler(view);
     }
-    public void setRecycler(){
-
-        recycler= requireView().findViewById(R.id.fav_list);
+    public void setRecycler(View v){
+        recycler= v.findViewById(R.id.fav_list);
         recycler.setHasFixedSize(true);
         LinearLayoutManager manger = new LinearLayoutManager(getActivity());
         manger.setOrientation(RecyclerView.VERTICAL);
         recycler.setLayoutManager(manger);
         adapter=new FavouriteAdapter(getActivity(),arr);
-        recycler.setAdapter(adapter);
     }
-    public ArrayList<Model> setArr(){
 
-        arr.add(new Model("Egyptian soap",R.drawable.fav_outer_ic,R.drawable.calender,R.drawable.soap));
-        arr.add(new Model("Egyptian soap",R.drawable.fav_ic,R.drawable.calender,R.drawable.nodels));
-        arr.add(new Model("Nodels",R.drawable.fav_ic,R.drawable.calender,R.drawable.soap));
-        arr.add(new Model("Nodels",R.drawable.fav_outer_ic,R.drawable.calender,R.drawable.nodels));
-        arr.add(new Model("shesh",R.drawable.fav_ic,R.drawable.calender,R.drawable.shesh_dish));
-        arr.add(new Model("Soap",R.drawable.fav_ic,R.drawable.calender,R.drawable.soap));
-        arr.add(new Model("shesh",R.drawable.fav_outer_ic,R.drawable.calender,R.drawable.shesh_dish));
-        arr.add(new Model("Soap",R.drawable.fav_ic,R.drawable.calender,R.drawable.soap));
-        arr.add(new Model("Nodels",R.drawable.fav_outer_ic,R.drawable.calender,R.drawable.nodels));
-
-        return arr;
+    @Override
+    public void getfavMeal(Favourite_Model model) {
+        arr.add(model);
+        adapter.setList(arr);
+        recycler.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 }

@@ -23,12 +23,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     Context context;
     ArrayList<Category_Model> list;
     DetailsOnClickListener listener;
+    CategoryOnClickListener categoryOnClickListener;
 
-    public CategoryAdapter(Context context, ArrayList<Category_Model> list, DetailsOnClickListener listener) {
+    public CategoryAdapter(Context context, ArrayList<Category_Model> list, DetailsOnClickListener listener, CategoryOnClickListener categoryOnClickListener) {
         this.context = context;
         this.list = list;
         this.listener= listener;
-
+        this.categoryOnClickListener=categoryOnClickListener;
     }
 
     public void setList(ArrayList<Category_Model> list) {
@@ -47,13 +48,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Log.i("TAG", "onBindViewHolder: ");
         holder.mealName.setText(list.get(position).getStrCategory());
+        Log.i("TAG", "onBindViewHolder:"+ list.get(position).getStrCategory());
         Glide.with(context).load(list.get(position).getStrCategoryThumb()).into(holder.mealImg);
         holder.mealCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                categoryOnClickListener.navToMeals(list.get( holder.getAdapterPosition()).getStrCategory(),1);
             }
         });
+
     }
 
     @Override
@@ -72,9 +75,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
             mealName=itemView.findViewById(R.id.top_meal_name);
             mealCard=itemView.findViewById(R.id.category_item_card);
             mealImg=itemView.findViewById(R.id.top_meal_img);
-
-
-
         }
     }
 }
