@@ -127,18 +127,14 @@ public class MealsFragment extends Fragment implements DetailsOnClickListener, A
 
     }
 
-    @Override
-    public void getfavMeal(Favourite_Model model) {
-
-    }
-    @Override
-    public void getAllFavMeals() {
-
-    }
-
 
     @Override
     public void UnFav() {
+
+    }
+
+    @Override
+    public void deleteMeal(MealDetailsModel meal) {
 
     }
 }

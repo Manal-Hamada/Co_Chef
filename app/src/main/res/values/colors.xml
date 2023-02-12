@@ -18,4 +18,5 @@
     <color name="main_color">#8479FF</color>
     <color name="dark_gray">#5F5F5F</color>
     <color name="light_gray">#B7B4B4</color>
+    <color name="shimmer_placeholder">#dddddd</color>
 </resources>

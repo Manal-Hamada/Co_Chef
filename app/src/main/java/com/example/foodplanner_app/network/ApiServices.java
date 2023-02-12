@@ -25,7 +25,7 @@ public interface ApiServices {
     @GET("list.php?i=list")
     Single<IngredientResponse> getAllIngredients();
 
-    @GET("random.phpt")
+    @GET("random.php")
     Single<Inspirational_Response> getInspirationalMeal();
 
     @GET("filter.php")

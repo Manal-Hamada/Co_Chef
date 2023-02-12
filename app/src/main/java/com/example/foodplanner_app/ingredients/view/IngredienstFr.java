@@ -49,7 +49,6 @@ public class IngredienstFr extends Fragment implements IngredientsOnClickListene
         search.setVisibility(View.VISIBLE);
         arr=new ArrayList<IngredientModel>();
         setRecycler();
-       /// arr.add(new IngredientModel("Egypt"));
         repo=Repository.getInstance();
         repo.ingredients();
         Repository.muArray.observe(getActivity(), new Observer<ArrayList<IngredientModel>>() {
@@ -63,7 +62,6 @@ public class IngredienstFr extends Fragment implements IngredientsOnClickListene
     });
 
         showCategoryTexts();
-
 }
     public void setRecycler(){
         recycler= requireView().findViewById(R.id.ingredients_list);

@@ -30,8 +30,8 @@
 
         <TextView
             android:id="@+id/top_meal_name"
-            android:layout_width="167dp"
-            android:layout_height="20dp"
+            android:layout_width="169dp"
+            android:layout_height="28dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             android:paddingStart="2dp"
@@ -39,6 +39,8 @@
             android:text="@string/mealName"
             android:textAlignment="center"
             android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/top_meal_img" />

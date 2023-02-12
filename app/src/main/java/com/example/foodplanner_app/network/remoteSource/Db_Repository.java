@@ -1,33 +1,32 @@
 package com.example.foodplanner_app.network.remoteSource;
 
+import android.content.Context;
 import android.util.Log;
-
 import androidx.annotation.NonNull;
-
 import com.example.foodplanner_app.details.model.MealDetailsModel;
+import com.example.foodplanner_app.fav_meals.repository.Repository;
 import com.example.foodplanner_app.fav_meals.model.Favourite_Model;
 import com.example.foodplanner_app.fav_meals.view.Fav_Meal_Interface;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
+import com.example.foodplanner_app.models.Constants;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Db_Repository {
 
     public static Db_Repository repo = null;
+    String dRef;
     private Fire_Db_Creation db;
     private DocumentReference docRef;
     Favourite_Model model1;
     Fav_Meal_Interface fav_meal_interface;
+    FirebaseDatabase database;
+    DatabaseReference reference;
 
     public Fire_Db_Creation getDb() {
 
@@ -56,59 +55,43 @@ public class Db_Repository {
 
     public void addFavouriteMeal(MealDetailsModel user) {
 
-        db.database.collection("MealData").add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("TAError", "Error adding document", e);
-                        // dialog
-                    }
-                });
-        Map<String, Object> user2 = new HashMap<>();
-        user2.put("idUser", FirebaseAuth.getInstance().getUid());
-        user2.put("isFav", "true");
-        db.database.collection("MealData").add(user2);
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference(FirebaseAuth.getInstance().getUid());
+        reference.child(Constants.REF_FAV).child(user.getIdMeal()).setValue(user);
+
+    }
+    public void unFavMeal(MealDetailsModel user){
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference(FirebaseAuth.getInstance().getUid());
+        reference.child(Constants.REF_FAV).child(user.getIdMeal()).removeValue();
     }
 
-    public Favourite_Model getFavouriteMeals() {
-        DocumentReference docRef = db.database.collection("test").document("EdFcmoXro3muNyU65E4J");
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+
+
+    public void getAllFavData(Context context) {
+
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference(FirebaseAuth.getInstance().getUid());
+        reference.child(Constants.REF_FAV).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                model1 = documentSnapshot.toObject(Favourite_Model.class);
-                // fav_meal_interface.getfavMeal(model1);
-                Log.i("TAAAAAAG", "onSuccess: " + model1.getName());
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.i("tgnkjrtnbk", "onDataChange: "+snapshot.getChildrenCount());
+                if(snapshot.hasChildren())
+                {
+                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                        MealDetailsModel model = dataSnapshot.getValue(MealDetailsModel.class);
+                        //room insert and observe
+                        Repository repo=Repository.getInstance(context);
+                        repo.dao.insertMeal(model);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
-        return model1;
-    }
-
-    public void getAllFavData() {
-        db.database.collection("test")
-                .whereEqualTo("id", FirebaseAuth.getInstance().getUid())
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d("tassssssssk", document.getId() + " => " + document.getData());
-                                ArrayList<Favourite_Model> arr = new ArrayList<>();
-                                arr.add(new Favourite_Model(document.getData().get("name").
-                                        toString(), document.getData().get("id").toString()));
-                                Log.i("arrrr", " " + arr.size());
-                            }
-                        } else {
-                            Log.d("TAG", "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
     }
 
 }

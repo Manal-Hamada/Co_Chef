@@ -38,9 +38,8 @@ public class Repository {
         call.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).
                 subscribe(item -> {
                     this.arr = item.getMeals();
-                    System.out.println(item.getMeals().get(1).getStrArea());
+                    System.out.println("ffffffffffffffff"+item.getMeals().size());
                     muArray.setValue(item.getMeals());
-                    // System.out.println(arr.size());
 
                 }, (error -> error.toString()));
 

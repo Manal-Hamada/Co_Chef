@@ -8,6 +8,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -16,12 +17,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 import com.example.foodplanner_app.R;
 import com.example.foodplanner_app.category_meals.model.Category_Model;
 import com.example.foodplanner_app.category_meals.view.CategoryAdapter;
 import com.example.foodplanner_app.category_meals.view.CategoryOnClickListener;
+import com.example.foodplanner_app.details.view.DetailsFragment;
 import com.example.foodplanner_app.details.view.DetailsOnClickListener;
 import com.example.foodplanner_app.inspire_meal.repository.Repository;
 import com.example.foodplanner_app.inspire_meal.model.Inspirational_Model;
@@ -31,14 +31,12 @@ import java.util.ArrayList;
 
 public class Home_Fragment extends Fragment implements DetailsOnClickListener, CategoryOnClickListener {
     ArrayList<Inspirational_Model> arr;
-    RecyclerView recycler;
-    CategoryAdapter adapter;
     ArrayList<Category_Model> categoryArr;
+    RecyclerView recycler,insRecycler;
+    CategoryAdapter adapter;
+    Inspiration_Adapter insAdapter;
     com.example.foodplanner_app.category_meals.repository. Repository categoryRepo;
     Repository repo;
-    TextView mealName, area, category, descreption;
-    ImageView mealImg;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,29 +53,27 @@ public class Home_Fragment extends Fragment implements DetailsOnClickListener, C
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        init(view);
         arr = new ArrayList<Inspirational_Model>();
-        setRecycler(view);
-        setInspirationalData();
         categoryArr = new ArrayList<>();
+        setInspirationalRecycler(view);
+        setCategoryRecycler(view);
+        setInspirationalData();
         setCategoryData();
-
-
     }
 
-    public void init(View v) {
-        mealName = v.findViewById(R.id.ins_meal_name);
-        area = v.findViewById(R.id.ins_category);
-        category = v.findViewById(R.id.ins_category);
-        mealImg = v.findViewById(R.id.ins_meal_img);
-    }
-
-    public void setRecycler(View v) {
+    public void setCategoryRecycler(View v) {
         recycler = v.findViewById(R.id.ins_category_list);
         adapter = new CategoryAdapter(getActivity(), categoryArr, this, this);
         GridLayoutManager manger = new GridLayoutManager(getActivity(), 2);
         manger.setOrientation(RecyclerView.HORIZONTAL);
         recycler.setLayoutManager(manger);
+    }
+    public  void setInspirationalRecycler(View v){
+        insRecycler = v.findViewById(R.id.ins_list);
+        insAdapter = new Inspiration_Adapter(getActivity(), arr, this);
+        LinearLayoutManager manger = new LinearLayoutManager(getActivity());
+        manger.setOrientation(RecyclerView.HORIZONTAL);
+        insRecycler.setLayoutManager(manger);
     }
 
     @Override
@@ -94,22 +90,20 @@ public class Home_Fragment extends Fragment implements DetailsOnClickListener, C
 
     }
 
-    @Override
-    public void navToDetails(int id) {
-
-    }
-
     public void setInspirationalData() {
         repo = Repository.getInstance();
         repo.inspirationalMeal();
+        Log.i("insideeee", "from ins dataaa ");
         Repository.muArray.observe(getActivity(), new Observer<ArrayList<Inspirational_Model>>() {
             @Override
             public void onChanged(ArrayList<Inspirational_Model> inspirational_models) {
-                Log.i("MANAL", inspirational_models.get(0).getStrMeal().toString());
-                Glide.with(getActivity()).load(inspirational_models.get(0).getStrImageSource()).into(mealImg);
-                mealName.setText(inspirational_models.get(0).getStrMeal().toString());
+                insAdapter.setList(inspirational_models);
+                Log.i("Insspirr Arrrrrrau size", ""+inspirational_models.size());
+                insAdapter.notifyDataSetChanged();
+                insRecycler.setAdapter(insAdapter);
             }
         });
+
     }
     public void setCategoryData(){
         categoryRepo= com.example.foodplanner_app.category_meals.repository.Repository.getInstance();
@@ -126,4 +120,16 @@ public class Home_Fragment extends Fragment implements DetailsOnClickListener, C
         });
 
     }
+
+    @Override
+    public void navToDetails(int id) {
+        getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
+        getActivity().findViewById(R.id.pager) .setVisibility(View.GONE);
+        getActivity().findViewById(R.id.tablayout) .setVisibility(View.GONE);
+       // hideCategoryTexts();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment(id)).commit();
+
+    }
+
+
 }

@@ -15,80 +15,20 @@
         android:textAlignment="center"
         android:textColor="@color/dark_purple"
         android:textSize="30sp"
-        android:textStyle="bold"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="367dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="45dp"
-        android:elevation="6dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="6dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ins_list"
+        android:layout_width="388dp"
+        android:layout_height="305dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inspire_txt">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/ins_meal_img"
-                android:layout_width="372dp"
-                android:layout_height="168dp"
-                android:foreground="@drawable/soap"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/ins_meal_name"
-                android:layout_width="237dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="8dp"
-                android:text="Soap"
-                android:textAlignment="center"
-                android:textColor="@color/dark_purple"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.154"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ins_meal_img" />
-
-            <TextView
-                android:id="@+id/ins_category"
-                android:layout_width="227dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="8dp"
-                android:text="Diet meal"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/ins_meal_name"
-                app:layout_constraintHorizontal_bias="0.457"
-                app:layout_constraintStart_toStartOf="@+id/ins_meal_name"
-                app:layout_constraintTop_toBottomOf="@+id/ins_meal_name" />
-
-            <TextView
-                android:id="@+id/ins_country"
-                android:layout_width="229dp"
-                android:layout_height="39dp"
-                android:layout_marginTop="4dp"
-                android:text="Egypt"
-                android:textSize="16sp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toStartOf="@+id/ins_category"
-                app:layout_constraintTop_toBottomOf="@+id/ins_category" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toBottomOf="@id/inspire_txt" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ins_category_list"
@@ -99,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toBottomOf="@id/ins_list" />
 
     <TextView
         android:id="@+id/ins_category_txt"
@@ -111,6 +51,7 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/ins_list"
         app:layout_constraintBottom_toTopOf="@+id/ins_category_list"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -123,6 +64,6 @@
         android:foreground="@drawable/top_rat_arrow"
         android:src="@drawable/top_rat_arrow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toBottomOf="@+id/ins_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

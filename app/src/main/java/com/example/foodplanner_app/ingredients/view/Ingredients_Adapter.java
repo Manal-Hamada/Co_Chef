@@ -35,16 +35,16 @@ public class Ingredients_Adapter extends RecyclerView.Adapter<Ingredients_Adapte
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.ingredient_item_two,parent,false);
+                inflate(R.layout.ingredient_item,parent,false);
         return new Ingredients_Adapter.MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Log.i("TAG", "onBindViewHolder: ");
-        holder.ingredientName.setText(list.get(holder.getAdapterPosition()).getStrIngredient());
+        holder.ingredientName.setText(list.get(position).getStrIngredient());
         Log.i("TAG", "onBindViewHolder:"+ list.get(holder.getAdapterPosition()).getStrIngredient());
-        Glide.with(context).load(String.format("https://www.themealdb.com/images/ingredients/%s-Small.png",list.get(holder.getAdapterPosition()).getStrIngredient())).into(holder.ingredientImg);
+        Glide.with(context).load(String.format("https://www.themealdb.com/images/ingredients/%s-Small.png",list.get(position).getStrIngredient())).into(holder.ingredientImg);
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

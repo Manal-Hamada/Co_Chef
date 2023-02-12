@@ -6,9 +6,9 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.foodplanner_app.network.remoteSource.Db_Model;
+import com.example.foodplanner_app.details.model.MealDetailsModel;
 
-@Database(entities = {Db_Model.class}, version = 1)
+@Database(entities = {MealDetailsModel.class}, version = 1)
 public abstract class App_Room_Db extends RoomDatabase {
 
     private static App_Room_Db appDataBase = null;

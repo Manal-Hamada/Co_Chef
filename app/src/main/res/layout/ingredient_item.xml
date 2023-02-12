@@ -25,7 +25,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/ingredient_name"
+    android:id="@+id/ingredient_name"
         android:layout_width="109dp"
         android:layout_height="18dp"
         android:layout_marginTop="12dp"

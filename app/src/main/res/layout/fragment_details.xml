@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="46dp"
+    android:background="@color/nuteral"
     tools:context="details.view.DetailsFragment">
 
 
@@ -20,31 +20,45 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/video_card"
-        android:layout_width="344dp"
-        android:layout_height="141dp"
+        android:layout_width="373dp"
+        android:layout_height="176dp"
         android:layout_marginTop="16dp"
-        app:cardCornerRadius="30dp"
+        app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/details_titleBar">
 
-        <!--        <FrameLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="match_parent">-->
-        <ImageView
-            android:id="@+id/meal_img"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/soap" />
+            android:layout_height="match_parent">
 
-        <!--            <ImageView-->
-        <!--                android:layout_width="50dp"-->
-        <!--                android:layout_height="50dp"-->
-        <!--                android:foreground="@drawable/video_ic"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                />-->
-        <!--        </FrameLayout>-->
+            <ImageView
+                android:id="@+id/meal_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/soap" />
+
+            <ImageView
+                android:id="@+id/details_fav_ic"
+                android:layout_width="43dp"
+                android:layout_height="46dp"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="56dp"
+                android:src="@drawable/white_fav" />
+
+            <ImageView
+                android:id="@+id/details_un_fav_ic"
+                android:layout_width="43dp"
+                android:layout_height="46dp"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="56dp"
+                android:layout_marginStart="330dp"
+                android:src="@drawable/fav_ic"
+                android:visibility="gone" />
+
+        </FrameLayout>
 
 
     </androidx.cardview.widget.CardView>
@@ -64,6 +78,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textSize="20sp"
+        android:textColor="@color/primary"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="@+id/video_card"
         app:layout_constraintStart_toStartOf="@+id/video_card"
         app:layout_constraintTop_toBottomOf="@+id/video_card"
@@ -73,8 +89,10 @@
         android:id="@+id/meal_str_country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:textSize="20sp"
+        android:textColor="@color/primary"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/meal_str_name"
@@ -104,6 +122,7 @@
                 android:inputType="textMultiLine"
                 android:textAlignment="textStart"
                 android:textSize="20sp"
+                android:textColor="@color/dark_gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
@@ -164,26 +183,8 @@
 
         />
 
-    <ImageView
-        android:id="@+id/details_fav_ic"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="188dp"
-        android:layout_marginEnd="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/fav_outer_ic"
-        />
-    <ImageView
-        android:id="@+id/details_un_fav_ic"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="188dp"
-        android:layout_marginEnd="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"
-        android:src="@drawable/fav_ic"
-        />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
