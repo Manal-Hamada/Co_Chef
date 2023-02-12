@@ -16,6 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 
+import java.util.Date;
+
 
 public class Db_Repository {
 
@@ -66,7 +68,14 @@ public class Db_Repository {
         reference.child(Constants.REF_FAV).child(user.getIdMeal()).removeValue();
     }
 
+    public void addPlannedMeal(MealDetailsModel user, String date) {
 
+        Log.i("nktrnvkgk", "addPlannedMeal: "+date);
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference(date);
+        reference.child(Constants.REF_WEEK).child(FirebaseAuth.getInstance().getUid())
+                .child(user.getIdMeal()).setValue(user);
+    }
 
     public void getAllFavData(Context context) {
 

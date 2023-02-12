@@ -10,7 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,6 +29,7 @@ import com.example.foodplanner_app.details.model.MealDetailsModel;
 import com.example.foodplanner_app.meals.view.AddFavClickListener;
 import com.example.foodplanner_app.models.MealDetailsWithUserId;
 import com.example.foodplanner_app.network.remoteSource.Db_Repository;
+import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants;
@@ -37,6 +40,8 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class DetailsFragment extends Fragment implements AddFavClickListener {
 
@@ -92,10 +97,10 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
                 mealNameTv.setText(meal_details_models.get(0).getStrMeal());
                 String steps = meal_details_models.get(0).getStrInstructions().replace("\n","\n\n");
                 mealStepsTV.setText(steps);
-                mealCountryTv.setText("Origin " +
-                        ": "+meal_details_models.get(0).getStrArea());
-                Glide.with(DetailsFragment.this).load(meal_details_models.get(0).getStrMealThumb()).into(mealImg);
-                //callYoutubeAPI(meal_details_models);
+                mealCountryTv.setText("Origin " + ": "+meal_details_models.get(0).getStrArea());
+                if(DetailsFragment.this!= null && DetailsFragment.this.isVisible())
+                    Glide.with(DetailsFragment.this).load(meal_details_models.get(0).getStrMealThumb()).into(mealImg);
+                callYoutubeAPI(meal_details_models);
                 adapter.setList(meal_details_models);
                 recycler.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
@@ -120,7 +125,7 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
                         public void onReady(@NonNull YouTubePlayer youTubePlayer) {
                             super.onReady(youTubePlayer);
                             Log.i("Dettt", "onReady: ");
-                            youTubePlayer.loadVideo(youtubeVideoCode[1],0);
+                            youTubePlayer.cueVideo(youtubeVideoCode[1],0);
                         }
 
                     });
@@ -137,11 +142,14 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
     }
     public void setRecycler(View view){
         recycler= view.findViewById(R.id.ingredient_recyclerview);
+//        SnapHelper snapHelper = new LinearSnapHelper();
+//        snapHelper.attachToRecyclerView(recycler);
         adapter=new DetailsAdapter(getActivity(),arr,this);
         GridLayoutManager manger = new GridLayoutManager(getActivity(),2);
         recycler.setLayoutManager(manger);
     }
     private void pickDateTime(){
+
         final Calendar currentDate = Calendar.getInstance();
         final Calendar date = Calendar.getInstance();
         datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
@@ -150,14 +158,17 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
                 date.set(year, month, dayOfMonth);
 
             }
-        }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE));
+        }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.WEEK_OF_MONTH), currentDate.get(Calendar.DATE));
         datePickerDialog.show();
     }
     public void setAddBtnAction(){
         addMealFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pickDateTime();
+                //pickDateTime();
+
+                Date date = new Date();
+                dbRepo.addPlannedMeal(meal, date.toString());
             }
         });
 
