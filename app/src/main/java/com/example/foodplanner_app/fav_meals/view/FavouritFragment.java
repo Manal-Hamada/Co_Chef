@@ -146,6 +146,7 @@ public class FavouritFragment extends Fragment implements DetailsOnClickListener
                         arr.add(position, deletedMeal);
 
                         adapter.notifyItemInserted(position);
+
                     }
                 }).show();
             }
