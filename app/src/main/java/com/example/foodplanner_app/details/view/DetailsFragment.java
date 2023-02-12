@@ -277,6 +277,7 @@ public class DetailsFragment extends Fragment implements AddFavClickListener, Fa
                 model.setDate(s);
                 dailyRepo.dbRepo.addPlan(model, getActivity());
                 dailyRepo.dao.insertPlandMeal(model);
+
             }
         }).start();
     }
