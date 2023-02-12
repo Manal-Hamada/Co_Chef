@@ -1,8 +1,11 @@
 package com.example.foodplanner_app.details.view;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +15,7 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.foodplanner_app.R;
@@ -27,7 +32,9 @@ import com.example.foodplanner_app.details.model.MealDetailsModel;
 import com.example.foodplanner_app.fav_meals.view.Fav_Meal_Interface;
 import com.example.foodplanner_app.meals.view.AddFavClickListener;
 import com.example.foodplanner_app.models.MealDetailsWithUserId;
+import com.example.foodplanner_app.models.Utilities;
 import com.example.foodplanner_app.network.remoteSource.Db_Repository;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants;
@@ -54,7 +61,7 @@ public class DetailsFragment extends Fragment implements Fav_Meal_Interface {
     MealDetailsRepository repo;
     public static MealDetailsModel meal;
     TextView mealStepsTV, mealCountryTv, mealNameTv;
-    ImageView mealImg,details_fav_ic,details_UnFav_ic;
+    ImageView mealImg, details_fav_ic, details_UnFav_ic;
     YouTubePlayerView youTubePlayerView;
     int mealId;
 
@@ -72,7 +79,7 @@ public class DetailsFragment extends Fragment implements Fav_Meal_Interface {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         repo = MealDetailsRepository.getInstance(getActivity());
-        dbRepo=Db_Repository.getInstance();
+        dbRepo = Db_Repository.getInstance();
     }
 
     @Override
@@ -92,10 +99,10 @@ public class DetailsFragment extends Fragment implements Fav_Meal_Interface {
             @Override
             public void onChanged(ArrayList<MealDetailsModel> meal_details_models) {
                 mealNameTv.setText(meal_details_models.get(0).getStrMeal());
-                String steps = meal_details_models.get(0).getStrInstructions().replace("\n","\n\n");
+                String steps = meal_details_models.get(0).getStrInstructions().replace("\n", "\n\n");
                 mealStepsTV.setText(steps);
                 mealCountryTv.setText("Origin " +
-                        ": "+meal_details_models.get(0).getStrArea());
+                        ": " + meal_details_models.get(0).getStrArea());
                 Glide.with(DetailsFragment.this).load(meal_details_models.get(0).getStrMealThumb()).into(mealImg);
                 //callYoutubeAPI(meal_details_models);
                 adapter.setList(meal_details_models);
@@ -105,11 +112,11 @@ public class DetailsFragment extends Fragment implements Fav_Meal_Interface {
 
 
             private void callYoutubeAPI(ArrayList<MealDetailsModel> meal_details_models) {
-                if (meal_details_models.get(0).getStrYoutube().isEmpty()){
+                if (meal_details_models.get(0).getStrYoutube().isEmpty()) {
                     youTubePlayerView.setVisibility(View.GONE);
-                }else {
+                } else {
 
-                    getLifecycle().addObserver(youTubePlayerView) ;
+                    getLifecycle().addObserver(youTubePlayerView);
                     String[] youtubeVideoCode = meal_details_models.get(0).getStrYoutube().split("=");
                     youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
                         @Override
@@ -122,7 +129,7 @@ public class DetailsFragment extends Fragment implements Fav_Meal_Interface {
                         public void onReady(@NonNull YouTubePlayer youTubePlayer) {
                             super.onReady(youTubePlayer);
                             Log.i("Dettt", "onReady: ");
-                            youTubePlayer.loadVideo(youtubeVideoCode[1],0);
+                            youTubePlayer.loadVideo(youtubeVideoCode[1], 0);
                         }
 
                     });
@@ -130,73 +137,95 @@ public class DetailsFragment extends Fragment implements Fav_Meal_Interface {
             }
         });
 
-        addMealFab =view.findViewById(R.id.add_meal_fab);
+        addMealFab = view.findViewById(R.id.add_meal_fab);
         simpleDateFormat = new SimpleDateFormat("yyy-MM-ddd");
         setAddBtnAction();
         setDetailsFav();
 
 
     }
-    public void setRecycler(View view){
-        recycler= view.findViewById(R.id.ingredient_recyclerview);
-        adapter=new DetailsAdapter(getActivity(),arr,this);
-        GridLayoutManager manger = new GridLayoutManager(getActivity(),2);
+
+    public void setRecycler(View view) {
+        recycler = view.findViewById(R.id.ingredient_recyclerview);
+        adapter = new DetailsAdapter(getActivity(), arr, this);
+        GridLayoutManager manger = new GridLayoutManager(getActivity(), 2);
         recycler.setLayoutManager(manger);
     }
-    private void pickDateTime(){
+
+    private void pickDateTime() {
         final Calendar currentDate = Calendar.getInstance();
         final Calendar date = Calendar.getInstance();
         datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 date.set(year, month, dayOfMonth);
-              // String cYear=String.valueOf( date.);
-               int cMonth= date.MONTH;
-               int cDay= date.DAY_OF_WEEK;
+                // String cYear=String.valueOf( date.);
+                int cMonth = date.MONTH;
+                int cDay = date.DAY_OF_WEEK;
 
-                Log.i("Date", "date picker"+date.get(3)+"/"+date.get(2)+"/"+date.get(1));
+                Log.i("Date", "date picker" + date.get(3) + "/" + date.get(2) + "/" + date.get(1));
 
             }
         }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE));
         datePickerDialog.show();
     }
-    public void setAddBtnAction(){
+
+    public void setAddBtnAction() {
         addMealFab.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                pickDateTime();
+
+
+                //Utilities.showLoading(getContext());
+
+                Intent intent = new Intent(Intent.ACTION_INSERT);
+                intent.setData(CalendarContract.CONTENT_URI);
+                intent.putExtra(CalendarContract.Events.TITLE, meal.getStrMeal());
+                intent.putExtra(CalendarContract.Events.ALL_DAY, "true");
+                if(intent.resolveActivity(getActivity().getPackageManager())!=null) {
+                    startActivity(intent);
+                    Log.i("vnksjtk", "onClick: ");
+                }else
+                    startActivity(intent);
+
+
+
+                //pickDateTime();
             }
         });
 
     }
-    public void init( View view){
+
+    public void init(View view) {
         mealNameTv = view.findViewById(R.id.meal_str_name);
         mealCountryTv = view.findViewById(R.id.meal_str_country);
         mealStepsTV = view.findViewById(R.id.meal_str_steps);
         mealImg = view.findViewById(R.id.meal_img);
         Activity myActivity = getActivity();
-        details_UnFav_ic=view.findViewById(R.id.details_un_fav_ic);
+        details_UnFav_ic = view.findViewById(R.id.details_un_fav_ic);
         youTubePlayerView = view.findViewById(R.id.youtube_video);
-        details_fav_ic= view.findViewById(R.id.details_fav_ic);
+        details_fav_ic = view.findViewById(R.id.details_fav_ic);
         setRecycler(view);
-       // repo = MealDetailsRepository.getInstance();
+        // repo = MealDetailsRepository.getInstance();
         repo.getMeals(mealId);
     }
-    public void setFavIcAction(){
+
+    public void setFavIcAction() {
         // call addfav from repo
     }
-    public void setDetailsFav(){
+
+    public void setDetailsFav() {
         details_fav_ic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(details_UnFav_ic.getVisibility()==View.GONE) {
+                if (details_UnFav_ic.getVisibility() == View.GONE) {
                     dbRepo.addFavouriteMeal(meal);
                     insertToRoom(meal);
                     //getAllMealls();
                     details_UnFav_ic.setVisibility(View.VISIBLE);
                     details_fav_ic.setVisibility(View.GONE);
-                }
-                else {
+                } else {
                     //TODO remove
                     dbRepo.unFavMeal(meal);
                     repo.dao.deleteMeal(meal);
@@ -207,6 +236,7 @@ public class DetailsFragment extends Fragment implements Fav_Meal_Interface {
             }
         });
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -227,17 +257,19 @@ public class DetailsFragment extends Fragment implements Fav_Meal_Interface {
     @Override
     public void addFavItem(MealDetailsModel model) {
 
-        meal=model;
+        meal = model;
     }
-    public void insertToRoom(MealDetailsModel meal){
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    repo.dao.insertMeal(meal);
-                }
-            }).start();
-        }
-    public void deleteFromRoom(MealDetailsModel meal){
+
+    public void insertToRoom(MealDetailsModel meal) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                repo.dao.insertMeal(meal);
+            }
+        }).start();
+    }
+
+    public void deleteFromRoom(MealDetailsModel meal) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -246,5 +278,5 @@ public class DetailsFragment extends Fragment implements Fav_Meal_Interface {
         }).start();
     }
 
-    }
+}
 
