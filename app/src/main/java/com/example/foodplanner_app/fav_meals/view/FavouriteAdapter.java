@@ -1,5 +1,6 @@
 package com.example.foodplanner_app.fav_meals.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -42,19 +43,21 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.FavV
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FavViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FavViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.mealName.setText(list.get(position).getStrMeal());
         Glide.with(context).load(list.get(position).getStrMealThumb()).into(holder.mealImg);
         holder.delete.setImageResource(R.drawable.delete_ic);
         holder.mealCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 //detailsOnClickListener.navToDetails(holder.);
+                Log.i("goooooo", ""+list.get( holder.getAdapterPosition()).getIdMeal());
+                detailsOnClickListener.navToDetails(Integer.parseInt(list.get( holder.getAdapterPosition()).getIdMeal()));
             }
         });
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 fav_meal_interface.deleteMeal(list.get(position));
             }
         });

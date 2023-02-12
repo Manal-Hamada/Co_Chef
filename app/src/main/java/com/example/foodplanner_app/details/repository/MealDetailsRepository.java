@@ -32,8 +32,6 @@ public class MealDetailsRepository {
         data=Local_Data.getInstance(context);
         dao=data.mealDAO;
     }
-
-
     public static MealDetailsRepository getInstance(Context context) {
         if (repo == null)
             repo = new MealDetailsRepository(context);
@@ -46,14 +44,8 @@ public class MealDetailsRepository {
 
         call.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).
                 subscribe(item -> {
-
-                    Log.i("TTTTTTT", "getMeals size: "+item.getMeals());
-                   // this.arr.addAll( item.getMeals());
-                    Log.i("TTTTTTT", "getMeals: "+item);
                     mutableMealArray.setValue(item.getMeals());
                     mealArray.setValue(item.getMeals());
-                    //System.out.println(arr.size());
-
                 }, (error -> error.toString()));
 
     }

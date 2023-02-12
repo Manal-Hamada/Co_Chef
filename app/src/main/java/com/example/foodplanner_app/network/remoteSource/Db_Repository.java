@@ -66,8 +66,6 @@ public class Db_Repository {
         reference.child(Constants.REF_FAV).child(user.getIdMeal()).removeValue();
     }
 
-
-
     public void getAllFavData(Context context) {
 
         database = FirebaseDatabase.getInstance();
@@ -80,18 +78,24 @@ public class Db_Repository {
                 {
                     for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                         MealDetailsModel model = dataSnapshot.getValue(MealDetailsModel.class);
-                        //room insert and observe
-                        Repository repo=Repository.getInstance(context);
-                        repo.dao.insertMeal(model);
+                      insert(model,context);
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
     }
-
+    public void insert(MealDetailsModel model,Context context)
+    {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Repository repo=Repository.getInstance(context);
+                repo.dao.insertMeal(model);
+            }
+        }).start();
+    }
 }

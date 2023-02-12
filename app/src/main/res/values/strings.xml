@@ -37,6 +37,8 @@
     <string name="dummy_description">dummy_description</string>
     <string name="inspireMeal">Inspirational Meal</string>
     <string name="ins_category_txt" >Category</string>
+    <string name="back"><![CDATA[<<]]></string>
+    <string name="forward"><![CDATA[>>]]></string>
 
 
 </resources>

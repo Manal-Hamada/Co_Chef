@@ -53,7 +53,7 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
         super.onViewCreated(view, savedInstanceState);
         arr = new ArrayList<>();
         search = getActivity().findViewById(R.id.search_bar);
-        setRecycler();
+      //  setRecycler();
     }
 
     public void setRecycler() {

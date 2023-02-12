@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.foodplanner_app.R;
 import com.example.foodplanner_app.details.model.MealDetailsModel;
+import com.example.foodplanner_app.fav_meals.view.Fav_Meal_Interface;
 import com.example.foodplanner_app.meals.view.AddFavClickListener;
 import com.example.foodplanner_app.network.remoteSource.Db_Repository;
 
@@ -24,17 +25,14 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.MyViewHo
     DetailsOnClickListener listener;
     ArrayList<String> ingredientsList;
     ArrayList<String> ingredientMeasureList;
-    AddFavClickListener addFavClickListener;
+    Fav_Meal_Interface fav_meal_interface;
     Db_Repository repository;
 
 
-    public DetailsAdapter(Context context, ArrayList<MealDetailsModel> list,AddFavClickListener addFavClickListener) {
+    public DetailsAdapter(Context context, ArrayList<MealDetailsModel> list,Fav_Meal_Interface fav_meal_interface) {
         this.context = context;
         this.list = list;
-        this.addFavClickListener=addFavClickListener;
-
-        //this.listener = detailsListener;
-
+        this.fav_meal_interface = fav_meal_interface;
     }
 
     public void setList(ArrayList<MealDetailsModel> list) {
@@ -57,8 +55,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.MyViewHo
         holder.ingredientMeasureTv.setText(ingredientMeasureList.get(holder.getAdapterPosition())+"  ");
         holder.mealImg.setImageResource(R.drawable.salt);
            // DetailsFragment.meal=list.get(0);
-            addFavClickListener.addFavItem(list.get(0));
-
+            fav_meal_interface.addFavItem(list.get(0));
     }
 
     private void getIngerdientsWithMeasures() {

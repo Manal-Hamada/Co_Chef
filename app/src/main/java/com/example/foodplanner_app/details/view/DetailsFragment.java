@@ -24,6 +24,7 @@ import com.bumptech.glide.Glide;
 import com.example.foodplanner_app.R;
 import com.example.foodplanner_app.details.repository.MealDetailsRepository;
 import com.example.foodplanner_app.details.model.MealDetailsModel;
+import com.example.foodplanner_app.fav_meals.view.Fav_Meal_Interface;
 import com.example.foodplanner_app.meals.view.AddFavClickListener;
 import com.example.foodplanner_app.models.MealDetailsWithUserId;
 import com.example.foodplanner_app.network.remoteSource.Db_Repository;
@@ -34,11 +35,13 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
-public class DetailsFragment extends Fragment implements AddFavClickListener {
+public class DetailsFragment extends Fragment implements Fav_Meal_Interface {
 
     public Activity myActivity;
     SimpleDateFormat simpleDateFormat;
@@ -88,7 +91,6 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
         MealDetailsRepository.mutableMealArray.observe(requireActivity(), new Observer<ArrayList<MealDetailsModel>>() {
             @Override
             public void onChanged(ArrayList<MealDetailsModel> meal_details_models) {
-                Log.i("xzzzzzzzzzxxx", "onChanged: size = "+meal_details_models.size());
                 mealNameTv.setText(meal_details_models.get(0).getStrMeal());
                 String steps = meal_details_models.get(0).getStrInstructions().replace("\n","\n\n");
                 mealStepsTV.setText(steps);
@@ -148,6 +150,11 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 date.set(year, month, dayOfMonth);
+              // String cYear=String.valueOf( date.);
+               int cMonth= date.MONTH;
+               int cDay= date.DAY_OF_WEEK;
+
+                Log.i("Date", "date picker"+date.get(3)+"/"+date.get(2)+"/"+date.get(1));
 
             }
         }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE));
@@ -193,11 +200,10 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
                     //TODO remove
                     dbRepo.unFavMeal(meal);
                     repo.dao.deleteMeal(meal);
-                   // deleteFromRoom(meal);
+                    deleteFromRoom(meal);
                     details_UnFav_ic.setVisibility(View.GONE);
                     details_fav_ic.setVisibility(View.VISIBLE);
                 }
-
             }
         });
     }
@@ -213,6 +219,10 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
         Log.i("DetailsFFFF", "onAttach: ");
     }
 
+
+    @Override
+    public void deleteMeal(MealDetailsModel meal) {
+    }
 
     @Override
     public void addFavItem(MealDetailsModel model) {

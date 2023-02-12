@@ -3,7 +3,6 @@ package com.example.foodplanner_app.meals.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.foodplanner_app.R;
 import com.example.foodplanner_app.details.view.DetailsOnClickListener;
+import com.example.foodplanner_app.fav_meals.view.Fav_Meal_Interface;
 import com.example.foodplanner_app.meals.model.Meal_Model;
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -28,15 +27,14 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MyViewHolder> 
         ArrayList<Meal_Model> list;
         DetailsOnClickListener listener;
         AddFavClickListener clickListenerFor_db_store;
-        UnFavClickListener unFavClickListener;
+        Fav_Meal_Interface fav_meal_interface;
 
-
-        public MealAdapter(Context context, ArrayList<Meal_Model> list, DetailsOnClickListener detailsListener, AddFavClickListener clickListenerFor_db_store,UnFavClickListener unFavClickListener) {
+        public MealAdapter(Context context, ArrayList<Meal_Model> list, DetailsOnClickListener detailsListener) {
             this.context = context;
             this.list = list;
+            this.fav_meal_interface=fav_meal_interface;
             this.listener = detailsListener;
             this.clickListenerFor_db_store=clickListenerFor_db_store;
-            this.unFavClickListener=unFavClickListener;
         }
 
         public void setList(ArrayList<Meal_Model> list) {
@@ -60,7 +58,7 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MyViewHolder> 
                 @Override
                 public void onClick(View v) {
                  // clickListenerFor_db_store.addFavItem();
-                  //  Log.i("ad mealllll  ", ""+list.get(position).getStrMeal().toString());
+               //  fav_meal_interface.addFavItem(list.get(position));
                 }
             });
             holder.mealLayout.setOnClickListener(new View.OnClickListener() {

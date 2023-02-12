@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer;
 import com.example.foodplanner_app.Data_Base.local_db.MealDao;
 import com.example.foodplanner_app.details.model.MealDetailsModel;
 import com.example.foodplanner_app.details.repository.MealDetailsRepository;
+import com.example.foodplanner_app.network.remoteSource.Db_Repository;
 
 import java.util.List;
 
@@ -15,15 +16,16 @@ public class Repository {
 
     private static Repository repo = null;
     public MealDao dao;
-    LiveData<List<MealDetailsModel>> list;
-    private com.example.foodplanner_app.details.repository.MealDetailsRepository mealRepo;
+    public Db_Repository dbRepo;
+    MealDetailsRepository mealDbRepo;
+     public LiveData<List<MealDetailsModel>> list;
+
 
 
     public Repository(Context c) {
-        mealRepo = com.example.foodplanner_app.details.repository.MealDetailsRepository.getInstance(c);
-        dao = mealRepo.dao;
-
-
+        mealDbRepo=MealDetailsRepository.getInstance(c);
+        dao=mealDbRepo.dao;
+        dbRepo=Db_Repository.getInstance();
     }
 
     public static Repository getInstance(Context context) {
@@ -34,17 +36,12 @@ public class Repository {
         return repo;
     }
 
-   /* public LiveData<List<MealDetailsModel>> getAllMealls(Context context) {
+   public LiveData<List<MealDetailsModel>> getAllMealls(Context context) {
+         dbRepo=Db_Repository.getInstance();
+       dbRepo.getAllFavData(context);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-             list= MealDetailsRepository.getInstance(context).dao.getAllMeals();
-
-            }
-        }).start();
-        return list;
-    }*/
+      return mealDbRepo.dao.getAllMeals();
+    }
 
 
 }

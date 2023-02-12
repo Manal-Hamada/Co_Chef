@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/fav_cardView"
+    android:clickable="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="30dp"
     android:layout_marginTop="10dp"
@@ -26,10 +28,11 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/fav_cardView"
+
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:cardCornerRadius="40dp"
+            android:clickable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -56,10 +59,10 @@
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.12"
             app:layout_constraintStart_toEndOf="@+id/fav_meal_img"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.511" />
+            app:layout_constraintVertical_bias="0.504" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

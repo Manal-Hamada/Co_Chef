@@ -31,7 +31,7 @@ import com.example.foodplanner_app.meals.model.Meal_Model;
 import java.util.ArrayList;
 
 
-public class MealsFragment extends Fragment implements DetailsOnClickListener, AddFavClickListener, Fav_Meal_Interface,UnFavClickListener {
+public class MealsFragment extends Fragment implements DetailsOnClickListener {
     RecyclerView recycler;
     MealAdapter adapter;
     ArrayList<Meal_Model>arr;
@@ -89,7 +89,7 @@ public class MealsFragment extends Fragment implements DetailsOnClickListener, A
     }
     public void setRecycler(){
         recycler= requireView().findViewById(R.id.meal_list);
-        adapter=new MealAdapter(getActivity(),arr,this,this,this);
+        adapter=new MealAdapter(getActivity(),arr,this);
         GridLayoutManager manger = new GridLayoutManager(getActivity(),2);
         recycler.setLayoutManager(manger);
     }
@@ -119,22 +119,4 @@ public class MealsFragment extends Fragment implements DetailsOnClickListener, A
              repo.getIngredientsMeals(categoryName);
 }
 
-    @Override
-    public void addFavItem(MealDetailsModel model) {
-        Log.i("addFavMethod", "addFavItem: ");
-        db_Repo.addFavouriteMeal(model);
-
-
-    }
-
-
-    @Override
-    public void UnFav() {
-
-    }
-
-    @Override
-    public void deleteMeal(MealDetailsModel meal) {
-
-    }
 }
