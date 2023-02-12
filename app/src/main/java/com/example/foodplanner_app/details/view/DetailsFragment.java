@@ -23,7 +23,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.foodplanner_app.Data_Base.local_db.model.Db_Model;
 import com.example.foodplanner_app.R;
+import com.example.foodplanner_app.daily_meals.repository.Daily_Repository;
 import com.example.foodplanner_app.details.repository.MealDetailsRepository;
 import com.example.foodplanner_app.details.model.MealDetailsModel;
 import com.example.foodplanner_app.fav_meals.view.Fav_Meal_Interface;
@@ -46,22 +48,26 @@ import java.util.Date;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class DetailsFragment extends Fragment implements AddFavClickListener {
+public class DetailsFragment extends Fragment implements AddFavClickListener, Fav_Meal_Interface {
 
     public Activity myActivity;
     SimpleDateFormat simpleDateFormat;
     DatePickerDialog datePickerDialog;
     FloatingActionButton addMealFab;
+    Daily_Repository dailyRepo;
     RecyclerView recycler;
     Db_Repository dbRepo;
     DetailsAdapter adapter;
+    Db_Model model;
+    DetailsOnClickListener listener;
     ArrayList<MealDetailsModel> arr;
     MealDetailsRepository repo;
     public static MealDetailsModel meal;
     TextView mealStepsTV, mealCountryTv, mealNameTv;
-    ImageView mealImg,details_fav_ic,details_UnFav_ic;
+    ImageView mealImg, details_fav_ic, details_UnFav_ic;
     YouTubePlayerView youTubePlayerView;
     int mealId;
+    String savedDate;
 
     public DetailsFragment() {
         // Required empty public constructor
@@ -77,7 +83,7 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         repo = MealDetailsRepository.getInstance(getActivity());
-        dbRepo=Db_Repository.getInstance();
+        dbRepo = Db_Repository.getInstance();
     }
 
     @Override
@@ -92,15 +98,17 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         init(view);
+        dailyRepo = Daily_Repository.getInstance(getActivity());
+        model=new Db_Model();
 
         MealDetailsRepository.mutableMealArray.observe(requireActivity(), new Observer<ArrayList<MealDetailsModel>>() {
             @Override
             public void onChanged(ArrayList<MealDetailsModel> meal_details_models) {
                 mealNameTv.setText(meal_details_models.get(0).getStrMeal());
-                String steps = meal_details_models.get(0).getStrInstructions().replace("\n","\n\n");
+                String steps = meal_details_models.get(0).getStrInstructions().replace("\n", "\n\n");
                 mealStepsTV.setText(steps);
-                mealCountryTv.setText("Origin " + ": "+meal_details_models.get(0).getStrArea());
-                if(DetailsFragment.this!= null && DetailsFragment.this.isVisible())
+                mealCountryTv.setText("Origin " + ": " + meal_details_models.get(0).getStrArea());
+                if (DetailsFragment.this != null && DetailsFragment.this.isVisible())
                     Glide.with(DetailsFragment.this).load(meal_details_models.get(0).getStrMealThumb()).into(mealImg);
                 callYoutubeAPI(meal_details_models);
                 adapter.setList(meal_details_models);
@@ -110,11 +118,11 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
 
 
             private void callYoutubeAPI(ArrayList<MealDetailsModel> meal_details_models) {
-                if (meal_details_models.get(0).getStrYoutube().isEmpty()){
+                if (meal_details_models.get(0).getStrYoutube().isEmpty()) {
                     youTubePlayerView.setVisibility(View.GONE);
-                }else {
+                } else {
 
-                    getLifecycle().addObserver(youTubePlayerView) ;
+                    getLifecycle().addObserver(youTubePlayerView);
                     String[] youtubeVideoCode = meal_details_models.get(0).getStrYoutube().split("=");
                     youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
                         @Override
@@ -127,7 +135,7 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
                         public void onReady(@NonNull YouTubePlayer youTubePlayer) {
                             super.onReady(youTubePlayer);
                             Log.i("Dettt", "onReady: ");
-                            youTubePlayer.cueVideo(youtubeVideoCode[1],0);
+                            youTubePlayer.cueVideo(youtubeVideoCode[1], 0);
                         }
 
                     });
@@ -135,39 +143,42 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
             }
         });
 
-        addMealFab =view.findViewById(R.id.add_meal_fab);
+        addMealFab = view.findViewById(R.id.add_meal_fab);
         simpleDateFormat = new SimpleDateFormat("yyy-MM-ddd");
         setAddBtnAction();
         setDetailsFav();
 
 
     }
-    public void setRecycler(View view){
-        recycler= view.findViewById(R.id.ingredient_recyclerview);
+
+    public void setRecycler(View view) {
+        recycler = view.findViewById(R.id.ingredient_recyclerview);
 //        SnapHelper snapHelper = new LinearSnapHelper();
 //        snapHelper.attachToRecyclerView(recycler);
-        adapter=new DetailsAdapter(getActivity(),arr,this);
-        GridLayoutManager manger = new GridLayoutManager(getActivity(),2);
+        adapter = new DetailsAdapter(getActivity(), arr, this);
+        GridLayoutManager manger = new GridLayoutManager(getActivity(), 2);
         recycler.setLayoutManager(manger);
     }
-    private void pickDateTime(){
+
+    private void pickDateTime() {
         final Calendar currentDate = Calendar.getInstance();
         final Calendar date = Calendar.getInstance();
         datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 date.set(year, month, dayOfMonth);
-              // String cYear=String.valueOf( date.);
-               int cMonth= date.MONTH;
-               int cDay= date.DAY_OF_WEEK;
+                //add plan
+                savedDate=date.get(3) + "-" + date.get(2) + "-" + date.get(1);
+                addPlanThread( savedDate);
+                Log.i("tesssssst", " this date"+savedDate);
 
-                Log.i("Date", "date picker"+date.get(3)+"/"+date.get(2)+"/"+date.get(1));
 
+                Log.i("Date", "date picker" + date.get(3) + "/" + date.get(2) + "/" + date.get(1));
             }
         }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE));
         datePickerDialog.show();
     }
-    public void setAddBtnAction(){
+    public void setAddBtnAction() {
         addMealFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -176,34 +187,35 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
         });
 
     }
-    public void init( View view){
+
+    public void init(View view) {
         mealNameTv = view.findViewById(R.id.meal_str_name);
         mealCountryTv = view.findViewById(R.id.meal_str_country);
         mealStepsTV = view.findViewById(R.id.meal_str_steps);
         mealImg = view.findViewById(R.id.meal_img);
         Activity myActivity = getActivity();
-        details_UnFav_ic=view.findViewById(R.id.details_un_fav_ic);
+        details_UnFav_ic = view.findViewById(R.id.details_un_fav_ic);
         youTubePlayerView = view.findViewById(R.id.youtube_video);
-        details_fav_ic= view.findViewById(R.id.details_fav_ic);
+        details_fav_ic = view.findViewById(R.id.details_fav_ic);
         setRecycler(view);
-       // repo = MealDetailsRepository.getInstance();
+        // repo = MealDetailsRepository.getInstance();
         repo.getMeals(mealId);
     }
-    public void setFavIcAction(){
+
+    public void setFavIcAction() {
         // call addfav from repo
     }
-    public void setDetailsFav(){
+    public void setDetailsFav() {
         details_fav_ic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(details_UnFav_ic.getVisibility()==View.GONE) {
+                if (details_UnFav_ic.getVisibility() == View.GONE) {
                     dbRepo.addFavouriteMeal(meal);
                     insertToRoom(meal);
                     //getAllMealls();
                     details_UnFav_ic.setVisibility(View.VISIBLE);
                     details_fav_ic.setVisibility(View.GONE);
-                }
-                else {
+                } else {
                     //TODO remove
                     dbRepo.unFavMeal(meal);
                     repo.dao.deleteMeal(meal);
@@ -214,6 +226,7 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
             }
         });
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -227,21 +240,27 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
     }
 
 
+    @Override
+    public void deleteMeal(MealDetailsModel meal) {
+
+    }
 
     @Override
     public void addFavItem(MealDetailsModel model) {
 
-        meal=model;
+        meal = model;
     }
-    public void insertToRoom(MealDetailsModel meal){
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    repo.dao.insertMeal(meal);
-                }
-            }).start();
-        }
-    public void deleteFromRoom(MealDetailsModel meal){
+
+    public void insertToRoom(MealDetailsModel meal) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                repo.dao.insertMeal(meal);
+            }
+        }).start();
+    }
+
+    public void deleteFromRoom(MealDetailsModel meal) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -250,5 +269,16 @@ public class DetailsFragment extends Fragment implements AddFavClickListener {
         }).start();
     }
 
+    public void addPlanThread(String s) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                model = new Db_Model(s);
+                model.setDate(s);
+                dailyRepo.dbRepo.addPlan(model, getActivity());
+                dailyRepo.dao.insertPlandMeal(model);
+            }
+        }).start();
     }
+}
 

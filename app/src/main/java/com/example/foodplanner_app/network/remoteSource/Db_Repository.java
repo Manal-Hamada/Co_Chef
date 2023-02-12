@@ -2,7 +2,11 @@ package com.example.foodplanner_app.network.remoteSource;
 
 import android.content.Context;
 import android.util.Log;
+
 import androidx.annotation.NonNull;
+
+import com.example.foodplanner_app.Data_Base.local_db.model.Db_Model;
+import com.example.foodplanner_app.daily_meals.repository.Daily_Repository;
 import com.example.foodplanner_app.details.model.MealDetailsModel;
 import com.example.foodplanner_app.fav_meals.repository.Repository;
 import com.example.foodplanner_app.fav_meals.model.Favourite_Model;
@@ -62,20 +66,13 @@ public class Db_Repository {
         reference.child(Constants.REF_FAV).child(user.getIdMeal()).setValue(user);
 
     }
-    public void unFavMeal(MealDetailsModel user){
+
+    public void unFavMeal(MealDetailsModel user) {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference(FirebaseAuth.getInstance().getUid());
         reference.child(Constants.REF_FAV).child(user.getIdMeal()).removeValue();
     }
 
-    public void addPlannedMeal(MealDetailsModel user, String date) {
-
-        Log.i("nktrnvkgk", "addPlannedMeal: "+date);
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference(date);
-        reference.child(Constants.REF_WEEK).child(FirebaseAuth.getInstance().getUid())
-                .child(user.getIdMeal()).setValue(user);
-    }
 
     public void getAllFavData(Context context) {
 
@@ -84,29 +81,73 @@ public class Db_Repository {
         reference.child(Constants.REF_FAV).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.i("tgnkjrtnbk", "onDataChange: "+snapshot.getChildrenCount());
-                if(snapshot.hasChildren())
-                {
-                    for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                Log.i("tgnkjrtnbk", "onDataChange: " + snapshot.getChildrenCount());
+                if (snapshot.hasChildren()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         MealDetailsModel model = dataSnapshot.getValue(MealDetailsModel.class);
-                      insert(model,context);
+                        insert(model, context);
                     }
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
     }
-    public void insert(MealDetailsModel model,Context context)
-    {
+
+    public void insert(MealDetailsModel model, Context context) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Repository repo=Repository.getInstance(context);
+                Repository repo = Repository.getInstance(context);
                 repo.dao.insertMeal(model);
             }
         }).start();
     }
+
+    public void addPlannedMeal(Db_Model user, String date) {
+
+        Log.i("nktrnvkgk", "addPlannedMeal: " + date);
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference(date);
+        reference.child(Constants.REF_WEEK).child(FirebaseAuth.getInstance().getUid())
+                .child(user.getIdMeal()).setValue(user);
+    }
+
+    public void getAllPlannedData(String date, Context context) {
+
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference(date);
+        reference.child(Constants.REF_WEEK)
+                .child(FirebaseAuth.getInstance().getUid()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Log.i("tgnkjrtnbk", "onDataChange: " + snapshot.getChildrenCount());
+                        if (snapshot.hasChildren()) {
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                                Db_Model model = dataSnapshot.getValue(Db_Model.class);
+                                addPlan(model, context);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+    }
+
+    public void addPlan(Db_Model model, Context context) {
+        Daily_Repository repo = Daily_Repository.getInstance(context);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                repo.dbRepo.addPlan(model,context);
+            }
+        }).start();
+    }
+
 }

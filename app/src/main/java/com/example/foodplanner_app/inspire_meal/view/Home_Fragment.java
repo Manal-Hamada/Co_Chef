@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.foodplanner_app.Data_Base.local_db.model.Db_Model;
 import com.example.foodplanner_app.R;
 import com.example.foodplanner_app.category_meals.model.Category_Model;
 import com.example.foodplanner_app.category_meals.view.CategoryAdapter;
@@ -128,6 +130,11 @@ public class Home_Fragment extends Fragment implements DetailsOnClickListener, C
         getActivity().findViewById(R.id.tablayout) .setVisibility(View.GONE);
        // hideCategoryTexts();
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment(id)).commit();
+
+    }
+
+    @Override
+    public void addPlan(Db_Model model) {
 
     }
 

@@ -54,7 +54,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.MyViewHo
         holder.ingredientNameTv.setText(ingredientsList.get(holder.getAdapterPosition()));
         holder.ingredientMeasureTv.setText(ingredientMeasureList.get(holder.getAdapterPosition())+"  ");
         holder.mealImg.setImageResource(R.drawable.salt);
-           // DetailsFragment.meal=list.get(0);
+            DetailsFragment.meal=list.get(0);
             fav_meal_interface.addFavItem(list.get(0));
     }
 
@@ -121,7 +121,6 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.MyViewHo
             ingredientNameTv = itemView.findViewById(R.id.meal_name);
             mealImg = itemView.findViewById(R.id.circleImg);
             ingredientMeasureTv = itemView.findViewById(R.id.ingredient_measure_tv);
-
 
         }
     }

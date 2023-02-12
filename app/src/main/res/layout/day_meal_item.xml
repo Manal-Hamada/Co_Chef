@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/day_meal_img"
-            android:layout_width="98dp"
-            android:layout_height="129dp"
+            android:layout_width="164dp"
+            android:layout_height="128dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -36,23 +36,12 @@
 
         </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:id="@+id/day_fav_ic"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="52dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.58"
-            tools:srcCompat="@tools:sample/avatars" />
-
         <TextView
             android:id="@+id/day_meal_name"
-            android:layout_width="171dp"
-            android:layout_height="42dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="108dp"
+            android:layout_marginEnd="44dp"
             android:gravity="center"
             android:text="@string/mealName"
             android:textAlignment="center"
@@ -63,10 +52,10 @@
 
         <TextView
             android:id="@+id/meal_date"
-            android:layout_width="156dp"
-            android:layout_height="25dp"
-            android:layout_marginEnd="116dp"
-            android:layout_marginBottom="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/date"
             android:textAlignment="center"
             android:textColor="@color/gray"

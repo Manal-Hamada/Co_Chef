@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.foodplanner_app.Data_Base.local_db.model.Db_Model;
 import com.example.foodplanner_app.R;
 import com.example.foodplanner_app.category_meals.repository.Repository;
 import com.example.foodplanner_app.details.view.DetailsFragment;
@@ -104,6 +106,11 @@ public class CategoryFr extends Fragment implements DetailsOnClickListener,Categ
         getActivity().findViewById(R.id.tablayout) .setVisibility(View.GONE);
         hideCategoryTexts();
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment()).commit();
+
+    }
+
+    @Override
+    public void addPlan(Db_Model model) {
 
     }
 }

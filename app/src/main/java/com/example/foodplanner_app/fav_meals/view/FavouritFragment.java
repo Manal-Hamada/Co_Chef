@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.foodplanner_app.Data_Base.local_db.model.Db_Model;
 import com.example.foodplanner_app.R;
 import com.example.foodplanner_app.details.model.MealDetailsModel;
 import com.example.foodplanner_app.details.view.DetailsFragment;
@@ -105,14 +106,13 @@ public class FavouritFragment extends Fragment implements DetailsOnClickListener
     }
 
     @Override
+    public void addPlan(Db_Model model) {
+
+    }
+
+    @Override
     public void deleteMeal(MealDetailsModel meal) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                favRepo.dao.deleteMeal(meal);
-                favRepo.dbRepo.unFavMeal(meal);
-            }
-        }).start();
+        deleteThread(meal);
     }
 
     @Override
@@ -126,16 +126,13 @@ public class FavouritFragment extends Fragment implements DetailsOnClickListener
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 MealDetailsModel deletedMeal = arr.get(viewHolder.getAdapterPosition());
-                favRepo.dbRepo.unFavMeal(deletedMeal);
-                favRepo.dao.deleteMeal(meal);
+                deleteThread(meal);
                 return false;
             }
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 deletedMeal = arr.get(viewHolder.getAdapterPosition());
-                dFr.deleteMeal(deletedMeal);
-                favRepo.dbRepo.unFavMeal(deletedMeal);
-                favRepo.dao.deleteMeal(meal);
+                 deleteThread(meal);
                 int position = viewHolder.getAdapterPosition();
                 arr.remove(viewHolder.getAdapterPosition());
                 adapter.notifyItemRemoved(viewHolder.getAdapterPosition());
@@ -151,6 +148,15 @@ public class FavouritFragment extends Fragment implements DetailsOnClickListener
                 }).show();
             }
         }).attachToRecyclerView(recycler);
+    }
+    public void deleteThread(MealDetailsModel meal){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                favRepo.dao.deleteMeal(meal);
+                favRepo.dbRepo.unFavMeal(meal);
+            }
+        }).start();
     }
 }
 

@@ -1,15 +1,18 @@
-package com.example.foodplanner_app.details.model;
+package com.example.foodplanner_app.Data_Base.local_db.model;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Entity(tableName = "meals")
-public class MealDetailsModel {
+@Entity(tableName = "pland_meals")
+public class Db_Model {
     @PrimaryKey
     @NonNull
+    String date;
     @SerializedName("idMeal")
     @Expose
     private String idMeal;
@@ -179,6 +182,7 @@ public class MealDetailsModel {
     }
 
     public String getStrMeal() {
+
         return strMeal;
     }
 
@@ -594,4 +598,18 @@ public class MealDetailsModel {
         this.dateModified = dateModified;
     }
 
+    public Db_Model() {
+    }
+
+    public Db_Model(@NonNull String date) {
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }

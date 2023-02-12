@@ -8,20 +8,17 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.example.foodplanner_app.Data_Base.local_db.model.Db_Model;
-import com.example.foodplanner_app.details.model.MealDetailsModel;
 
 import java.util.List;
-
 @Dao
-public interface MealDao {
+public interface PlandDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertMeal(MealDetailsModel meal);
+    void insertPlandMeal(Db_Model meal);
 
     @Delete
-    void deleteMeal(MealDetailsModel model);
+    void deletePlandMeal(Db_Model model);
 
-    @Query("SELECT * FROM meals")
-    LiveData<List<MealDetailsModel>> getAllMeals();
-
-
+    @Query("SELECT * FROM pland_meals")
+    LiveData<List<Db_Model>> getAllPlandMeals();
 }

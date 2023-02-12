@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.foodplanner_app.Data_Base.local_db.model.Db_Model;
 import com.example.foodplanner_app.details.model.MealDetailsModel;
 import com.example.foodplanner_app.fav_meals.model.Favourite_Model;
 import com.example.foodplanner_app.fav_meals.view.Fav_Meal_Interface;
@@ -110,7 +111,13 @@ public class MealsFragment extends Fragment implements DetailsOnClickListener {
         hideCategoryTexts();
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment(id)).commit();
     }
- public void checkFragment(){
+
+    @Override
+    public void addPlan(Db_Model model) {
+
+    }
+
+    public void checkFragment(){
          if(key==1)
              repo.getMeals(categoryName);
          else if (key==2)
