@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="180dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="30dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/category_item_card"
+    android:layout_width="180dp"
+    android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:backgroundTint="@color/primary"
-    android:layout_height="100dp"
-    android:id="@+id/category_item_card"
-    >
+    app:cardCornerRadius="30dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_item_constrain"
@@ -20,8 +19,8 @@
             android:id="@+id/top_meal_img"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:scaleType="centerCrop"
             android:background="@color/white"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

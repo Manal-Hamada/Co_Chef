@@ -27,7 +27,8 @@ public class ProfileFragment extends Fragment {
     TextView topRated;
     ImageView arrwo;
     SearchView search;
-    TextView logoutTv;
+    TextView logoutTv, usernameTv, mailTv;
+
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -51,6 +52,15 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         logoutTv = view.findViewById(R.id.logout_tv);
+        usernameTv = view.findViewById(R.id.username_tv);
+        mailTv = view.findViewById(R.id.mail_tv);
+
+        String username = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+        String mail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        if (username==null ||username.isEmpty()) username=mail.split("@")[0];
+        usernameTv.setText(username);
+        mailTv.setText(mail);
+
         logoutTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

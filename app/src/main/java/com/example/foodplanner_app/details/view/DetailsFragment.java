@@ -209,6 +209,8 @@ public class DetailsFragment extends Fragment implements AddFavClickListener, Fa
 
         }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE));
         datePickerDialog.show();
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
+        //TODO set max
     }
     public void setAddBtnAction() {
         addMealFab.setOnClickListener(new View.OnClickListener() {

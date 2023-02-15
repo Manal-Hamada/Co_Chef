@@ -15,6 +15,7 @@
         android:textAlignment="center"
         android:textColor="@color/dark_purple"
         android:textSize="30sp"
+
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.363"
@@ -23,37 +24,39 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ins_list"
-        android:layout_width="388dp"
+        android:layout_width="0dp"
         android:layout_height="305dp"
         android:layout_marginTop="12dp"
+        tools:listitem="@layout/inspirational_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inspire_txt" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ins_category_list"
-        android:layout_width="408dp"
-        android:layout_height="291dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ins_list" />
+        app:layout_constraintTop_toBottomOf="@+id/ins_category_txt" />
 
     <TextView
         android:id="@+id/ins_category_txt"
         android:layout_width="139dp"
         android:layout_height="31dp"
         android:layout_marginStart="10dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/ins_category_txt"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/ins_list"
-        app:layout_constraintBottom_toTopOf="@+id/ins_category_list"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ins_list" />
 
     <ImageView
         android:id="@+id/imageView2"
