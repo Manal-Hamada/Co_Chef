@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,7 +95,7 @@ public class CategoryFr extends Fragment implements DetailsOnClickListener,Categ
         getActivity().findViewById(R.id.pager) .setVisibility(View.GONE);
         getActivity().findViewById(R.id.tablayout) .setVisibility(View.GONE);
         getActivity().findViewById(R.id.search_bar).setVisibility(View.GONE);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment).addToBackStack(null).commit();
         getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
 
 
@@ -105,7 +107,9 @@ public class CategoryFr extends Fragment implements DetailsOnClickListener,Categ
         getActivity().findViewById(R.id.pager) .setVisibility(View.GONE);
         getActivity().findViewById(R.id.tablayout) .setVisibility(View.GONE);
         hideCategoryTexts();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment()).commit();
+        Log.i("wjfkjrebv", "navToDetails: replace");
+
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment()).addToBackStack(null).commit();
 
     }
 

@@ -23,7 +23,8 @@ public class Local_Data implements AddFavClickListener {
         mealDAO = appDataBase.mealDao();
         planDao=appDataBase.plandDao();
         storedFavourits = mealDAO.getAllMeals();
-        storedPlannd=planDao.getAllPlandMeals();
+        //storedPlannd=planDao.getAllPlandMeals();
+
     }
     public static Local_Data getInstance(Context context) {
         if (localSource == null)
@@ -31,10 +32,14 @@ public class Local_Data implements AddFavClickListener {
         return localSource;
     }
 
-    public Local_Data(MealDao mealDAO,PlandDao plandDao) {
+    public Local_Data(PlandDao plandDao,Context context) {
 
-        this.mealDAO = mealDAO;
         this.planDao=plandDao;
+        App_Room_Db appDataBase = App_Room_Db.getInstance(context.getApplicationContext());
+        mealDAO = appDataBase.mealDao();
+        planDao=appDataBase.plandDao();
+        storedFavourits = mealDAO.getAllMeals();
+        //storedPlannd=planDao.getAllPlandMeals();
     }
     @Override
     public void addFavItem(MealDetailsModel model) {

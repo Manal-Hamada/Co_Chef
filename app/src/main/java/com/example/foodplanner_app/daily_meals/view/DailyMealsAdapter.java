@@ -57,6 +57,8 @@ public class DailyMealsAdapter extends RecyclerView.Adapter<DailyMealsAdapter.Da
 
     @Override
     public int getItemCount() {
+
+        Log.i("tgnkjrtnbk", "getItemCount: "+list.size());
         return list.size();
     }
 
@@ -77,6 +79,7 @@ public class DailyMealsAdapter extends RecyclerView.Adapter<DailyMealsAdapter.Da
 
     public void setList(ArrayList<Db_Model> list) {
         this.list = list;
+        Log.i("tgnkjrtnbk", "getItemCount: set list = "+list.size());
     }
 }
 

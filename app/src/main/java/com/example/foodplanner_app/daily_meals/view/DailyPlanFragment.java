@@ -11,9 +11,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,7 +29,9 @@ import com.example.foodplanner_app.fav_meals.repository.Repository;
 import com.example.foodplanner_app.models.Model;
 import com.example.foodplanner_app.network.remoteSource.Db_Repository;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class DailyPlanFragment extends Fragment implements DetailsOnClickListener {
@@ -39,6 +43,8 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
     ImageView arrwo;
     SearchView search;
     Db_Repository repo;
+    CalendarView calendarView;
+    String selectedDate;
     Daily_Repository dailyRepo;
     public DailyPlanFragment() {
         // Required empty public constructor
@@ -62,17 +68,46 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
         search = getActivity().findViewById(R.id.search_bar);
         setRecycler();
         search=getActivity().findViewById(R.id.search_bar);
+        calendarView = view.findViewById(R.id.daily_calender);
         search.setVisibility(View.GONE);
         dailyRepo= Daily_Repository.getInstance(getActivity());
+        setSelectedDate();
+        Log.i("jrsvjhfb", "onViewCreated: "+ setSelectedDate());
+
       // dailyRepo.getAllMealls(getActivity());
-       /* dailyRepo.getAllMealls(getActivity()).observe(getViewLifecycleOwner(), new Observer<List<Db_Model>>() {
+
+    }
+
+    public String setSelectedDate() {
+        final Calendar date = Calendar.getInstance();
+        date.getTime();
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onChanged(List<Db_Model> mealDetailsModels) {
-                arr = (ArrayList<Db_Model>) mealDetailsModels;
-                adapter.setList(arr);
-                recycler.setAdapter(adapter);
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                String s;
+                date.set(year, month, dayOfMonth);
+                s=DateFormat.getDateInstance(DateFormat.DEFAULT).format(date.getTime());//.compareTo()
+                Log.i("tgnkjrtnbk", "onSelectedDayChangedededed: ");
+
+                dailyRepo.getAllMealls(getActivity(),s).observe(getViewLifecycleOwner(), new Observer<List<Db_Model>>() {
+                    @Override
+                    public void onChanged(List<Db_Model> mealDetailsModels) {
+                        arr.clear();
+                        arr = (ArrayList<Db_Model>) mealDetailsModels;
+                        Log.i("tgnkjrtnbk", "arr size: "+arr.size());
+                        adapter.setList(arr);
+                        adapter.notifyDataSetChanged();
+                        recycler.setAdapter(adapter);
+                        //TODO handle the adapter
+                        Log.i("vkjtnkjvrnjt", "onChanged: "+mealDetailsModels.size());
+
+                    }
+                });
             }
-        });*/
+        });
+        //calendarView.setOn
+        selectedDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format(date.getTime());//.compareTo()
+        return selectedDate;
     }
 
     public void setRecycler() {
@@ -92,7 +127,7 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
             search.setVisibility(View.GONE);
             topRated.setVisibility(View.GONE);
             arrwo.setVisibility(View.GONE);
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new DetailsFragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new DetailsFragment()).addToBackStack(null).commit();
     }
     @Override
     public void addPlan(Db_Model model) {

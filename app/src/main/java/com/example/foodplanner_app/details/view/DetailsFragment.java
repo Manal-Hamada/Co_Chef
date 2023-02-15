@@ -41,6 +41,8 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.Abs
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 import java.sql.Time;
+import java.text.DateFormat;
+import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -114,6 +116,7 @@ public class DetailsFragment extends Fragment implements AddFavClickListener, Fa
                 adapter.setList(meal_details_models);
                 recycler.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
+                meal = meal_details_models.get(0);
             }
 
 
@@ -167,14 +170,43 @@ public class DetailsFragment extends Fragment implements AddFavClickListener, Fa
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 date.set(year, month, dayOfMonth);
+
                 //add plan
-                savedDate=date.get(3) + "-" + date.get(2) + "-" + date.get(1);
-                addPlanThread( savedDate);
-                Log.i("tesssssst", " this date"+savedDate);
+                //savedDate=date.get(Calendar.DAY_OF_MONTH) + "-" + date.get(Calendar.MONTH) + "-" + date.get(1);
+                String formattedDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format(date.getTime());//.compareTo()
 
+                //TODO Rx
+                setMeal(formattedDate);
+                //addPlanThread(model); //room
+                dbRepo.addPlannedMeal(model);
+                Log.i("tesjrwjkbhssssst", " this date"+model.getIdMeal());
 
-                Log.i("Date", "date picker" + date.get(3) + "/" + date.get(2) + "/" + date.get(1));
             }
+
+            private void setMeal(String formattedDate) {
+                model = new Db_Model(formattedDate, meal.getIdMeal(), meal.getStrMeal()
+                        ,meal.getStrDrinkAlternate(),meal.getStrCategory(),meal.getStrArea()
+                        ,meal.getStrInstructions(),meal.getStrMealThumb(),meal.getStrTags()
+                        ,meal.getStrYoutube(),meal.getStrIngredient1(),meal.getStrIngredient2()
+                        ,meal.getStrIngredient3(),meal.getStrIngredient4(),meal.getStrIngredient5()
+                        ,meal.getStrIngredient6(),meal.getStrIngredient7(),meal.getStrIngredient8()
+                        ,meal.getStrIngredient9(),meal.getStrIngredient10()
+                        ,meal.getStrIngredient11(),meal.getStrIngredient12()
+                        ,meal.getStrIngredient13(),meal.getStrIngredient14()
+                        ,meal.getStrIngredient15(),meal.getStrIngredient16()
+                        ,meal.getStrIngredient17(),meal.getStrIngredient18()
+                        ,meal.getStrIngredient19(),meal.getStrIngredient20()
+                        ,meal.getStrMeasure1(),meal.getStrMeasure2(),meal.getStrMeasure3()
+                        ,meal.getStrMeasure4(),meal.getStrMeasure5(),meal.getStrMeasure6()
+                        ,meal.getStrMeasure7(),meal.getStrMeasure8(),meal.getStrMeasure9()
+                        ,meal.getStrMeasure10(),meal.getStrMeasure11(),meal.getStrMeasure12()
+                        ,meal.getStrMeasure13(),meal.getStrMeasure14(),meal.getStrMeasure15()
+                        ,meal.getStrMeasure16(),meal.getStrMeasure17(),meal.getStrMeasure18()
+                        ,meal.getStrMeasure19(),meal.getStrMeasure20(),meal.getStrSource()
+                        ,meal.getStrImageSource(),meal.getStrCreativeCommonsConfirmed()
+                        ,meal.getDateModified());
+            }
+
         }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE));
         datePickerDialog.show();
     }
@@ -269,14 +301,14 @@ public class DetailsFragment extends Fragment implements AddFavClickListener, Fa
         }).start();
     }
 
-    public void addPlanThread(String s) {
+    public void addPlanThread(Db_Model mealWithDate) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                model = new Db_Model(s);
-                model.setDate(s);
-                dailyRepo.dbRepo.addPlan(model, getActivity());
-                dailyRepo.dao.insertPlandMeal(model);
+                Log.i("tessssssssst", " this date: "+mealWithDate.getIdMeal());
+
+                //dailyRepo.dbRepo.addPlan(model, getActivity());
+                dailyRepo.dao.insertPlandMeal(mealWithDate);
 
             }
         }).start();

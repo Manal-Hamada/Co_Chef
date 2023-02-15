@@ -107,11 +107,9 @@ public class Db_Repository {
         }).start();
     }
 
-    public void addPlannedMeal(Db_Model user, String date) {
-
-        Log.i("nktrnvkgk", "addPlannedMeal: " + date);
+    public void addPlannedMeal(Db_Model user) {
         database = FirebaseDatabase.getInstance();
-        reference = database.getReference(date);
+        reference = database.getReference(user.getDate());
         reference.child(Constants.REF_WEEK).child(FirebaseAuth.getInstance().getUid())
                 .child(user.getIdMeal()).setValue(user);
     }
@@ -124,11 +122,15 @@ public class Db_Repository {
                 .child(FirebaseAuth.getInstance().getUid()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Log.i("tgnkjrtnbk", "onDataChange: " + snapshot.getChildrenCount());
+                        //Log.i("tgnkjrtnbk", "onDataChange: " + date);
+                        Log.i("tgnkjrtnbk", "onDataChange: counterrr" + snapshot.getChildrenCount());
                         if (snapshot.hasChildren()) {
+                            //clear table
+                            Log.i("djnkjvdfh", "onDataChange: "+date);
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                 Db_Model model = dataSnapshot.getValue(Db_Model.class);
                                 addPlan(model, context);
+                                Log.i("bnjkg", "onDataChange: "+date);
                             }
                         }
                     }
@@ -142,10 +144,12 @@ public class Db_Repository {
 
     public void addPlan(Db_Model model, Context context) {
         Daily_Repository repo = Daily_Repository.getInstance(context);
+        Log.i("tessssssttt", " this date"+model.getDate());
         new Thread(new Runnable() {
             @Override
             public void run() {
-                repo.dbRepo.addPlan(model,context);
+                //repo.dbRepo.addPlan(model,context);
+                repo.dao.insertPlandMeal(model);
             }
         }).start();
     }

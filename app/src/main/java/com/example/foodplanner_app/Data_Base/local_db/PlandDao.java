@@ -13,12 +13,15 @@ import java.util.List;
 @Dao
 public interface PlandDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertPlandMeal(Db_Model meal);
 
     @Delete
     void deletePlandMeal(Db_Model model);
 
-    @Query("SELECT * FROM pland_meals")
-    LiveData<List<Db_Model>> getAllPlandMeals();
+    @Query("SELECT * FROM pland_meals WHERE date= :dateString")
+    LiveData<List<Db_Model>> getAllPlandMeals(String dateString);
+
+
+
 }

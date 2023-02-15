@@ -100,7 +100,7 @@ public class CountryFr extends Fragment implements CountryOnClickListener {
         getActivity().findViewById(R.id.pager) .setVisibility(View.GONE);
         getActivity().findViewById(R.id.tablayout) .setVisibility(View.GONE);
         getActivity().findViewById(R.id.search_bar).setVisibility(View.GONE);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment).addToBackStack(null).commit();
         getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
 
     }

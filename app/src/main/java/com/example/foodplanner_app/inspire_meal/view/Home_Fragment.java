@@ -86,7 +86,7 @@ public class Home_Fragment extends Fragment implements DetailsOnClickListener, C
         getActivity().findViewById(R.id.pager) .setVisibility(View.GONE);
         getActivity().findViewById(R.id.tablayout) .setVisibility(View.GONE);
         getActivity().findViewById(R.id.search_bar).setVisibility(View.GONE);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment).addToBackStack(null).commit();
         getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
 
 
@@ -129,7 +129,7 @@ public class Home_Fragment extends Fragment implements DetailsOnClickListener, C
         getActivity().findViewById(R.id.pager) .setVisibility(View.GONE);
         getActivity().findViewById(R.id.tablayout) .setVisibility(View.GONE);
        // hideCategoryTexts();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment(id)).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment(id)).addToBackStack(null).commit();
 
     }
 

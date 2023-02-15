@@ -1,6 +1,7 @@
 package com.example.foodplanner_app.daily_meals.repository;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -26,8 +27,11 @@ public class Daily_Repository {
 
     public Daily_Repository(Context c) {
         data= Local_Data.getInstance(c);
+        Log.i("m vkjgr vg", "Daily_Repository: "+data);
         dbRepo=Db_Repository.getInstance();
+        Log.i("m vkjgr vg", "Daily_Repository: "+dbRepo);
         dao=data.planDao;
+        Log.i("m vkjgr vg", "Daily_Repository: "+dao);
     }
 
     public static Daily_Repository getInstance(Context context) {
@@ -38,11 +42,16 @@ public class Daily_Repository {
         return repo;
     }
 
-  /* public LiveData<List<Db_Model>> getAllMealls(Context context) {
-        dbRepo = Db_Repository.getInstance();
-        dbRepo.getAllFavData(context);
+   public LiveData<List<Db_Model>> getAllMealls(Context context, String date) {
+        //dbRepo = Db_Repository.getInstance();
 
-         return mealDbRepo.dao.getAllPlandMeals();
-    }*/
+       //TODO ana hena
+       Log.i("vjknjvndkjgn", "getAllMealls: "+date);
+
+        repo.dbRepo.getAllPlannedData(date,context);
+
+         return repo.dao.getAllPlandMeals(date);
+    }
+
 
 }

@@ -109,7 +109,7 @@ public class MealsFragment extends Fragment implements DetailsOnClickListener {
         getActivity().findViewById(R.id.pager) .setVisibility(View.GONE);
         getActivity().findViewById(R.id.tablayout) .setVisibility(View.GONE);
         hideCategoryTexts();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment(id)).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment(id)).addToBackStack(null).commit();
     }
 
     @Override
