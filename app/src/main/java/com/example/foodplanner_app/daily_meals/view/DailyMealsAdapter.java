@@ -45,7 +45,6 @@ public class DailyMealsAdapter extends RecyclerView.Adapter<DailyMealsAdapter.Da
     public void onBindViewHolder(@NonNull DayViewHolder holder,int position) {
         holder.mealName.setText(list.get(position).getStrMeal());
         Glide.with(context).load(list.get(position).getStrMealThumb()).into(holder.mealImg);
-        holder.date.setText(list.get(position).getDate().toString());
         holder.mealCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +72,6 @@ public class DailyMealsAdapter extends RecyclerView.Adapter<DailyMealsAdapter.Da
             mealName=itemView.findViewById(R.id.day_meal_name);
             mealImg=itemView.findViewById(R.id.day_meal_img);
             mealCard=itemView.findViewById(R.id.day_cardView);
-            date=itemView.findViewById(R.id.meal_date);
         }
     }
 

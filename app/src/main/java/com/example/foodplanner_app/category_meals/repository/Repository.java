@@ -21,7 +21,9 @@ public class Repository {
     public static Repository repo = null;
     ApiClient client;
     ArrayList<Category_Model> arr = new ArrayList<>();
+    ArrayList<Category_Model> arr2 = new ArrayList<>();
      public static MutableLiveData<ArrayList<Category_Model>> muArray= new MutableLiveData<ArrayList<Category_Model>>();
+    public static MutableLiveData<ArrayList<Category_Model>> muArray2= new MutableLiveData<ArrayList<Category_Model>>();
 
     private Repository() {
     }
@@ -44,6 +46,7 @@ public class Repository {
                 }, (error -> error.toString()));
 
     }
+
 
     public ArrayList<Category_Model> getArr() {
         return arr;

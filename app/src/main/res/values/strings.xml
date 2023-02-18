@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FoodPlanner_App</string>
+    <string name="app_name">Co-Chef</string>
     <string name="welcome_txt">Mak e your menu</string>
     <string name="Logo_txt">Food Planner</string>
     <string name="title_activity_home">HomeActivity</string>

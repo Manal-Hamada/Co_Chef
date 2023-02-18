@@ -1,7 +1,6 @@
 package com.example.foodplanner_app.network;
 
 import com.example.foodplanner_app.category_meals.model.Category_Response;
-import com.example.foodplanner_app.country_meals.model.Country_Model;
 import com.example.foodplanner_app.country_meals.model.Country_Response;
 import com.example.foodplanner_app.details.model.MealDetailsResponse;
 import com.example.foodplanner_app.ingredients.model.IngredientResponse;
@@ -10,9 +9,6 @@ import com.example.foodplanner_app.meals.model.Meals_Response;
 
 import io.reactivex.rxjava3.core.Single;
 import retrofit2.http.GET;
-import io.reactivex.rxjava3.core.Single;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiServices {
@@ -36,4 +32,6 @@ public interface ApiServices {
     Single<Meals_Response> getIngredientMeals(@Query ("i") String IngredientName);
     @GET("lookup.php")
     Single<MealDetailsResponse> getMealDetails(@Query("i") int id);
+    @GET("search.php")
+    Single<Meals_Response> getMealByName(@Query("s") String name);
 }

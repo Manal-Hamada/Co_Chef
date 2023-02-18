@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.foodplanner_app.Data_Base.local_db.model.Db_Model;
@@ -36,7 +37,7 @@ public class MealsFragment extends Fragment implements DetailsOnClickListener {
     RecyclerView recycler;
     MealAdapter adapter;
     ArrayList<Meal_Model>arr;
-    SearchView search;
+    EditText search;
     Repository repo;
     String categoryName;
     int key;

@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.foodplanner_app.Data_Base.local_db.model.Db_Model;
 import com.example.foodplanner_app.R;
@@ -30,7 +31,7 @@ public class CategoryFr extends Fragment implements DetailsOnClickListener,Categ
     RecyclerView recycler;
     CategoryAdapter adapter;
     ArrayList<Category_Model >arr;
-    SearchView search;
+    EditText search;
     Repository repo;
 
     @Override

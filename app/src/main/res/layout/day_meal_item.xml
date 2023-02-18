@@ -11,17 +11,32 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/day_fr_constrain"
         android:layout_width="match_parent"
-        android:layout_height="130dp">
+        android:layout_height="170dp">
 
         <ImageView
             android:id="@+id/day_meal_img"
-            android:layout_width="164dp"
-            android:layout_height="128dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/day_meal_name"
+            android:layout_width="match_parent"
+            android:layout_height="69dp"
+            android:alpha="0.7"
+            android:background="@color/primary"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/day_meal_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/day_cardView"
@@ -34,33 +49,7 @@
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/day_meal_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:text="sss"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/day_meal_img"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/meal_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/date"
-            android:textAlignment="center"
-            android:textColor="@color/gray"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/day_meal_img"
-            app:layout_constraintTop_toBottomOf="@+id/day_meal_name" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+
 import com.example.foodplanner_app.R;
 import com.example.foodplanner_app.ingredients.repository.Repository;
 import com.example.foodplanner_app.ingredients.model.IngredientModel;
@@ -19,7 +21,7 @@ import com.example.foodplanner_app.meals.view.MealsFragment;
 import java.util.ArrayList;
 
 public class IngredienstFr extends Fragment implements IngredientsOnClickListener {
-    SearchView search;
+    EditText search;
     RecyclerView recycler;
     Ingredients_Adapter adapter;
     ArrayList<IngredientModel> arr;

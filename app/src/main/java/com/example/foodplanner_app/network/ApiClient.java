@@ -9,6 +9,7 @@ import com.example.foodplanner_app.details.model.MealDetailsResponse;
 import com.example.foodplanner_app.ingredients.model.IngredientResponse;
 import com.example.foodplanner_app.inspire_meal.model.Inspirational_Response;
 import com.example.foodplanner_app.meals.model.Meals_Response;
+import com.example.foodplanner_app.models.Meal_Model;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -76,5 +77,8 @@ public class ApiClient {
     public Single<MealDetailsResponse> enqueueCallMealDetails(int id){
         return service.getMealDetails(id);
     }
-
+    @SuppressLint("CheckResult")
+    public Single<Meals_Response> searchedMeals(String name){
+        return service.getMealByName(name);
+    }
 }

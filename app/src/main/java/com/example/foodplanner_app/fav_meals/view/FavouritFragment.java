@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.foodplanner_app.Data_Base.local_db.model.Db_Model;
 import com.example.foodplanner_app.R;
@@ -24,8 +25,10 @@ import com.example.foodplanner_app.details.model.MealDetailsModel;
 import com.example.foodplanner_app.details.view.DetailsFragment;
 import com.example.foodplanner_app.details.view.DetailsOnClickListener;
 import com.example.foodplanner_app.fav_meals.repository.Repository;
+import com.example.foodplanner_app.models.Utilities;
 import com.example.foodplanner_app.network.remoteSource.Db_Repository;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +38,7 @@ public class FavouritFragment extends Fragment implements DetailsOnClickListener
     RecyclerView recycler;
     FavouriteAdapter adapter;
     ArrayList<MealDetailsModel> arr;
-    SearchView search;
+    EditText search;
     Db_Repository repo;
     Repository favRepo;
     DetailsFragment dFr;
@@ -68,15 +71,18 @@ public class FavouritFragment extends Fragment implements DetailsOnClickListener
         search.setVisibility(View.GONE);
         setRecycler(view);
         favRepo= Repository.getInstance(getActivity());
-        favRepo.getAllMealls(getActivity());
-        favRepo.getAllMealls(getActivity()).observe(getViewLifecycleOwner(), new Observer<List<MealDetailsModel>>() {
-            @Override
-            public void onChanged(List<MealDetailsModel> mealDetailsModels) {
-                arr = (ArrayList<MealDetailsModel>) mealDetailsModels;
-                adapter.setList(arr);
-                recycler.setAdapter(adapter);
-            }
-        });
+        if (FirebaseAuth.getInstance().getUid() == null)
+            Utilities.showDialog(getContext(),"please login first!", getActivity());
+        else {
+            favRepo.getAllMealls(getActivity());
+            favRepo.getAllMealls(getActivity()).observe(getViewLifecycleOwner(), new Observer<List<MealDetailsModel>>() {
+                @Override
+                public void onChanged(List<MealDetailsModel> mealDetailsModels) {
+                    arr = (ArrayList<MealDetailsModel>) mealDetailsModels;
+                    adapter.setList(arr);
+                    recycler.setAdapter(adapter);
+                }
+            });
       /* favRepo.dao.getAllMeals().observe(getViewLifecycleOwner(), new Observer<List<MealDetailsModel>>() {
             @Override
             public void onChanged(List<MealDetailsModel> mealDetailsModels) {
@@ -85,7 +91,8 @@ public class FavouritFragment extends Fragment implements DetailsOnClickListener
                 recycler.setAdapter(adapter);
             }
         });*/
-      setswipping();
+            setswipping();
+        }
     }
 
     public void setRecycler(View v){
@@ -127,7 +134,7 @@ public class FavouritFragment extends Fragment implements DetailsOnClickListener
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 MealDetailsModel deletedMeal = arr.get(viewHolder.getAdapterPosition());
                 deleteThread(meal);
-                return false;
+                return true;
             }
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {

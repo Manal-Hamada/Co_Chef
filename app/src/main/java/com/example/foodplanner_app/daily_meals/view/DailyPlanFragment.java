@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,7 +28,9 @@ import com.example.foodplanner_app.details.view.DetailsFragment;
 import com.example.foodplanner_app.details.view.DetailsOnClickListener;
 import com.example.foodplanner_app.fav_meals.repository.Repository;
 import com.example.foodplanner_app.models.Model;
+import com.example.foodplanner_app.models.Utilities;
 import com.example.foodplanner_app.network.remoteSource.Db_Repository;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -41,7 +44,7 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
     ArrayList<Db_Model> arr;
     TextView topRated;
     ImageView arrwo;
-    SearchView search;
+    EditText search;
     Db_Repository repo;
     CalendarView calendarView;
     String selectedDate;
@@ -89,6 +92,9 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
                 s=DateFormat.getDateInstance(DateFormat.DEFAULT).format(date.getTime());//.compareTo()
                 Log.i("tgnkjrtnbk", "onSelectedDayChangedededed: ");
 
+                if (FirebaseAuth.getInstance().getUid() == null)
+                    Utilities.showDialog(getContext(),"please login first!", getActivity());
+                else {
                 dailyRepo.getAllMealls(getActivity(),s).observe(getViewLifecycleOwner(), new Observer<List<Db_Model>>() {
                     @Override
                     public void onChanged(List<Db_Model> mealDetailsModels) {
@@ -103,7 +109,7 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
 
                     }
                 });
-            }
+            }}
         });
         //calendarView.setOn
         selectedDate = DateFormat.getDateInstance(DateFormat.DEFAULT).format(date.getTime());//.compareTo()

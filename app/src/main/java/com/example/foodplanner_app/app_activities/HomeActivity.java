@@ -4,29 +4,54 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentContainerView;
+import androidx.lifecycle.MutableLiveData;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.DatabaseErrorHandler;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.foodplanner_app.Data_Base.local_db.model.Db_Model;
 import com.example.foodplanner_app.R;
 
 import com.example.foodplanner_app.databinding.ActivityHomeBinding;
 import com.example.foodplanner_app.category_meals.view.CategoryFr;
+import com.example.foodplanner_app.details.view.DetailsOnClickListener;
 import com.example.foodplanner_app.fragments.ProfileFragment;
 import com.example.foodplanner_app.daily_meals.view.DailyPlanFragment;
 import com.example.foodplanner_app.fav_meals.view.FavouritFragment;
 import com.example.foodplanner_app.inspire_meal.view.Home_Fragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.tabs.TabLayout;
+import com.example.foodplanner_app.meals.model.Meal_Model;
+import com.example.foodplanner_app.meals.model.Meals_Response;
 
+import com.example.foodplanner_app.meals.view.MealAdapter;
+import com.example.foodplanner_app.models.Utilities;
+import com.example.foodplanner_app.network.ApiClient;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
-public class HomeActivity extends AppCompatActivity  {
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
+public class HomeActivity extends AppCompatActivity implements DetailsOnClickListener {
 
     BottomNavigationView bottomNavigationView;
     static TabLayout  tab;
@@ -34,8 +59,14 @@ public class HomeActivity extends AppCompatActivity  {
     MyPageAdapter myPagerAdapter;
     ActivityHomeBinding binding;
     FragmentContainerView container;
-    SearchView search;
+    EditText search;
+    ApiClient client;
+    Single<Meals_Response> call;
     String mode;
+    RecyclerView searchList;
+    MealAdapter adapter;
+    public static MutableLiveData<ArrayList<Meal_Model>> muArray= new MutableLiveData<ArrayList<Meal_Model>>();
+    ArrayList<Meal_Model> arr = new ArrayList<>();
 
 
 
@@ -54,15 +85,19 @@ public class HomeActivity extends AppCompatActivity  {
        // setTabLayout();
         setTabSelectedListiner();
         setBottomNav();
+        setSearchAction();
     }
 
     public void init(){
+        arr=new ArrayList<>();
         tab=findViewById(R.id.tablayout);
         container= findViewById(R.id.container);
         bottomNavigationView=findViewById(R.id.bottomNavigationView);
         viewPager = findViewById(R.id.pager);
         myPagerAdapter = new MyPageAdapter(getSupportFragmentManager());
         viewPager.setVisibility(View.GONE);
+        searchList=findViewById(R.id.search_list);
+        adapter=new MealAdapter(this,arr,this);
         setTabLayout();
 
         search=findViewById(R.id.search_bar);
@@ -145,6 +180,7 @@ public class HomeActivity extends AppCompatActivity  {
     }
 
     public void userMode(MenuItem item){
+
         switch (item.getItemId( )) {
 
             case R.id.fav:
@@ -152,6 +188,7 @@ public class HomeActivity extends AppCompatActivity  {
                 tab.setVisibility(View.GONE);
                 container.setVisibility(View.VISIBLE);
                 hideCategoryTexts();
+                searchList.setVisibility(View.GONE);
                 replaceFragments(new FavouritFragment());
                 break;
             case R.id.menu:
@@ -159,6 +196,7 @@ public class HomeActivity extends AppCompatActivity  {
                 viewPager.setVisibility(View.GONE);
                 container.setVisibility(View.VISIBLE);
                 hideCategoryTexts();
+                searchList.setVisibility(View.GONE);
                 replaceFragments(new DailyPlanFragment());
                 break;
             case R.id.profile:
@@ -166,6 +204,7 @@ public class HomeActivity extends AppCompatActivity  {
                 tab.setVisibility(View.GONE);
                 container.setVisibility(View.VISIBLE);
                 hideCategoryTexts();
+                searchList.setVisibility(View.GONE);
                 replaceFragments(new ProfileFragment());
                 break;
             case R.id.home:
@@ -181,6 +220,7 @@ public class HomeActivity extends AppCompatActivity  {
                     viewPager.setVisibility(View.VISIBLE);
                     tab.setVisibility(View.VISIBLE);
                     viewPager.getCurrentItem();
+                    searchList.setVisibility(View.GONE);
                     showCategoryTexts();
                     replaceFragments(new CategoryFr());
                 } else {
@@ -196,21 +236,25 @@ public class HomeActivity extends AppCompatActivity  {
         switch (item.getItemId( )) {
 
             case R.id.fav:
-                tab.setVisibility(View.GONE);
+               tab.setVisibility(View.GONE);
                 viewPager.setVisibility(View.GONE);
                 container.setVisibility(View.VISIBLE);
                 hideCategoryTexts();
+                searchList.setVisibility(View.GONE);
                 replaceFragments(new FavouritFragment());
+
                 break;
             case R.id.menu:
                 tab.setVisibility(View.GONE);
                 viewPager.setVisibility(View.GONE);
                 container.setVisibility(View.VISIBLE);
                 hideCategoryTexts();
+                searchList.setVisibility(View.GONE);
                 replaceFragments(new DailyPlanFragment());
                 break;
             case R.id.profile:
                 Toast.makeText(this, "You have to sign in ", Toast.LENGTH_SHORT).show();
+
                 break;
             case R.id.home:
                 viewPager.setVisibility(View.GONE);
@@ -221,8 +265,72 @@ public class HomeActivity extends AppCompatActivity  {
                 break;
             case R.id.search:
                 Toast.makeText(this, "You have to sign in ", Toast.LENGTH_SHORT).show();
+
                 break;
 
         }
+    }
+ public void setSearchAction(){
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @SuppressLint("CheckResult")
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.toString().equals("")||s.toString().isEmpty()){
+                 searchList.setVisibility(View.GONE);
+                    tab.setVisibility(View.GONE);
+                }
+                else {
+                    tab.setVisibility(View.GONE);
+                    viewPager.setVisibility(View.GONE);
+                    container.setVisibility(View.GONE);
+                    searchList.setVisibility(View.VISIBLE);
+                    client = ApiClient.getInstance();
+                    call = client.searchedMeals(s.toString());
+                    call.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).
+                            subscribe(item -> {
+                                // this.arr = item.getCategories();
+                                if(item.getMeals()!=null){
+                                    arr=item.getMeals();
+                                GridLayoutManager manger = new GridLayoutManager(HomeActivity.this,2);
+                                manger.setOrientation(RecyclerView.VERTICAL);
+                                searchList.setLayoutManager(manger);
+                                    adapter.setList(arr);
+                                    muArray.setValue(item.getMeals());
+                                    searchList.setAdapter(adapter);
+                                    adapter.notifyDataSetChanged();
+
+                                    System.out.println(arr.size());
+                                }
+                                else {
+
+                                    Toast.makeText(HomeActivity.this, "No items", Toast.LENGTH_SHORT).show();
+                                    searchList.setVisibility(View.GONE);
+
+                                }
+
+                            }, (error -> error.toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+ }
+
+    @Override
+    public void navToDetails(int id) {
+
+    }
+
+    @Override
+    public void addPlan(Db_Model model) {
+
     }
 }
