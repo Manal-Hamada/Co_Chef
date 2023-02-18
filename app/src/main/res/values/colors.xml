@@ -8,6 +8,9 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#5335A7</color>
     <color name="Secondary">#5335A7</color>
+    <color name="bg">
+
+    </color>
     <color name="gray">#5F5F5F</color>
     <color name="search_bg">#B8B6B6</color>
     <color name="primary_light">#b5aeff</color>

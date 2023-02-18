@@ -71,7 +71,7 @@ public class DailyMealsAdapter extends RecyclerView.Adapter<DailyMealsAdapter.Da
             super(itemView);
             mealName=itemView.findViewById(R.id.day_meal_name);
             mealImg=itemView.findViewById(R.id.day_meal_img);
-            mealCard=itemView.findViewById(R.id.day_cardView);
+            mealCard=itemView.findViewById(R.id.planed_item_card);
         }
     }
 

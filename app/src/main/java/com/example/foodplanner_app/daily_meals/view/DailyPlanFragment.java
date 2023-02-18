@@ -125,7 +125,7 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
         recycler.setLayoutManager(manger);
         adapter = new DailyMealsAdapter(getActivity(), arr, this);
     }
-    @Override
+    /*@Override
     public void navToDetails(int id) {
             getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
             getActivity().findViewById(R.id.pager).setVisibility(View.GONE);
@@ -134,6 +134,13 @@ public class DailyPlanFragment extends Fragment implements DetailsOnClickListene
             topRated.setVisibility(View.GONE);
             arrwo.setVisibility(View.GONE);
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new DetailsFragment()).addToBackStack(null).commit();
+    }*/
+    @Override
+    public void navToDetails(int id) {
+        getActivity().findViewById(R.id.container).setVisibility(View.VISIBLE);
+        getActivity().findViewById(R.id.pager) .setVisibility(View.GONE);
+        getActivity().findViewById(R.id.tablayout) .setVisibility(View.GONE);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new DetailsFragment(id)).addToBackStack(null).commit();
     }
     @Override
     public void addPlan(Db_Model model) {
