@@ -3,6 +3,7 @@ package com.example.foodplanner_app.details.view;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.foodplanner_app.Data_Base.local_db.model.Db_Model;
 import com.example.foodplanner_app.R;
+import com.example.foodplanner_app.app_activities.HomeActivity;
+import com.example.foodplanner_app.authantication.LoginActivity;
 import com.example.foodplanner_app.daily_meals.repository.Daily_Repository;
 import com.example.foodplanner_app.details.repository.MealDetailsRepository;
 import com.example.foodplanner_app.details.model.MealDetailsModel;
@@ -246,8 +249,10 @@ public class DetailsFragment extends Fragment implements AddFavClickListener, Fa
         details_fav_ic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (FirebaseAuth.getInstance().getUid() == null)
-                    Utilities.showDialog(getContext(), "please login", getActivity());
+                if (FirebaseAuth.getInstance().getUid() == null) {
+                    Intent backToLoginIntent  = new Intent(getActivity(), LoginActivity.class);
+                    Utilities.showDialogToLogin(getContext(), "please login", getActivity(),backToLoginIntent );
+                }
                 else {
 
                     if (details_UnFav_ic.getVisibility() == View.GONE) {
