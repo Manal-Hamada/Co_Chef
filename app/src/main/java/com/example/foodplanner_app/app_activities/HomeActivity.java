@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentContainerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -21,8 +22,11 @@ import com.example.foodplanner_app.fragments.ProfileFragment;
 import com.example.foodplanner_app.daily_meals.view.DailyPlanFragment;
 import com.example.foodplanner_app.fav_meals.view.FavouritFragment;
 import com.example.foodplanner_app.inspire_meal.view.Home_Fragment;
+import com.example.foodplanner_app.models.Utilities;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
@@ -145,6 +149,9 @@ public class HomeActivity extends AppCompatActivity  {
     }
 
     public void userMode(MenuItem item){
+
+
+
         switch (item.getItemId( )) {
 
             case R.id.fav:

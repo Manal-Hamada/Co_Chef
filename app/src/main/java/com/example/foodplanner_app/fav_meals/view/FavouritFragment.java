@@ -24,8 +24,10 @@ import com.example.foodplanner_app.details.model.MealDetailsModel;
 import com.example.foodplanner_app.details.view.DetailsFragment;
 import com.example.foodplanner_app.details.view.DetailsOnClickListener;
 import com.example.foodplanner_app.fav_meals.repository.Repository;
+import com.example.foodplanner_app.models.Utilities;
 import com.example.foodplanner_app.network.remoteSource.Db_Repository;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,15 +70,18 @@ public class FavouritFragment extends Fragment implements DetailsOnClickListener
         search.setVisibility(View.GONE);
         setRecycler(view);
         favRepo= Repository.getInstance(getActivity());
-        favRepo.getAllMealls(getActivity());
-        favRepo.getAllMealls(getActivity()).observe(getViewLifecycleOwner(), new Observer<List<MealDetailsModel>>() {
-            @Override
-            public void onChanged(List<MealDetailsModel> mealDetailsModels) {
-                arr = (ArrayList<MealDetailsModel>) mealDetailsModels;
-                adapter.setList(arr);
-                recycler.setAdapter(adapter);
-            }
-        });
+        if (FirebaseAuth.getInstance().getUid() == null)
+            Utilities.showDialog(getContext(),"please login first!", getActivity());
+        else {
+            favRepo.getAllMealls(getActivity());
+            favRepo.getAllMealls(getActivity()).observe(getViewLifecycleOwner(), new Observer<List<MealDetailsModel>>() {
+                @Override
+                public void onChanged(List<MealDetailsModel> mealDetailsModels) {
+                    arr = (ArrayList<MealDetailsModel>) mealDetailsModels;
+                    adapter.setList(arr);
+                    recycler.setAdapter(adapter);
+                }
+            });
       /* favRepo.dao.getAllMeals().observe(getViewLifecycleOwner(), new Observer<List<MealDetailsModel>>() {
             @Override
             public void onChanged(List<MealDetailsModel> mealDetailsModels) {
@@ -85,7 +90,8 @@ public class FavouritFragment extends Fragment implements DetailsOnClickListener
                 recycler.setAdapter(adapter);
             }
         });*/
-      setswipping();
+            setswipping();
+        }
     }
 
     public void setRecycler(View v){

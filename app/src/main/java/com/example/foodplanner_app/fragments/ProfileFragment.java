@@ -1,4 +1,5 @@
 package com.example.foodplanner_app.fragments;
+
 import static android.content.Context.MODE_PRIVATE;
 import static android.content.Context.MODE_PRIVATE;
 
@@ -20,6 +21,7 @@ import android.widget.TextView;
 
 import com.example.foodplanner_app.R;
 import com.example.foodplanner_app.authantication.LoginActivity;
+import com.example.foodplanner_app.models.Utilities;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileFragment extends Fragment {
@@ -47,6 +49,7 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -55,16 +58,21 @@ public class ProfileFragment extends Fragment {
         usernameTv = view.findViewById(R.id.username_tv);
         mailTv = view.findViewById(R.id.mail_tv);
 
-        String username = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-        String mail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-        if (username==null ||username.isEmpty()) username=mail.split("@")[0];
-        usernameTv.setText(username);
-        mailTv.setText(mail);
+        if (FirebaseAuth.getInstance().getUid() == null)
+            Utilities.showDialog(getContext(),"please login first!", getActivity());
+        else {
+            String username = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+            String mail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+            if (username == null || username.isEmpty()) username = mail.split("@")[0];
+            usernameTv.setText(username);
+            mailTv.setText(mail);
+        }
+
 
         logoutTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("HHHHH", "onClick: " );
+                Log.i("HHHHH", "onClick: ");
                 deleteId();
                 FirebaseAuth.getInstance().signOut();
                 navToLogin();
@@ -86,7 +94,7 @@ public class ProfileFragment extends Fragment {
         getActivity().finish();
     }
 
-    private String testId(){
+    private String testId() {
         SharedPreferences preferences = this.getActivity().getSharedPreferences("PREFERENCE", MODE_PRIVATE);
         return preferences.getString("loggedId", "");
     }

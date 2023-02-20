@@ -31,6 +31,7 @@ import com.example.foodplanner_app.details.model.MealDetailsModel;
 import com.example.foodplanner_app.fav_meals.view.Fav_Meal_Interface;
 import com.example.foodplanner_app.meals.view.AddFavClickListener;
 import com.example.foodplanner_app.models.MealDetailsWithUserId;
+import com.example.foodplanner_app.models.Utilities;
 import com.example.foodplanner_app.network.remoteSource.Db_Repository;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -101,7 +102,7 @@ public class DetailsFragment extends Fragment implements AddFavClickListener, Fa
         super.onViewCreated(view, savedInstanceState);
         init(view);
         dailyRepo = Daily_Repository.getInstance(getActivity());
-        model=new Db_Model();
+        model = new Db_Model();
 
         MealDetailsRepository.mutableMealArray.observe(requireActivity(), new Observer<ArrayList<MealDetailsModel>>() {
             @Override
@@ -179,32 +180,32 @@ public class DetailsFragment extends Fragment implements AddFavClickListener, Fa
                 setMeal(formattedDate);
                 //addPlanThread(model); //room
                 dbRepo.addPlannedMeal(model);
-                Log.i("tesjrwjkbhssssst", " this date"+model.getIdMeal());
+                Log.i("tesjrwjkbhssssst", " this date" + model.getIdMeal());
 
             }
 
             private void setMeal(String formattedDate) {
                 model = new Db_Model(formattedDate, meal.getIdMeal(), meal.getStrMeal()
-                        ,meal.getStrDrinkAlternate(),meal.getStrCategory(),meal.getStrArea()
-                        ,meal.getStrInstructions(),meal.getStrMealThumb(),meal.getStrTags()
-                        ,meal.getStrYoutube(),meal.getStrIngredient1(),meal.getStrIngredient2()
-                        ,meal.getStrIngredient3(),meal.getStrIngredient4(),meal.getStrIngredient5()
-                        ,meal.getStrIngredient6(),meal.getStrIngredient7(),meal.getStrIngredient8()
-                        ,meal.getStrIngredient9(),meal.getStrIngredient10()
-                        ,meal.getStrIngredient11(),meal.getStrIngredient12()
-                        ,meal.getStrIngredient13(),meal.getStrIngredient14()
-                        ,meal.getStrIngredient15(),meal.getStrIngredient16()
-                        ,meal.getStrIngredient17(),meal.getStrIngredient18()
-                        ,meal.getStrIngredient19(),meal.getStrIngredient20()
-                        ,meal.getStrMeasure1(),meal.getStrMeasure2(),meal.getStrMeasure3()
-                        ,meal.getStrMeasure4(),meal.getStrMeasure5(),meal.getStrMeasure6()
-                        ,meal.getStrMeasure7(),meal.getStrMeasure8(),meal.getStrMeasure9()
-                        ,meal.getStrMeasure10(),meal.getStrMeasure11(),meal.getStrMeasure12()
-                        ,meal.getStrMeasure13(),meal.getStrMeasure14(),meal.getStrMeasure15()
-                        ,meal.getStrMeasure16(),meal.getStrMeasure17(),meal.getStrMeasure18()
-                        ,meal.getStrMeasure19(),meal.getStrMeasure20(),meal.getStrSource()
-                        ,meal.getStrImageSource(),meal.getStrCreativeCommonsConfirmed()
-                        ,meal.getDateModified());
+                        , meal.getStrDrinkAlternate(), meal.getStrCategory(), meal.getStrArea()
+                        , meal.getStrInstructions(), meal.getStrMealThumb(), meal.getStrTags()
+                        , meal.getStrYoutube(), meal.getStrIngredient1(), meal.getStrIngredient2()
+                        , meal.getStrIngredient3(), meal.getStrIngredient4(), meal.getStrIngredient5()
+                        , meal.getStrIngredient6(), meal.getStrIngredient7(), meal.getStrIngredient8()
+                        , meal.getStrIngredient9(), meal.getStrIngredient10()
+                        , meal.getStrIngredient11(), meal.getStrIngredient12()
+                        , meal.getStrIngredient13(), meal.getStrIngredient14()
+                        , meal.getStrIngredient15(), meal.getStrIngredient16()
+                        , meal.getStrIngredient17(), meal.getStrIngredient18()
+                        , meal.getStrIngredient19(), meal.getStrIngredient20()
+                        , meal.getStrMeasure1(), meal.getStrMeasure2(), meal.getStrMeasure3()
+                        , meal.getStrMeasure4(), meal.getStrMeasure5(), meal.getStrMeasure6()
+                        , meal.getStrMeasure7(), meal.getStrMeasure8(), meal.getStrMeasure9()
+                        , meal.getStrMeasure10(), meal.getStrMeasure11(), meal.getStrMeasure12()
+                        , meal.getStrMeasure13(), meal.getStrMeasure14(), meal.getStrMeasure15()
+                        , meal.getStrMeasure16(), meal.getStrMeasure17(), meal.getStrMeasure18()
+                        , meal.getStrMeasure19(), meal.getStrMeasure20(), meal.getStrSource()
+                        , meal.getStrImageSource(), meal.getStrCreativeCommonsConfirmed()
+                        , meal.getDateModified());
             }
 
         }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE));
@@ -212,6 +213,7 @@ public class DetailsFragment extends Fragment implements AddFavClickListener, Fa
         datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
         //TODO set max
     }
+
     public void setAddBtnAction() {
         addMealFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -239,23 +241,29 @@ public class DetailsFragment extends Fragment implements AddFavClickListener, Fa
     public void setFavIcAction() {
         // call addfav from repo
     }
+
     public void setDetailsFav() {
         details_fav_ic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (details_UnFav_ic.getVisibility() == View.GONE) {
-                    dbRepo.addFavouriteMeal(meal);
-                    insertToRoom(meal);
-                    //getAllMealls();
-                    details_UnFav_ic.setVisibility(View.VISIBLE);
-                    details_fav_ic.setVisibility(View.GONE);
-                } else {
-                    //TODO remove
-                    dbRepo.unFavMeal(meal);
-                    repo.dao.deleteMeal(meal);
-                    deleteFromRoom(meal);
-                    details_UnFav_ic.setVisibility(View.GONE);
-                    details_fav_ic.setVisibility(View.VISIBLE);
+                if (FirebaseAuth.getInstance().getUid() == null)
+                    Utilities.showDialog(getContext(), "please login", getActivity());
+                else {
+
+                    if (details_UnFav_ic.getVisibility() == View.GONE) {
+                        dbRepo.addFavouriteMeal(meal);
+                        insertToRoom(meal);
+                        //getAllMealls();
+                        details_UnFav_ic.setVisibility(View.VISIBLE);
+                        details_fav_ic.setVisibility(View.GONE);
+                    } else {
+                        //TODO remove
+                        dbRepo.unFavMeal(meal);
+                        repo.dao.deleteMeal(meal);
+                        deleteFromRoom(meal);
+                        details_UnFav_ic.setVisibility(View.GONE);
+                        details_fav_ic.setVisibility(View.VISIBLE);
+                    }
                 }
             }
         });
@@ -307,7 +315,7 @@ public class DetailsFragment extends Fragment implements AddFavClickListener, Fa
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Log.i("tessssssssst", " this date: "+mealWithDate.getIdMeal());
+                Log.i("tessssssssst", " this date: " + mealWithDate.getIdMeal());
 
                 //dailyRepo.dbRepo.addPlan(model, getActivity());
                 dailyRepo.dao.insertPlandMeal(mealWithDate);
